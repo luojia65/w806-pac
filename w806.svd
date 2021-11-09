@@ -43,15 +43,133 @@
     </peripheral>
     <peripheral>
       <name>RCC</name>
-      <description>Global chip timer and reset controller</description>
+      <description>System clock and reset controller</description>
       <baseAddress>0x40000E00</baseAddress>
       <registers>
         <register>
           <name>clock_enable</name>
           <description>Software configure clock gate enable register</description>
           <addressOffset>0x0000</addressOffset>
+          <access>read-write</access>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>touch</name>
+              <description>Touch sensor module clock gate enable</description>
+              <bitOffset>21</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <!-- no bluetooth clock (offset 20) w806 -->
+            <!-- todo: verify qsram (offset 19) -->
+            <field>
+              <name>sdio</name>
+              <description>Secure digital input/output clock gate enable</description>
+              <bitOffset>18</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <!-- todo: verify gpsec (offset 17) -->
+            <field>
+              <name>rsa</name>
+              <description>RSA Montgomery coprocessor clock gate enable</description>
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <field>
+              <name>i2s</name>
+              <description>Inter-Integrated Sound clock gate enable</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <!-- todo: verify lcd (offset 14) -->
+            <field>
+              <name>pwm</name>
+              <description>Pulse-width modulation module clock gate enable</description>
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <field>
+              <name>adc</name>
+              <description>Analog-digital converter clock gate enable</description>
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <field>
+              <name>gpio</name>
+              <description>General purpose input/output clock gate enable</description>
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <field>
+              <name>timer</name>
+              <description>Timer module clock gate enable</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <!-- no rf clock (offset 9) on w806 -->
+            <field>
+              <name>dma</name>
+              <description>Direct memory access clock gate enable</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <!-- todo: verify lspi (offset 7) -->
+            <field>
+              <name>uart5</name>
+              <description>Universal asynchronous transmitter/receiver 5 enable</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <field>
+              <name>uart4</name>
+              <description>Universal asynchronous transmitter/receiver 4 enable</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <field>
+              <name>uart3</name>
+              <description>Universal asynchronous transmitter/receiver 3 enable</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <field>
+              <name>uart2</name>
+              <description>Universal asynchronous transmitter/receiver 2 enable</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <field>
+              <name>uart1</name>
+              <description>Universal asynchronous transmitter/receiver 1 enable</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <field>
+              <name>uart0</name>
+              <description>Universal asynchronous transmitter/receiver 0 enable</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <field>
+              <name>i2c</name>
+              <description>Inter-Integrated Circuit module enable</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
           </fields>
         </register>
         <register>

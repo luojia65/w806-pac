@@ -80,7 +80,7 @@ impl core::fmt::Debug for PMU {
 }
 #[doc = "Power management unit"]
 pub mod pmu;
-#[doc = "Global chip timer and reset controller"]
+#[doc = "System clock and reset controller"]
 pub struct RCC {
     _marker: PhantomData<*const ()>,
 }
@@ -106,7 +106,7 @@ impl core::fmt::Debug for RCC {
         f.debug_struct("RCC").finish()
     }
 }
-#[doc = "Global chip timer and reset controller"]
+#[doc = "System clock and reset controller"]
 pub mod rcc;
 #[doc = "Inter-Integrated Circuit bus"]
 pub struct I2C {
@@ -434,7 +434,7 @@ impl core::fmt::Debug for FLASH {
 }
 #[doc = "Internal flash controller"]
 pub mod flash;
-#[doc = "Internal flash controller"]
+#[doc = "RSA Montgomery FIOS algorithm coprocessor"]
 pub struct RSA {
     _marker: PhantomData<*const ()>,
 }
@@ -460,7 +460,7 @@ impl core::fmt::Debug for RSA {
         f.debug_struct("RSA").finish()
     }
 }
-#[doc = "Internal flash controller"]
+#[doc = "RSA Montgomery FIOS algorithm coprocessor"]
 pub mod rsa;
 #[doc = "Analog-digital converter"]
 pub struct ADC {
