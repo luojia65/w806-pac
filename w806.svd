@@ -12,7 +12,7 @@
 
   <peripherals>
     <peripheral>
-      <name>ClockReset</name>
+      <name>CLOCK_RESET</name>
       <description>Global chip timer and reset system controller</description>
       <baseAddress>0x40000E00</baseAddress>
       <registers>
@@ -76,6 +76,11 @@
       </registers>
     </peripheral>
     <!-- todo: gpio -->
+    <!-- <peripheral>
+      <name>Clock_Reset</name>
+      <description>Global chip timer and reset system controller</description>
+      <baseAddress>0x40000E00</baseAddress>
+    </peripheral> -->
     <!-- todo: other peripherals -->
   </peripherals>
 </device>

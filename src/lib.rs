@@ -25,11 +25,11 @@ use generic::*;
 #[doc = r"Common register and bit access and modify traits"]
 pub mod generic;
 #[doc = "Global chip timer and reset system controller"]
-pub struct CLOCKRESET {
+pub struct CLOCK_RESET {
     _marker: PhantomData<*const ()>,
 }
-unsafe impl Send for CLOCKRESET {}
-impl CLOCKRESET {
+unsafe impl Send for CLOCK_RESET {}
+impl CLOCK_RESET {
     #[doc = r"Pointer to the register block"]
     pub const PTR: *const clock_reset::RegisterBlock = 0x4000_0e00 as *const _;
     #[doc = r"Return the pointer to the register block"]
@@ -38,16 +38,16 @@ impl CLOCKRESET {
         Self::PTR
     }
 }
-impl Deref for CLOCKRESET {
+impl Deref for CLOCK_RESET {
     type Target = clock_reset::RegisterBlock;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*Self::PTR }
     }
 }
-impl core::fmt::Debug for CLOCKRESET {
+impl core::fmt::Debug for CLOCK_RESET {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("CLOCKRESET").finish()
+        f.debug_struct("CLOCK_RESET").finish()
     }
 }
 #[doc = "Global chip timer and reset system controller"]
@@ -57,8 +57,8 @@ static mut DEVICE_PERIPHERALS: bool = false;
 #[doc = r"All the peripherals"]
 #[allow(non_snake_case)]
 pub struct Peripherals {
-    #[doc = "CLOCKRESET"]
-    pub CLOCKRESET: CLOCKRESET,
+    #[doc = "CLOCK_RESET"]
+    pub CLOCK_RESET: CLOCK_RESET,
 }
 impl Peripherals {
     #[doc = r"Returns all the peripherals *once*"]
@@ -77,7 +77,7 @@ impl Peripherals {
     pub unsafe fn steal() -> Self {
         DEVICE_PERIPHERALS = true;
         Peripherals {
-            CLOCKRESET: CLOCKRESET {
+            CLOCK_RESET: CLOCK_RESET {
                 _marker: PhantomData,
             },
         }
