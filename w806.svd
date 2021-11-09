@@ -238,7 +238,7 @@
     <peripheral>
       <name>RSA</name>
       <baseAddress>0x40000000</baseAddress>
-      <description>Internal flash controller</description>
+      <description>RSA Montgomery FIOS algorithm coprocessor</description>
       <registers>
         <register>
           <name>todo</name>
