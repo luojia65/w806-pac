@@ -12,8 +12,38 @@
 
   <peripherals>
     <peripheral>
-      <name>CLOCK_RESET</name>
-      <description>Global chip timer and reset system controller</description>
+      <name>DMA</name>
+      <baseAddress>0x40000800</baseAddress>
+      <description>Direct memory access module</description>
+      <registers>
+        <register>
+          <name>todo</name>
+          <description>??</description>
+          <addressOffset>0</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+      </registers>
+    </peripheral>
+    <peripheral>
+      <name>PMU</name>
+      <baseAddress>0x40000D00</baseAddress>
+      <description>Power management unit</description>
+      <registers>
+        <register>
+          <name>todo</name>
+          <description>??</description>
+          <addressOffset>0</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+      </registers>
+    </peripheral>
+    <peripheral>
+      <name>RCC</name>
+      <description>Global chip timer and reset controller</description>
       <baseAddress>0x40000E00</baseAddress>
       <registers>
         <register>
@@ -75,12 +105,201 @@
         </register>
       </registers>
     </peripheral>
-    <!-- todo: gpio -->
-    <!-- <peripheral>
-      <name>Clock_Reset</name>
-      <description>Global chip timer and reset system controller</description>
-      <baseAddress>0x40000E00</baseAddress>
-    </peripheral> -->
+    <peripheral>
+      <name>I2C</name>
+      <baseAddress>0x40010000</baseAddress>
+      <description>Inter-Integrated Circuit bus</description>
+      <registers>
+        <register>
+          <name>todo</name>
+          <description>??</description>
+          <addressOffset>0</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+      </registers>
+    </peripheral>
+    <peripheral>
+      <name>SPI</name>
+      <baseAddress>0x40000000</baseAddress>
+      <description>Serial peripheral interface</description>
+      <registers>
+        <register>
+          <name>todo</name>
+          <description>??</description>
+          <addressOffset>0</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+      </registers>
+    </peripheral>
+    <peripheral>
+      <name>UART0</name>
+      <baseAddress>0x40010600</baseAddress>
+      <description>Universal asynchronous receiver/transmitter 0</description>
+      <registers>
+        <register>
+          <name>todo</name>
+          <description>??</description>
+          <addressOffset>0</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+      </registers>
+    </peripheral>
+    <peripheral derivedFrom="UART0">
+      <name>UART1</name>
+      <baseAddress>0x40010800</baseAddress>
+      <description>Universal asynchronous receiver/transmitter 1</description>
+    </peripheral>
+    <peripheral derivedFrom="UART0">
+      <name>UART2</name>
+      <baseAddress>0x40010A00</baseAddress>
+      <description>Universal asynchronous receiver/transmitter 2</description>
+    </peripheral>
+    <peripheral derivedFrom="UART0">
+      <name>UART3</name>
+      <baseAddress>0x40010C00</baseAddress>
+      <description>Universal asynchronous receiver/transmitter 3</description>
+    </peripheral>
+    <peripheral derivedFrom="UART0">
+      <name>UART4</name>
+      <baseAddress>0x40010E00</baseAddress>
+      <description>Universal asynchronous receiver/transmitter 4</description>
+    </peripheral>
+    <peripheral derivedFrom="UART0">
+      <name>UART5</name>
+      <baseAddress>0x40011000</baseAddress>
+      <description>Universal asynchronous receiver/transmitter 5</description>
+    </peripheral>
+    <peripheral>
+      <name>TIMER</name>
+      <baseAddress>0x40011800</baseAddress>
+      <description>Timer counter module</description>
+      <registers>
+        <register>
+          <name>todo</name>
+          <description>??</description>
+          <addressOffset>0</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+      </registers>
+    </peripheral>
+    <peripheral>
+      <name>WDOG</name>
+      <baseAddress>0x40011600</baseAddress>
+      <description>Watchdog module</description>
+      <registers>
+        <register>
+          <name>todo</name>
+          <description>??</description>
+          <addressOffset>0</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+      </registers>
+    </peripheral>
+    <peripheral>
+      <name>PWM</name>
+      <baseAddress>0x40011E00</baseAddress>
+      <description>Pulse-width modulation module</description>
+      <registers>
+        <register>
+          <name>todo</name>
+          <description>??</description>
+          <addressOffset>0</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+      </registers>
+    </peripheral>
+    <peripheral>
+      <name>FLASH</name>
+      <baseAddress>0x40002000</baseAddress>
+      <description>Internal flash controller</description>
+      <registers>
+        <register>
+          <name>todo</name>
+          <description>??</description>
+          <addressOffset>0</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+      </registers>
+    </peripheral>
+    <peripheral>
+      <name>RSA</name>
+      <baseAddress>0x40000000</baseAddress>
+      <description>Internal flash controller</description>
+      <registers>
+        <register>
+          <name>todo</name>
+          <description>??</description>
+          <addressOffset>0</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+      </registers>
+    </peripheral>
+    <peripheral>
+      <name>ADC</name>
+      <baseAddress>0x40010200</baseAddress>
+      <description>Analog-digital converter</description>
+      <registers>
+        <register>
+          <name>todo</name>
+          <description>??</description>
+          <addressOffset>0</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+      </registers>
+    </peripheral>
+    <peripheral>
+      <name>GPIOA</name>
+      <baseAddress>0x40011200</baseAddress>
+      <description>General purpose input/output module A</description>
+      <registers>
+        <register>
+          <name>todo</name>
+          <description>??</description>
+          <addressOffset>0</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+      </registers>
+    </peripheral>
+    <peripheral derivedFrom="GPIOA">
+      <name>GPIOB</name>
+      <baseAddress>0x40011400</baseAddress>
+      <description>General purpose input/output module B</description>
+    </peripheral>
+    <peripheral>
+      <name>TOUCH</name>
+      <baseAddress>0x40012400</baseAddress>
+      <description>Touchpad sensor module</description>
+      <registers>
+        <register>
+          <name>todo</name>
+          <description>??</description>
+          <addressOffset>0</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+      </registers>
+    </peripheral>
     <!-- todo: other peripherals -->
   </peripherals>
 </device>

@@ -24,41 +24,599 @@ use core::ops::Deref;
 use generic::*;
 #[doc = r"Common register and bit access and modify traits"]
 pub mod generic;
-#[doc = "Global chip timer and reset system controller"]
-pub struct CLOCK_RESET {
+#[doc = "Direct memory access module"]
+pub struct DMA {
     _marker: PhantomData<*const ()>,
 }
-unsafe impl Send for CLOCK_RESET {}
-impl CLOCK_RESET {
+unsafe impl Send for DMA {}
+impl DMA {
     #[doc = r"Pointer to the register block"]
-    pub const PTR: *const clock_reset::RegisterBlock = 0x4000_0e00 as *const _;
+    pub const PTR: *const dma::RegisterBlock = 0x4000_0800 as *const _;
     #[doc = r"Return the pointer to the register block"]
     #[inline(always)]
-    pub const fn ptr() -> *const clock_reset::RegisterBlock {
+    pub const fn ptr() -> *const dma::RegisterBlock {
         Self::PTR
     }
 }
-impl Deref for CLOCK_RESET {
-    type Target = clock_reset::RegisterBlock;
+impl Deref for DMA {
+    type Target = dma::RegisterBlock;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*Self::PTR }
     }
 }
-impl core::fmt::Debug for CLOCK_RESET {
+impl core::fmt::Debug for DMA {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("CLOCK_RESET").finish()
+        f.debug_struct("DMA").finish()
     }
 }
-#[doc = "Global chip timer and reset system controller"]
-pub mod clock_reset;
+#[doc = "Direct memory access module"]
+pub mod dma;
+#[doc = "Power management unit"]
+pub struct PMU {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for PMU {}
+impl PMU {
+    #[doc = r"Pointer to the register block"]
+    pub const PTR: *const pmu::RegisterBlock = 0x4000_0d00 as *const _;
+    #[doc = r"Return the pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const pmu::RegisterBlock {
+        Self::PTR
+    }
+}
+impl Deref for PMU {
+    type Target = pmu::RegisterBlock;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        unsafe { &*Self::PTR }
+    }
+}
+impl core::fmt::Debug for PMU {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU").finish()
+    }
+}
+#[doc = "Power management unit"]
+pub mod pmu;
+#[doc = "Global chip timer and reset controller"]
+pub struct RCC {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for RCC {}
+impl RCC {
+    #[doc = r"Pointer to the register block"]
+    pub const PTR: *const rcc::RegisterBlock = 0x4000_0e00 as *const _;
+    #[doc = r"Return the pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const rcc::RegisterBlock {
+        Self::PTR
+    }
+}
+impl Deref for RCC {
+    type Target = rcc::RegisterBlock;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        unsafe { &*Self::PTR }
+    }
+}
+impl core::fmt::Debug for RCC {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RCC").finish()
+    }
+}
+#[doc = "Global chip timer and reset controller"]
+pub mod rcc;
+#[doc = "Inter-Integrated Circuit bus"]
+pub struct I2C {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for I2C {}
+impl I2C {
+    #[doc = r"Pointer to the register block"]
+    pub const PTR: *const i2c::RegisterBlock = 0x4001_0000 as *const _;
+    #[doc = r"Return the pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const i2c::RegisterBlock {
+        Self::PTR
+    }
+}
+impl Deref for I2C {
+    type Target = i2c::RegisterBlock;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        unsafe { &*Self::PTR }
+    }
+}
+impl core::fmt::Debug for I2C {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2C").finish()
+    }
+}
+#[doc = "Inter-Integrated Circuit bus"]
+pub mod i2c;
+#[doc = "Serial peripheral interface"]
+pub struct SPI {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for SPI {}
+impl SPI {
+    #[doc = r"Pointer to the register block"]
+    pub const PTR: *const spi::RegisterBlock = 0x4000_0000 as *const _;
+    #[doc = r"Return the pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const spi::RegisterBlock {
+        Self::PTR
+    }
+}
+impl Deref for SPI {
+    type Target = spi::RegisterBlock;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        unsafe { &*Self::PTR }
+    }
+}
+impl core::fmt::Debug for SPI {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI").finish()
+    }
+}
+#[doc = "Serial peripheral interface"]
+pub mod spi;
+#[doc = "Universal asynchronous receiver/transmitter 0"]
+pub struct UART0 {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for UART0 {}
+impl UART0 {
+    #[doc = r"Pointer to the register block"]
+    pub const PTR: *const uart0::RegisterBlock = 0x4001_0600 as *const _;
+    #[doc = r"Return the pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const uart0::RegisterBlock {
+        Self::PTR
+    }
+}
+impl Deref for UART0 {
+    type Target = uart0::RegisterBlock;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        unsafe { &*Self::PTR }
+    }
+}
+impl core::fmt::Debug for UART0 {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0").finish()
+    }
+}
+#[doc = "Universal asynchronous receiver/transmitter 0"]
+pub mod uart0;
+#[doc = "Universal asynchronous receiver/transmitter 1"]
+pub struct UART1 {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for UART1 {}
+impl UART1 {
+    #[doc = r"Pointer to the register block"]
+    pub const PTR: *const uart0::RegisterBlock = 0x4001_0800 as *const _;
+    #[doc = r"Return the pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const uart0::RegisterBlock {
+        Self::PTR
+    }
+}
+impl Deref for UART1 {
+    type Target = uart0::RegisterBlock;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        unsafe { &*Self::PTR }
+    }
+}
+impl core::fmt::Debug for UART1 {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART1").finish()
+    }
+}
+#[doc = "Universal asynchronous receiver/transmitter 2"]
+pub struct UART2 {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for UART2 {}
+impl UART2 {
+    #[doc = r"Pointer to the register block"]
+    pub const PTR: *const uart0::RegisterBlock = 0x4001_0a00 as *const _;
+    #[doc = r"Return the pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const uart0::RegisterBlock {
+        Self::PTR
+    }
+}
+impl Deref for UART2 {
+    type Target = uart0::RegisterBlock;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        unsafe { &*Self::PTR }
+    }
+}
+impl core::fmt::Debug for UART2 {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART2").finish()
+    }
+}
+#[doc = "Universal asynchronous receiver/transmitter 3"]
+pub struct UART3 {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for UART3 {}
+impl UART3 {
+    #[doc = r"Pointer to the register block"]
+    pub const PTR: *const uart0::RegisterBlock = 0x4001_0c00 as *const _;
+    #[doc = r"Return the pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const uart0::RegisterBlock {
+        Self::PTR
+    }
+}
+impl Deref for UART3 {
+    type Target = uart0::RegisterBlock;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        unsafe { &*Self::PTR }
+    }
+}
+impl core::fmt::Debug for UART3 {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART3").finish()
+    }
+}
+#[doc = "Universal asynchronous receiver/transmitter 4"]
+pub struct UART4 {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for UART4 {}
+impl UART4 {
+    #[doc = r"Pointer to the register block"]
+    pub const PTR: *const uart0::RegisterBlock = 0x4001_0e00 as *const _;
+    #[doc = r"Return the pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const uart0::RegisterBlock {
+        Self::PTR
+    }
+}
+impl Deref for UART4 {
+    type Target = uart0::RegisterBlock;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        unsafe { &*Self::PTR }
+    }
+}
+impl core::fmt::Debug for UART4 {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART4").finish()
+    }
+}
+#[doc = "Universal asynchronous receiver/transmitter 5"]
+pub struct UART5 {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for UART5 {}
+impl UART5 {
+    #[doc = r"Pointer to the register block"]
+    pub const PTR: *const uart0::RegisterBlock = 0x4001_1000 as *const _;
+    #[doc = r"Return the pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const uart0::RegisterBlock {
+        Self::PTR
+    }
+}
+impl Deref for UART5 {
+    type Target = uart0::RegisterBlock;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        unsafe { &*Self::PTR }
+    }
+}
+impl core::fmt::Debug for UART5 {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART5").finish()
+    }
+}
+#[doc = "Timer counter module"]
+pub struct TIMER {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for TIMER {}
+impl TIMER {
+    #[doc = r"Pointer to the register block"]
+    pub const PTR: *const timer::RegisterBlock = 0x4001_1800 as *const _;
+    #[doc = r"Return the pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const timer::RegisterBlock {
+        Self::PTR
+    }
+}
+impl Deref for TIMER {
+    type Target = timer::RegisterBlock;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        unsafe { &*Self::PTR }
+    }
+}
+impl core::fmt::Debug for TIMER {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TIMER").finish()
+    }
+}
+#[doc = "Timer counter module"]
+pub mod timer;
+#[doc = "Watchdog module"]
+pub struct WDOG {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for WDOG {}
+impl WDOG {
+    #[doc = r"Pointer to the register block"]
+    pub const PTR: *const wdog::RegisterBlock = 0x4001_1600 as *const _;
+    #[doc = r"Return the pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const wdog::RegisterBlock {
+        Self::PTR
+    }
+}
+impl Deref for WDOG {
+    type Target = wdog::RegisterBlock;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        unsafe { &*Self::PTR }
+    }
+}
+impl core::fmt::Debug for WDOG {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("WDOG").finish()
+    }
+}
+#[doc = "Watchdog module"]
+pub mod wdog;
+#[doc = "Pulse-width modulation module"]
+pub struct PWM {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for PWM {}
+impl PWM {
+    #[doc = r"Pointer to the register block"]
+    pub const PTR: *const pwm::RegisterBlock = 0x4001_1e00 as *const _;
+    #[doc = r"Return the pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const pwm::RegisterBlock {
+        Self::PTR
+    }
+}
+impl Deref for PWM {
+    type Target = pwm::RegisterBlock;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        unsafe { &*Self::PTR }
+    }
+}
+impl core::fmt::Debug for PWM {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PWM").finish()
+    }
+}
+#[doc = "Pulse-width modulation module"]
+pub mod pwm;
+#[doc = "Internal flash controller"]
+pub struct FLASH {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for FLASH {}
+impl FLASH {
+    #[doc = r"Pointer to the register block"]
+    pub const PTR: *const flash::RegisterBlock = 0x4000_2000 as *const _;
+    #[doc = r"Return the pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const flash::RegisterBlock {
+        Self::PTR
+    }
+}
+impl Deref for FLASH {
+    type Target = flash::RegisterBlock;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        unsafe { &*Self::PTR }
+    }
+}
+impl core::fmt::Debug for FLASH {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("FLASH").finish()
+    }
+}
+#[doc = "Internal flash controller"]
+pub mod flash;
+#[doc = "Internal flash controller"]
+pub struct RSA {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for RSA {}
+impl RSA {
+    #[doc = r"Pointer to the register block"]
+    pub const PTR: *const rsa::RegisterBlock = 0x4000_0000 as *const _;
+    #[doc = r"Return the pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const rsa::RegisterBlock {
+        Self::PTR
+    }
+}
+impl Deref for RSA {
+    type Target = rsa::RegisterBlock;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        unsafe { &*Self::PTR }
+    }
+}
+impl core::fmt::Debug for RSA {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RSA").finish()
+    }
+}
+#[doc = "Internal flash controller"]
+pub mod rsa;
+#[doc = "Analog-digital converter"]
+pub struct ADC {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for ADC {}
+impl ADC {
+    #[doc = r"Pointer to the register block"]
+    pub const PTR: *const adc::RegisterBlock = 0x4001_0200 as *const _;
+    #[doc = r"Return the pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const adc::RegisterBlock {
+        Self::PTR
+    }
+}
+impl Deref for ADC {
+    type Target = adc::RegisterBlock;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        unsafe { &*Self::PTR }
+    }
+}
+impl core::fmt::Debug for ADC {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ADC").finish()
+    }
+}
+#[doc = "Analog-digital converter"]
+pub mod adc;
+#[doc = "General purpose input/output module A"]
+pub struct GPIOA {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for GPIOA {}
+impl GPIOA {
+    #[doc = r"Pointer to the register block"]
+    pub const PTR: *const gpioa::RegisterBlock = 0x4001_1200 as *const _;
+    #[doc = r"Return the pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const gpioa::RegisterBlock {
+        Self::PTR
+    }
+}
+impl Deref for GPIOA {
+    type Target = gpioa::RegisterBlock;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        unsafe { &*Self::PTR }
+    }
+}
+impl core::fmt::Debug for GPIOA {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIOA").finish()
+    }
+}
+#[doc = "General purpose input/output module A"]
+pub mod gpioa;
+#[doc = "General purpose input/output module B"]
+pub struct GPIOB {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for GPIOB {}
+impl GPIOB {
+    #[doc = r"Pointer to the register block"]
+    pub const PTR: *const gpioa::RegisterBlock = 0x4001_1400 as *const _;
+    #[doc = r"Return the pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const gpioa::RegisterBlock {
+        Self::PTR
+    }
+}
+impl Deref for GPIOB {
+    type Target = gpioa::RegisterBlock;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        unsafe { &*Self::PTR }
+    }
+}
+impl core::fmt::Debug for GPIOB {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIOB").finish()
+    }
+}
+#[doc = "Touchpad sensor module"]
+pub struct TOUCH {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for TOUCH {}
+impl TOUCH {
+    #[doc = r"Pointer to the register block"]
+    pub const PTR: *const touch::RegisterBlock = 0x4001_2400 as *const _;
+    #[doc = r"Return the pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const touch::RegisterBlock {
+        Self::PTR
+    }
+}
+impl Deref for TOUCH {
+    type Target = touch::RegisterBlock;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        unsafe { &*Self::PTR }
+    }
+}
+impl core::fmt::Debug for TOUCH {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TOUCH").finish()
+    }
+}
+#[doc = "Touchpad sensor module"]
+pub mod touch;
 #[no_mangle]
 static mut DEVICE_PERIPHERALS: bool = false;
 #[doc = r"All the peripherals"]
 #[allow(non_snake_case)]
 pub struct Peripherals {
-    #[doc = "CLOCK_RESET"]
-    pub CLOCK_RESET: CLOCK_RESET,
+    #[doc = "DMA"]
+    pub DMA: DMA,
+    #[doc = "PMU"]
+    pub PMU: PMU,
+    #[doc = "RCC"]
+    pub RCC: RCC,
+    #[doc = "I2C"]
+    pub I2C: I2C,
+    #[doc = "SPI"]
+    pub SPI: SPI,
+    #[doc = "UART0"]
+    pub UART0: UART0,
+    #[doc = "UART1"]
+    pub UART1: UART1,
+    #[doc = "UART2"]
+    pub UART2: UART2,
+    #[doc = "UART3"]
+    pub UART3: UART3,
+    #[doc = "UART4"]
+    pub UART4: UART4,
+    #[doc = "UART5"]
+    pub UART5: UART5,
+    #[doc = "TIMER"]
+    pub TIMER: TIMER,
+    #[doc = "WDOG"]
+    pub WDOG: WDOG,
+    #[doc = "PWM"]
+    pub PWM: PWM,
+    #[doc = "FLASH"]
+    pub FLASH: FLASH,
+    #[doc = "RSA"]
+    pub RSA: RSA,
+    #[doc = "ADC"]
+    pub ADC: ADC,
+    #[doc = "GPIOA"]
+    pub GPIOA: GPIOA,
+    #[doc = "GPIOB"]
+    pub GPIOB: GPIOB,
+    #[doc = "TOUCH"]
+    pub TOUCH: TOUCH,
 }
 impl Peripherals {
     #[doc = r"Returns all the peripherals *once*"]
@@ -77,7 +635,64 @@ impl Peripherals {
     pub unsafe fn steal() -> Self {
         DEVICE_PERIPHERALS = true;
         Peripherals {
-            CLOCK_RESET: CLOCK_RESET {
+            DMA: DMA {
+                _marker: PhantomData,
+            },
+            PMU: PMU {
+                _marker: PhantomData,
+            },
+            RCC: RCC {
+                _marker: PhantomData,
+            },
+            I2C: I2C {
+                _marker: PhantomData,
+            },
+            SPI: SPI {
+                _marker: PhantomData,
+            },
+            UART0: UART0 {
+                _marker: PhantomData,
+            },
+            UART1: UART1 {
+                _marker: PhantomData,
+            },
+            UART2: UART2 {
+                _marker: PhantomData,
+            },
+            UART3: UART3 {
+                _marker: PhantomData,
+            },
+            UART4: UART4 {
+                _marker: PhantomData,
+            },
+            UART5: UART5 {
+                _marker: PhantomData,
+            },
+            TIMER: TIMER {
+                _marker: PhantomData,
+            },
+            WDOG: WDOG {
+                _marker: PhantomData,
+            },
+            PWM: PWM {
+                _marker: PhantomData,
+            },
+            FLASH: FLASH {
+                _marker: PhantomData,
+            },
+            RSA: RSA {
+                _marker: PhantomData,
+            },
+            ADC: ADC {
+                _marker: PhantomData,
+            },
+            GPIOA: GPIOA {
+                _marker: PhantomData,
+            },
+            GPIOB: GPIOB {
+                _marker: PhantomData,
+            },
+            TOUCH: TOUCH {
                 _marker: PhantomData,
             },
         }
