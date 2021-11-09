@@ -6,3 +6,5 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+vcell = "0.1.2"
+riscv = "*" # todo: 等csky-rust稳定之后，改成csky的架构库。在此之前不要publish到crates.io

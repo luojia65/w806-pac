@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<device schemaVersion="1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="CMSIS-SVD_Schema_1_1.xsd">
+  <vendor>Beijing Lianshengde Micro-electronics Co., Ltd.</vendor>
+  <name>W806</name>
+  <version>1.0</version>
+  <description>W806 general purpose microcontroller</description>
+  
+  <addressUnitBits>8</addressUnitBits> <!-- todo: verify -->
+  <width>32</width>
+  <size>32</size>
+  <access>read-write</access>
+
+  <peripherals>
+    <peripheral>
+      <name>ClockReset</name>
+      <description>Global chip timer and reset system controller</description>
+      <baseAddress>0x40000E00</baseAddress>
+      <registers>
+        <register>
+          <name>clock_enable</name>
+          <description>Software configure clock gate enable register</description>
+          <addressOffset>0x0000</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <register>
+          <name>clock_mask</name>
+          <description>??</description>
+          <addressOffset>0x0004</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <!-- 0x0008: reserved -->
+        <register>
+          <name>reset_control</name>
+          <description>??</description>
+          <addressOffset>0x000C</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <register>
+          <name>clock_div</name>
+          <description>??</description>
+          <addressOffset>0x0010</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <register>
+          <name>clock_select</name>
+          <description>??</description>
+          <addressOffset>0x0014</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <register>
+          <name>i2s_clock</name>
+          <description>??</description>
+          <addressOffset>0x0018</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <register>
+          <name>reset_status</name>
+          <description>??</description>
+          <addressOffset>0x001C</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+      </registers>
+    </peripheral>
+    <!-- todo: gpio -->
+    <!-- todo: other peripherals -->
+  </peripherals>
+</device>
