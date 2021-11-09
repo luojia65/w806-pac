@@ -293,7 +293,7 @@
           </fields>
         </register>
         <register>
-          <name>clock_div</name>
+          <name>clock_divide</name>
           <description>Software clock division configuration</description>
           <addressOffset>0x0010</addressOffset>
           <fields>

@@ -9,7 +9,7 @@ pub struct RegisterBlock {
     #[doc = "0x0c - Software module reset control"]
     pub reset_control: crate::Reg<reset_control::RESET_CONTROL_SPEC>,
     #[doc = "0x10 - Software clock division configuration"]
-    pub clock_div: crate::Reg<clock_div::CLOCK_DIV_SPEC>,
+    pub clock_divide: crate::Reg<clock_divide::CLOCK_DIVIDE_SPEC>,
     #[doc = "0x14 - Debug control register"]
     pub debug_control: crate::Reg<debug_control::DEBUG_CONTROL_SPEC>,
     #[doc = "0x18 - Inter-Integrated Sound clock configuration"]
@@ -29,10 +29,10 @@ pub mod clock_mask;
 pub type RESET_CONTROL = crate::Reg<reset_control::RESET_CONTROL_SPEC>;
 #[doc = "Software module reset control"]
 pub mod reset_control;
-#[doc = "clock_div register accessor: an alias for `Reg<CLOCK_DIV_SPEC>`"]
-pub type CLOCK_DIV = crate::Reg<clock_div::CLOCK_DIV_SPEC>;
+#[doc = "clock_divide register accessor: an alias for `Reg<CLOCK_DIVIDE_SPEC>`"]
+pub type CLOCK_DIVIDE = crate::Reg<clock_divide::CLOCK_DIVIDE_SPEC>;
 #[doc = "Software clock division configuration"]
-pub mod clock_div;
+pub mod clock_divide;
 #[doc = "debug_control register accessor: an alias for `Reg<DEBUG_CONTROL_SPEC>`"]
 pub type DEBUG_CONTROL = crate::Reg<debug_control::DEBUG_CONTROL_SPEC>;
 #[doc = "Debug control register"]
