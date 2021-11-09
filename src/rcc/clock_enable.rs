@@ -358,7 +358,7 @@ impl<'a> DMA_W<'a> {
         self.w
     }
 }
-#[doc = "Fields `uart(0-5)` reader - Universal asynchronous transmitter/receiver %s enable"]
+#[doc = "Fields `uart(0-5)` reader - Universal asynchronous transmitter/receiver enable"]
 pub struct UART_R(crate::FieldReader<bool, bool>);
 impl UART_R {
     pub(crate) fn new(bits: bool) -> Self {
@@ -372,7 +372,7 @@ impl core::ops::Deref for UART_R {
         &self.0
     }
 }
-#[doc = "Fields `uart(0-5)` writer - Universal asynchronous transmitter/receiver %s enable"]
+#[doc = "Fields `uart(0-5)` writer - Universal asynchronous transmitter/receiver enable"]
 pub struct UART_W<'a> {
     w: &'a mut W,
     offset: usize,
@@ -478,37 +478,37 @@ impl R {
     pub fn dma(&self) -> DMA_R {
         DMA_R::new(((self.bits >> 8) & 0x01) != 0)
     }
-    #[doc = "Universal asynchronous transmitter/receiver (0-5) enable"]
+    #[doc = "Universal asynchronous transmitter/receiver enable"]
     #[inline(always)]
     pub unsafe fn uart(&self, n: usize) -> UART_R {
         UART_R::new(((self.bits >> n + 1) & 0x01) != 0)
     }
-    #[doc = "Bit 1 - Universal asynchronous transmitter/receiver 0 enable"]
+    #[doc = "Bit 1 - Universal asynchronous transmitter/receiver enable"]
     #[inline(always)]
     pub fn uart0(&self) -> UART_R {
         UART_R::new(((self.bits >> 1) & 0x01) != 0)
     }
-    #[doc = "Bit 2 - Universal asynchronous transmitter/receiver 1 enable"]
+    #[doc = "Bit 2 - Universal asynchronous transmitter/receiver enable"]
     #[inline(always)]
     pub fn uart1(&self) -> UART_R {
         UART_R::new(((self.bits >> 2) & 0x01) != 0)
     }
-    #[doc = "Bit 3 - Universal asynchronous transmitter/receiver 2 enable"]
+    #[doc = "Bit 3 - Universal asynchronous transmitter/receiver enable"]
     #[inline(always)]
     pub fn uart2(&self) -> UART_R {
         UART_R::new(((self.bits >> 3) & 0x01) != 0)
     }
-    #[doc = "Bit 4 - Universal asynchronous transmitter/receiver 3 enable"]
+    #[doc = "Bit 4 - Universal asynchronous transmitter/receiver enable"]
     #[inline(always)]
     pub fn uart3(&self) -> UART_R {
         UART_R::new(((self.bits >> 4) & 0x01) != 0)
     }
-    #[doc = "Bit 5 - Universal asynchronous transmitter/receiver 4 enable"]
+    #[doc = "Bit 5 - Universal asynchronous transmitter/receiver enable"]
     #[inline(always)]
     pub fn uart4(&self) -> UART_R {
         UART_R::new(((self.bits >> 5) & 0x01) != 0)
     }
-    #[doc = "Bit 6 - Universal asynchronous transmitter/receiver 5 enable"]
+    #[doc = "Bit 6 - Universal asynchronous transmitter/receiver enable"]
     #[inline(always)]
     pub fn uart5(&self) -> UART_R {
         UART_R::new(((self.bits >> 6) & 0x01) != 0)
@@ -565,7 +565,7 @@ impl W {
     pub fn dma(&mut self) -> DMA_W {
         DMA_W { w: self }
     }
-    #[doc = "Universal asynchronous transmitter/receiver (0-5) enable"]
+    #[doc = "Universal asynchronous transmitter/receiver enable"]
     #[inline(always)]
     pub unsafe fn uart(&mut self, n: usize) -> UART_W {
         UART_W {
@@ -573,32 +573,32 @@ impl W {
             offset: n + 1,
         }
     }
-    #[doc = "Bit 1 - Universal asynchronous transmitter/receiver 0 enable"]
+    #[doc = "Bit 1 - Universal asynchronous transmitter/receiver enable"]
     #[inline(always)]
     pub fn uart0(&mut self) -> UART_W {
         UART_W { w: self, offset: 1 }
     }
-    #[doc = "Bit 2 - Universal asynchronous transmitter/receiver 1 enable"]
+    #[doc = "Bit 2 - Universal asynchronous transmitter/receiver enable"]
     #[inline(always)]
     pub fn uart1(&mut self) -> UART_W {
         UART_W { w: self, offset: 2 }
     }
-    #[doc = "Bit 3 - Universal asynchronous transmitter/receiver 2 enable"]
+    #[doc = "Bit 3 - Universal asynchronous transmitter/receiver enable"]
     #[inline(always)]
     pub fn uart2(&mut self) -> UART_W {
         UART_W { w: self, offset: 3 }
     }
-    #[doc = "Bit 4 - Universal asynchronous transmitter/receiver 3 enable"]
+    #[doc = "Bit 4 - Universal asynchronous transmitter/receiver enable"]
     #[inline(always)]
     pub fn uart3(&mut self) -> UART_W {
         UART_W { w: self, offset: 4 }
     }
-    #[doc = "Bit 5 - Universal asynchronous transmitter/receiver 4 enable"]
+    #[doc = "Bit 5 - Universal asynchronous transmitter/receiver enable"]
     #[inline(always)]
     pub fn uart4(&mut self) -> UART_W {
         UART_W { w: self, offset: 5 }
     }
-    #[doc = "Bit 6 - Universal asynchronous transmitter/receiver 5 enable"]
+    #[doc = "Bit 6 - Universal asynchronous transmitter/receiver enable"]
     #[inline(always)]
     pub fn uart5(&mut self) -> UART_W {
         UART_W { w: self, offset: 6 }
@@ -615,7 +615,7 @@ impl W {
         self
     }
 }
-#[doc = "Software configure clock gate enable register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clock_enable](index.html) module"]
+#[doc = "Software configure clock gate enable\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clock_enable](index.html) module"]
 pub struct CLOCK_ENABLE_SPEC;
 impl crate::RegisterSpec for CLOCK_ENABLE_SPEC {
     type Ux = u32;

@@ -48,7 +48,7 @@
       <registers>
         <register>
           <name>clock_enable</name>
-          <description>Software configure clock gate enable register</description>
+          <description>Software configure clock gate enable</description>
           <addressOffset>0x0000</addressOffset>
           <access>read-write</access>
           <fields>
@@ -123,7 +123,7 @@
             <!-- todo: verify lspi (offset 7) -->
             <field>
               <name>uart%s</name>
-              <description>Universal asynchronous transmitter/receiver %s enable</description>
+              <description>Universal asynchronous transmitter/receiver enable</description>
               <bitRange>[1:1]</bitRange>
               <resetMask>0x1</resetMask>
               <dim>6</dim>
@@ -141,19 +141,155 @@
         </register>
         <register>
           <name>clock_mask</name>
-          <description>??</description>
+          <description>Software clock mask</description>
           <addressOffset>0x0004</addressOffset>
+          <access>read-write</access>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>cpu</name>
+              <description>Cpu domain (cpu, bus1, rom, sram) allow adaptive clock configurations</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <!-- bits [5:2]: reserved for internal use, do not modify -->
+            <field>
+              <name>sdio_ahb</name>
+              <description>Sdio-Ahb domain allow adaptive clock configurations</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <field>
+              <name>pmu</name>
+              <description>Allow pmu to shutdown gate unit connected to pll output</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x0</resetMask>
+            </field>
           </fields>
         </register>
-        <!-- 0x0008: reserved -->
+        <!-- offset 0x0008: reserved -->
         <register>
           <name>reset_control</name>
-          <description>??</description>
+          <description>Software module reset control</description>
           <addressOffset>0x000C</addressOffset>
+          <access>read-write</access>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>touch</name>
+              <description>Touch sensor module reset</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <field>
+              <name>flash</name>
+              <description>Flash controller module reset</description>
+              <bitOffset>30</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <!-- no bt reset (offset 29) on w806 -->
+            <!-- todo: verify qspi (offset 28) -->
+            <!-- todo: verify sdio master (offset 27) -->
+            <!-- todo: verify gpsec (offset 26) -->
+            <field>
+              <name>rsa</name>
+              <description>RSA Montgomery coprocessor module reset</description>
+              <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <field>
+              <name>i2s</name>
+              <description>Inter-Integrated Sound module reset</description>
+              <bitOffset>24</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <!-- todo: verify lcd (offset 23) -->
+            <field>
+              <name>pwm</name>
+              <description>Pulse-width modulation module reset</description>
+              <bitOffset>22</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <field>
+              <name>adc</name>
+              <description>Sar-adc module reset</description>
+              <bitOffset>21</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <field>
+              <name>timer</name>
+              <description>Timer module reset</description>
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <field>
+              <name>gpio</name>
+              <description>Gpio module reset</description>
+              <bitOffset>19</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <!-- no rf reset (offset 18) on w806 -->
+            <!-- todo: verify spis (offset 17) -->
+            <!-- todo: verify spim (offset 16) -->
+            <field>
+              <name>uart%s</name>
+              <description>Universal asynchronous transmitter/receiver reset</description>
+              <bitRange>[10:10]</bitRange>
+              <resetMask>0x1</resetMask>
+              <dim>6</dim>
+              <dimIncrement>1</dimIncrement>
+              <dimIndex>0-5</dimIndex>
+            </field>
+            <field>
+              <name>i2c</name>
+              <description>Inter-Integrated Circuit module reset</description>
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <field>
+              <name>bus%s</name>
+              <description>Internal bus reset</description>
+              <bitRange>[7:7]</bitRange>
+              <resetMask>0x1</resetMask>
+              <dim>2</dim>
+              <dimIncrement>1</dimIncrement>
+              <dimIndex>0-1</dimIndex>
+            </field>
+            <field>
+              <name>apb</name>
+              <description>APB bridge module reset</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <!-- rst mem mng (offset 5) is reserved for internal use, do not modify -->
+            <field>
+              <name>dma</name>
+              <description>Direct memory access module reset</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <field>
+              <name>sdio_ahb</name>
+              <description>Sdio-Ahb clock domain reset</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <resetMask>0x1</resetMask>
+            </field>
+            <!-- rst sec (offset 2) is reserved for internal use, do not modify -->
+            <!-- rst mac (offset 1) is reserved for internal use, do not modify -->
+            <!-- rst bbp (offset 0) is reserved for internal use, do not modify -->
           </fields>
         </register>
         <register>
