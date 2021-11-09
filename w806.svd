@@ -122,46 +122,13 @@
             </field>
             <!-- todo: verify lspi (offset 7) -->
             <field>
-              <name>uart5</name>
-              <description>Universal asynchronous transmitter/receiver 5 enable</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
+              <name>uart%s</name>
+              <description>Universal asynchronous transmitter/receiver %s enable</description>
+              <bitRange>[1:1]</bitRange>
               <resetMask>0x1</resetMask>
-            </field>
-            <field>
-              <name>uart4</name>
-              <description>Universal asynchronous transmitter/receiver 4 enable</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
-            </field>
-            <field>
-              <name>uart3</name>
-              <description>Universal asynchronous transmitter/receiver 3 enable</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
-            </field>
-            <field>
-              <name>uart2</name>
-              <description>Universal asynchronous transmitter/receiver 2 enable</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
-            </field>
-            <field>
-              <name>uart1</name>
-              <description>Universal asynchronous transmitter/receiver 1 enable</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
-            </field>
-            <field>
-              <name>uart0</name>
-              <description>Universal asynchronous transmitter/receiver 0 enable</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
+              <dim>6</dim>
+              <dimIncrement>1</dimIncrement>
+              <dimIndex>0-5</dimIndex>
             </field>
             <field>
               <name>i2c</name>
