@@ -294,15 +294,15 @@
         </register>
         <register>
           <name>clock_div</name>
-          <description>??</description>
+          <description>Software clock division configuration</description>
           <addressOffset>0x0010</addressOffset>
           <fields>
             <!-- todo: fields -->
           </fields>
         </register>
         <register>
-          <name>clock_select</name>
-          <description>??</description>
+          <name>debug_control</name>
+          <description>Debug control register</description>
           <addressOffset>0x0014</addressOffset>
           <fields>
             <!-- todo: fields -->
@@ -310,15 +310,15 @@
         </register>
         <register>
           <name>i2s_clock</name>
-          <description>??</description>
+          <description>Inter-Integrated Sound clock configuration</description>
           <addressOffset>0x0018</addressOffset>
           <fields>
             <!-- todo: fields -->
           </fields>
         </register>
         <register>
-          <name>reset_status</name>
-          <description>??</description>
+          <name>reset_state</name>
+          <description>Reset state register</description>
           <addressOffset>0x001C</addressOffset>
           <fields>
             <!-- todo: fields -->
