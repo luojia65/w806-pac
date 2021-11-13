@@ -38,7 +38,7 @@ impl From<crate::W<RESET_STATE_SPEC>> for W {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CPU_AW {
     #[doc = "1: Write 1 to clear reset state."]
-    PERFORM = 1,
+    CLEAR = 1,
 }
 impl From<CPU_AW> for bool {
     #[inline(always)]
@@ -58,8 +58,8 @@ impl<'a> CPU_W<'a> {
     }
     #[doc = "Write 1 to clear reset state."]
     #[inline(always)]
-    pub fn perform(self) -> &'a mut W {
-        self.variant(CPU_AW::PERFORM)
+    pub fn clear(self) -> &'a mut W {
+        self.variant(CPU_AW::CLEAR)
     }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
@@ -92,8 +92,8 @@ impl<'a> WATCHDOG_W<'a> {
     }
     #[doc = "Write 1 to clear reset state."]
     #[inline(always)]
-    pub fn perform(self) -> &'a mut W {
-        self.variant(WATCHDOG_AW::PERFORM)
+    pub fn clear(self) -> &'a mut W {
+        self.variant(WATCHDOG_AW::CLEAR)
     }
     #[doc = r"Sets the field bit"]
     #[inline(always)]

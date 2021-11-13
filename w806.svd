@@ -616,7 +616,7 @@
               <enumeratedValues> 
                 <name>WriteOneClear</name>
                 <enumeratedValue>
-                  <name>perform</name>
+                  <name>clear</name>
                   <description>Write 1 to clear reset state.</description>
                   <value>1</value>
                 </enumeratedValue>
