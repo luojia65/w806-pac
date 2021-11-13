@@ -34,15 +34,47 @@ impl From<crate::W<CLOCK_ENABLE_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Touch sensor module clock gate enable\n\n By deafult, touch sensor module clock gate is enabled.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum TOUCH_A {
+    #[doc = "0: The clock gate is turned off."]
+    DISABLE = 0,
+    #[doc = "1: The clock gate is ruened on."]
+    ENABLE = 1,
+}
+impl From<TOUCH_A> for bool {
+    #[inline(always)]
+    fn from(variant: TOUCH_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `touch` reader - Touch sensor module clock gate enable\n\n By deafult, touch sensor module clock gate is enabled."]
-pub struct TOUCH_R(crate::FieldReader<bool, bool>);
+pub struct TOUCH_R(crate::FieldReader<bool, TOUCH_A>);
 impl TOUCH_R {
     pub(crate) fn new(bits: bool) -> Self {
         TOUCH_R(crate::FieldReader::new(bits))
     }
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> TOUCH_A {
+        match self.bits {
+            false => TOUCH_A::DISABLE,
+            true => TOUCH_A::ENABLE,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[inline(always)]
+    pub fn is_disable(&self) -> bool {
+        **self == TOUCH_A::DISABLE
+    }
+    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[inline(always)]
+    pub fn is_enable(&self) -> bool {
+        **self == TOUCH_A::ENABLE
+    }
 }
 impl core::ops::Deref for TOUCH_R {
-    type Target = crate::FieldReader<bool, bool>;
+    type Target = crate::FieldReader<bool, TOUCH_A>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -53,6 +85,21 @@ pub struct TOUCH_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TOUCH_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TOUCH_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "The clock gate is turned off."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(TOUCH_A::DISABLE)
+    }
+    #[doc = "The clock gate is ruened on."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(TOUCH_A::ENABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -70,25 +117,30 @@ impl<'a> TOUCH_W<'a> {
         self.w
     }
 }
+#[doc = "Secure digital input/output clock gate enable\n\n By deafult, SDIO master module clock gate is enabled."]
+pub type SDIO_A = TOUCH_A;
 #[doc = "Field `sdio` reader - Secure digital input/output clock gate enable\n\n By deafult, SDIO master module clock gate is enabled."]
-pub struct SDIO_R(crate::FieldReader<bool, bool>);
-impl SDIO_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        SDIO_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for SDIO_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type SDIO_R = TOUCH_R;
 #[doc = "Field `sdio` writer - Secure digital input/output clock gate enable\n\n By deafult, SDIO master module clock gate is enabled."]
 pub struct SDIO_W<'a> {
     w: &'a mut W,
 }
 impl<'a> SDIO_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SDIO_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "The clock gate is turned off."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(SDIO_A::DISABLE)
+    }
+    #[doc = "The clock gate is ruened on."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(SDIO_A::ENABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -106,25 +158,30 @@ impl<'a> SDIO_W<'a> {
         self.w
     }
 }
+#[doc = "RSA Montgomery coprocessor clock gate enable\n\n By deafult, RSA clock gate is enabled."]
+pub type RSA_A = TOUCH_A;
 #[doc = "Field `rsa` reader - RSA Montgomery coprocessor clock gate enable\n\n By deafult, RSA clock gate is enabled."]
-pub struct RSA_R(crate::FieldReader<bool, bool>);
-impl RSA_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        RSA_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for RSA_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type RSA_R = TOUCH_R;
 #[doc = "Field `rsa` writer - RSA Montgomery coprocessor clock gate enable\n\n By deafult, RSA clock gate is enabled."]
 pub struct RSA_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RSA_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RSA_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "The clock gate is turned off."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(RSA_A::DISABLE)
+    }
+    #[doc = "The clock gate is ruened on."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(RSA_A::ENABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -142,25 +199,30 @@ impl<'a> RSA_W<'a> {
         self.w
     }
 }
+#[doc = "Inter-Integrated Sound clock gate enable\n\n By deafult, I2S clock gate is enabled."]
+pub type I2S_A = TOUCH_A;
 #[doc = "Field `i2s` reader - Inter-Integrated Sound clock gate enable\n\n By deafult, I2S clock gate is enabled."]
-pub struct I2S_R(crate::FieldReader<bool, bool>);
-impl I2S_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        I2S_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for I2S_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type I2S_R = TOUCH_R;
 #[doc = "Field `i2s` writer - Inter-Integrated Sound clock gate enable\n\n By deafult, I2S clock gate is enabled."]
 pub struct I2S_W<'a> {
     w: &'a mut W,
 }
 impl<'a> I2S_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: I2S_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "The clock gate is turned off."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(I2S_A::DISABLE)
+    }
+    #[doc = "The clock gate is ruened on."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(I2S_A::ENABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -178,25 +240,30 @@ impl<'a> I2S_W<'a> {
         self.w
     }
 }
+#[doc = "Pulse-width modulation module clock gate enable\n\n By deafult, PWM clock gate is enabled."]
+pub type PWM_A = TOUCH_A;
 #[doc = "Field `pwm` reader - Pulse-width modulation module clock gate enable\n\n By deafult, PWM clock gate is enabled."]
-pub struct PWM_R(crate::FieldReader<bool, bool>);
-impl PWM_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        PWM_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for PWM_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type PWM_R = TOUCH_R;
 #[doc = "Field `pwm` writer - Pulse-width modulation module clock gate enable\n\n By deafult, PWM clock gate is enabled."]
 pub struct PWM_W<'a> {
     w: &'a mut W,
 }
 impl<'a> PWM_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PWM_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "The clock gate is turned off."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(PWM_A::DISABLE)
+    }
+    #[doc = "The clock gate is ruened on."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(PWM_A::ENABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -214,25 +281,30 @@ impl<'a> PWM_W<'a> {
         self.w
     }
 }
+#[doc = "Analog-digital converter clock gate enable"]
+pub type ADC_A = TOUCH_A;
 #[doc = "Field `adc` reader - Analog-digital converter clock gate enable"]
-pub struct ADC_R(crate::FieldReader<bool, bool>);
-impl ADC_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        ADC_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for ADC_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type ADC_R = TOUCH_R;
 #[doc = "Field `adc` writer - Analog-digital converter clock gate enable"]
 pub struct ADC_W<'a> {
     w: &'a mut W,
 }
 impl<'a> ADC_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: ADC_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "The clock gate is turned off."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(ADC_A::DISABLE)
+    }
+    #[doc = "The clock gate is ruened on."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(ADC_A::ENABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -250,25 +322,30 @@ impl<'a> ADC_W<'a> {
         self.w
     }
 }
+#[doc = "General purpose input/output clock gate enable\n\n By deafult, GPIO clock gate is enabled."]
+pub type GPIO_A = TOUCH_A;
 #[doc = "Field `gpio` reader - General purpose input/output clock gate enable\n\n By deafult, GPIO clock gate is enabled."]
-pub struct GPIO_R(crate::FieldReader<bool, bool>);
-impl GPIO_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        GPIO_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for GPIO_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type GPIO_R = TOUCH_R;
 #[doc = "Field `gpio` writer - General purpose input/output clock gate enable\n\n By deafult, GPIO clock gate is enabled."]
 pub struct GPIO_W<'a> {
     w: &'a mut W,
 }
 impl<'a> GPIO_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: GPIO_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "The clock gate is turned off."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(GPIO_A::DISABLE)
+    }
+    #[doc = "The clock gate is ruened on."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(GPIO_A::ENABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -286,25 +363,30 @@ impl<'a> GPIO_W<'a> {
         self.w
     }
 }
+#[doc = "Timer module clock gate enable\n\n By deafult, timer clock gate is enabled."]
+pub type TIMER_A = TOUCH_A;
 #[doc = "Field `timer` reader - Timer module clock gate enable\n\n By deafult, timer clock gate is enabled."]
-pub struct TIMER_R(crate::FieldReader<bool, bool>);
-impl TIMER_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        TIMER_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for TIMER_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type TIMER_R = TOUCH_R;
 #[doc = "Field `timer` writer - Timer module clock gate enable\n\n By deafult, timer clock gate is enabled."]
 pub struct TIMER_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TIMER_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TIMER_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "The clock gate is turned off."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(TIMER_A::DISABLE)
+    }
+    #[doc = "The clock gate is ruened on."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(TIMER_A::ENABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -322,25 +404,30 @@ impl<'a> TIMER_W<'a> {
         self.w
     }
 }
+#[doc = "Direct memory access clock gate enable\n\n By deafult, DMA clock gate is enabled."]
+pub type DMA_A = TOUCH_A;
 #[doc = "Field `dma` reader - Direct memory access clock gate enable\n\n By deafult, DMA clock gate is enabled."]
-pub struct DMA_R(crate::FieldReader<bool, bool>);
-impl DMA_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        DMA_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for DMA_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type DMA_R = TOUCH_R;
 #[doc = "Field `dma` writer - Direct memory access clock gate enable\n\n By deafult, DMA clock gate is enabled."]
 pub struct DMA_W<'a> {
     w: &'a mut W,
 }
 impl<'a> DMA_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: DMA_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "The clock gate is turned off."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(DMA_A::DISABLE)
+    }
+    #[doc = "The clock gate is ruened on."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(DMA_A::ENABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -358,26 +445,31 @@ impl<'a> DMA_W<'a> {
         self.w
     }
 }
+#[doc = "Universal asynchronous transmitter/receiver enable\n\n By deafult, UART clock gate is enabled."]
+pub type UART_A = TOUCH_A;
 #[doc = "Fields `uart(0-5)` reader - Universal asynchronous transmitter/receiver enable\n\n By deafult, UART clock gate is enabled."]
-pub struct UART_R(crate::FieldReader<bool, bool>);
-impl UART_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        UART_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for UART_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type UART_R = TOUCH_R;
 #[doc = "Fields `uart(0-5)` writer - Universal asynchronous transmitter/receiver enable\n\n By deafult, UART clock gate is enabled."]
 pub struct UART_W<'a> {
     w: &'a mut W,
     offset: usize,
 }
 impl<'a> UART_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: UART_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "The clock gate is turned off."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(UART_A::DISABLE)
+    }
+    #[doc = "The clock gate is ruened on."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(UART_A::ENABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -396,25 +488,30 @@ impl<'a> UART_W<'a> {
         self.w
     }
 }
+#[doc = "Inter-Integrated Circuit module enable\n\n By deafult, I2C clock gate is enabled."]
+pub type I2C_A = TOUCH_A;
 #[doc = "Field `i2c` reader - Inter-Integrated Circuit module enable\n\n By deafult, I2C clock gate is enabled."]
-pub struct I2C_R(crate::FieldReader<bool, bool>);
-impl I2C_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        I2C_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for I2C_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type I2C_R = TOUCH_R;
 #[doc = "Field `i2c` writer - Inter-Integrated Circuit module enable\n\n By deafult, I2C clock gate is enabled."]
 pub struct I2C_W<'a> {
     w: &'a mut W,
 }
 impl<'a> I2C_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: I2C_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "The clock gate is turned off."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(I2C_A::DISABLE)
+    }
+    #[doc = "The clock gate is ruened on."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(I2C_A::ENABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {

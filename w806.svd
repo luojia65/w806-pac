@@ -78,6 +78,19 @@
               By deafult, touch sensor module clock gate is enabled.</description>
               <bitOffset>21</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>ClockGate</name>
+                <enumeratedValue>
+                    <name>disable</name>
+                    <description>The clock gate is turned off.</description>
+                    <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                    <name>enable</name>
+                    <description>The clock gate is ruened on.</description>
+                    <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <!-- no bluetooth clock (offset 20) w806 -->
             <!-- todo: verify qsram (offset 19) -->
@@ -87,6 +100,7 @@
               By deafult, SDIO master module clock gate is enabled.</description>
               <bitOffset>18</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ClockGate" />
             </field>
             <!-- todo: verify gpsec (offset 17) -->
             <field>
@@ -95,6 +109,7 @@
               By deafult, RSA clock gate is enabled.</description>
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ClockGate" />
             </field>
             <field>
               <name>i2s</name>
@@ -102,6 +117,7 @@
               By deafult, I2S clock gate is enabled.</description>
               <bitOffset>15</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ClockGate" />
             </field>
             <!-- todo: verify lcd (offset 14) -->
             <field>
@@ -110,12 +126,14 @@
               By deafult, PWM clock gate is enabled.</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ClockGate" />
             </field>
             <field>
               <name>adc</name>
               <description>Analog-digital converter clock gate enable</description>
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ClockGate" />
             </field>
             <field>
               <name>gpio</name>
@@ -123,6 +141,7 @@
               By deafult, GPIO clock gate is enabled.</description>
               <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ClockGate" />
             </field>
             <field>
               <name>timer</name>
@@ -130,6 +149,7 @@
               By deafult, timer clock gate is enabled.</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ClockGate" />
             </field>
             <!-- no rf clock (offset 9) on w806 -->
             <field>
@@ -138,6 +158,7 @@
               By deafult, DMA clock gate is enabled.</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ClockGate" />
             </field>
             <!-- todo: verify lspi (offset 7) -->
             <field>
@@ -148,6 +169,7 @@
               <dim>6</dim>
               <dimIncrement>1</dimIncrement>
               <dimIndex>0-5</dimIndex>
+              <enumeratedValues derivedFrom="ClockGate" />
             </field>
             <field>
               <name>i2c</name>
@@ -155,6 +177,7 @@
               By deafult, I2C clock gate is enabled.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ClockGate" />
             </field>
           </fields>
         </register>
