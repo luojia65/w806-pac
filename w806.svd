@@ -242,8 +242,14 @@
         <register>
           <name>reset_control</name>
           <description>Software module reset control\n\n
-          Note that these registers are active on zero, 
-          which means you should write zero bits to reset their corresponding peripherals.</description>
+          The chip provides the soft reset function of each subsystem, 
+          and the subsystem reset can be achieved by setting the corresponding bit of this register to 0. 
+          However, the reset state will not be automatically cleared. 
+          To restore normal operation, the corresponding bit of this register must be set to 1.\n\n
+          The soft reset function does not reset the CPU and watchdog.
+          In this register, the reset operation of APB, BUS1 and BUS2 (corresponding to APB bus, system bus and data bus) 
+          is not recommended, which will cause system access device abnormality.
+          </description>
           <addressOffset>0x000C</addressOffset>
           <access>read-write</access>
           <resetValue>0xffffffff</resetValue> <!-- Todo: the manual says it's 0x01ffffff, check -->
@@ -347,7 +353,7 @@
               <bitRange>[7:7]</bitRange>
               <dim>2</dim>
               <dimIncrement>1</dimIncrement>
-              <dimIndex>0-1</dimIndex>
+              <dimIndex>1-2</dimIndex>
               <enumeratedValues derivedFrom="ResetControl" />
             </field>
             <field>
@@ -379,10 +385,69 @@
         </register>
         <register>
           <name>clock_divide</name>
-          <description>Software clock division configuration</description>
+          <description>Software clock division configuration\n\n
+          </description>
           <addressOffset>0x0010</addressOffset>
+          <access>read-write</access>
+          <resetValue>0x03020306</resetValue>  <!-- Todo: the manual says it's 0x00002212, check -->
+          <resetMask>0x8fffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>frequency</name>
+              <description>Divide frequency enable\n\n
+              When you need to reconfigure cpu_clk_divider, wlan_clk_divider, bus2_syncdn_factor,
+              sdadc_fdiv, set this register, the hardware will automatically update the 
+              above four parameters to the divider, and then clear this register. 
+              </description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>in_effect</name>
+                  <description>Frequency division factor has taken effect.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>update</name>
+                  <description>Request hardware to update frequency division parameters.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <!-- bits [30:28] are reserved -->
+            <field>
+              <name>peripheral</name>
+              <description>160-MHz clock divide factor</description>
+              <bitRange>[27:24]</bitRange>
+            </field>
+            <field>
+              <name>bus2_sync</name>
+              <description>Ratio between bus1 and bus2 clock frequency</description>
+              <bitRange>[23:16]</bitRange>
+            </field>
+            <field>
+              <name>wlan</name>
+              <description>PLL to WLAN system divide factor\n\n
+              After dividing the frequency of the clock from the PLL, it is sent to the wlan system. 
+              This register is the frequency division factor, the factor should be >= 2.\n\n</description>
+              <!-- The default frequency division factor is 3, that is, the 480MHz output of pll is divided by 3 to obtain a 160MHz clock,
+              which is used as the root node clock (wlan continues to divide the frequency to obtain a more detailed low-frequency clock);\n\n
+              Note 1: For the WLAN system to work normally, this clock needs to be fixed at 160MHz; if the WLAN system is turned off,
+              Then this clock can be reduced in frequency to save power consumption. This clock must not be configured higher than 160MHz.\n\n
+              Note 2: The secondary bus clock and APB clock are divided by four for this clock.</description> -->
+              <bitRange>[15:8]</bitRange>
+              <writeConstraint>
+                <range>
+                  <minimum>2</minimum>
+                  <maximum>255</maximum> <!-- todo: manual did not define any maximum value -->
+                </range>
+              </writeConstraint>
+            </field>
+            <field>
+              <name>cpu</name>
+              <description>PLL to CPU clock divide factor</description>
+              <bitRange>[15:8]</bitRange>
+            </field>
           </fields>
         </register>
         <register>

@@ -490,9 +490,9 @@ impl<'a> I2C_W<'a> {
 }
 #[doc = "Internal bus reset"]
 pub type BUS_A = TOUCH_A;
-#[doc = "Fields `bus(0-1)` reader - Internal bus reset"]
+#[doc = "Fields `bus(1-2)` reader - Internal bus reset"]
 pub type BUS_R = TOUCH_R;
-#[doc = "Fields `bus(0-1)` writer - Internal bus reset"]
+#[doc = "Fields `bus(1-2)` writer - Internal bus reset"]
 pub struct BUS_W<'a> {
     w: &'a mut W,
     offset: usize,
@@ -738,16 +738,16 @@ impl R {
     #[doc = "Internal bus reset"]
     #[inline(always)]
     pub unsafe fn bus(&self, n: usize) -> BUS_R {
-        BUS_R::new(((self.bits >> n + 7) & 0x01) != 0)
+        BUS_R::new(((self.bits >> n - 1 + 7) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Internal bus reset"]
     #[inline(always)]
-    pub fn bus0(&self) -> BUS_R {
+    pub fn bus1(&self) -> BUS_R {
         BUS_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 8 - Internal bus reset"]
     #[inline(always)]
-    pub fn bus1(&self) -> BUS_R {
+    pub fn bus2(&self) -> BUS_R {
         BUS_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 6 - APB bridge module reset"]
@@ -873,17 +873,17 @@ impl W {
     pub unsafe fn bus(&mut self, n: usize) -> BUS_W {
         BUS_W {
             w: self,
-            offset: n + 7,
+            offset: n - 1 + 7,
         }
     }
     #[doc = "Bit 7 - Internal bus reset"]
     #[inline(always)]
-    pub fn bus0(&mut self) -> BUS_W {
+    pub fn bus1(&mut self) -> BUS_W {
         BUS_W { w: self, offset: 7 }
     }
     #[doc = "Bit 8 - Internal bus reset"]
     #[inline(always)]
-    pub fn bus1(&mut self) -> BUS_W {
+    pub fn bus2(&mut self) -> BUS_W {
         BUS_W { w: self, offset: 8 }
     }
     #[doc = "Bit 6 - APB bridge module reset"]
@@ -908,7 +908,7 @@ impl W {
         self
     }
 }
-#[doc = "Software module reset control\n\n Note that these registers are active on zero, which means you should write zero bits to reset their corresponding peripherals.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [reset_control](index.html) module"]
+#[doc = "Software module reset control\n\n The chip provides the soft reset function of each subsystem, and the subsystem reset can be achieved by setting the corresponding bit of this register to 0. However, the reset state will not be automatically cleared. To restore normal operation, the corresponding bit of this register must be set to 1.\n\n The soft reset function does not reset the CPU and watchdog. In this register, the reset operation of APB, BUS1 and BUS2 (corresponding to APB bus, system bus and data bus) is not recommended, which will cause system access device abnormality.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [reset_control](index.html) module"]
 pub struct RESET_CONTROL_SPEC;
 impl crate::RegisterSpec for RESET_CONTROL_SPEC {
     type Ux = u32;

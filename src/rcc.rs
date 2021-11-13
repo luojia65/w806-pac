@@ -6,9 +6,9 @@ pub struct RegisterBlock {
     #[doc = "0x04 - Software clock mask\n\n The chip adaptively turns off the clock of some functional modules according to the transition of some internal states.\n\n Please do not change the configuration, otherwise it may cause system abnormality when configuring PMU function."]
     pub clock_mask: crate::Reg<clock_mask::CLOCK_MASK_SPEC>,
     _reserved2: [u8; 0x04],
-    #[doc = "0x0c - Software module reset control\n\n Note that these registers are active on zero, which means you should write zero bits to reset their corresponding peripherals."]
+    #[doc = "0x0c - Software module reset control\n\n The chip provides the soft reset function of each subsystem, and the subsystem reset can be achieved by setting the corresponding bit of this register to 0. However, the reset state will not be automatically cleared. To restore normal operation, the corresponding bit of this register must be set to 1.\n\n The soft reset function does not reset the CPU and watchdog. In this register, the reset operation of APB, BUS1 and BUS2 (corresponding to APB bus, system bus and data bus) is not recommended, which will cause system access device abnormality."]
     pub reset_control: crate::Reg<reset_control::RESET_CONTROL_SPEC>,
-    #[doc = "0x10 - Software clock division configuration"]
+    #[doc = "0x10 - Software clock division configuration\n\n"]
     pub clock_divide: crate::Reg<clock_divide::CLOCK_DIVIDE_SPEC>,
     #[doc = "0x14 - Debug control register"]
     pub debug_control: crate::Reg<debug_control::DEBUG_CONTROL_SPEC>,
@@ -27,11 +27,11 @@ pub type CLOCK_MASK = crate::Reg<clock_mask::CLOCK_MASK_SPEC>;
 pub mod clock_mask;
 #[doc = "reset_control register accessor: an alias for `Reg<RESET_CONTROL_SPEC>`"]
 pub type RESET_CONTROL = crate::Reg<reset_control::RESET_CONTROL_SPEC>;
-#[doc = "Software module reset control\n\n Note that these registers are active on zero, which means you should write zero bits to reset their corresponding peripherals."]
+#[doc = "Software module reset control\n\n The chip provides the soft reset function of each subsystem, and the subsystem reset can be achieved by setting the corresponding bit of this register to 0. However, the reset state will not be automatically cleared. To restore normal operation, the corresponding bit of this register must be set to 1.\n\n The soft reset function does not reset the CPU and watchdog. In this register, the reset operation of APB, BUS1 and BUS2 (corresponding to APB bus, system bus and data bus) is not recommended, which will cause system access device abnormality."]
 pub mod reset_control;
 #[doc = "clock_divide register accessor: an alias for `Reg<CLOCK_DIVIDE_SPEC>`"]
 pub type CLOCK_DIVIDE = crate::Reg<clock_divide::CLOCK_DIVIDE_SPEC>;
-#[doc = "Software clock division configuration"]
+#[doc = "Software clock division configuration\n\n"]
 pub mod clock_divide;
 #[doc = "debug_control register accessor: an alias for `Reg<DEBUG_CONTROL_SPEC>`"]
 pub type DEBUG_CONTROL = crate::Reg<debug_control::DEBUG_CONTROL_SPEC>;
