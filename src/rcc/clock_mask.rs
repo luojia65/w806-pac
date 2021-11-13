@@ -34,25 +34,72 @@ impl From<crate::W<CLOCK_MASK_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `cpu` reader - Cpu domain (cpu, bus1, rom, sram) allow adaptive clock configurations\n\n Indicates whether the clock supplied to the CPU clock domain (including CPU, bus1, ROM, SRAM) can be turned off adaptively.\n\n When the CPU needs to enter the WFI state, do not set the adaptive shutdown."]
-pub struct CPU_R(crate::FieldReader<bool, bool>);
+#[doc = "Cpu domain allow adaptive clock configurations\n\n Indicates whether the clock supplied to the CPU clock domain (including CPU, bus1, ROM, SRAM) can be turned off adaptively.\n\n When the CPU needs to enter the WFI state, do not set the adaptive shutdown.\n\nValue on reset: 1"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CPU_A {
+    #[doc = "0: Allow adaptive shutdown and opening."]
+    ALLOW = 0,
+    #[doc = "1: Disallow adaptive shutdown and opening."]
+    DISALLOW = 1,
+}
+impl From<CPU_A> for bool {
+    #[inline(always)]
+    fn from(variant: CPU_A) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `cpu` reader - Cpu domain allow adaptive clock configurations\n\n Indicates whether the clock supplied to the CPU clock domain (including CPU, bus1, ROM, SRAM) can be turned off adaptively.\n\n When the CPU needs to enter the WFI state, do not set the adaptive shutdown."]
+pub struct CPU_R(crate::FieldReader<bool, CPU_A>);
 impl CPU_R {
     pub(crate) fn new(bits: bool) -> Self {
         CPU_R(crate::FieldReader::new(bits))
     }
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CPU_A {
+        match self.bits {
+            false => CPU_A::ALLOW,
+            true => CPU_A::DISALLOW,
+        }
+    }
+    #[doc = "Checks if the value of the field is `ALLOW`"]
+    #[inline(always)]
+    pub fn is_allow(&self) -> bool {
+        **self == CPU_A::ALLOW
+    }
+    #[doc = "Checks if the value of the field is `DISALLOW`"]
+    #[inline(always)]
+    pub fn is_disallow(&self) -> bool {
+        **self == CPU_A::DISALLOW
+    }
 }
 impl core::ops::Deref for CPU_R {
-    type Target = crate::FieldReader<bool, bool>;
+    type Target = crate::FieldReader<bool, CPU_A>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
     }
 }
-#[doc = "Field `cpu` writer - Cpu domain (cpu, bus1, rom, sram) allow adaptive clock configurations\n\n Indicates whether the clock supplied to the CPU clock domain (including CPU, bus1, ROM, SRAM) can be turned off adaptively.\n\n When the CPU needs to enter the WFI state, do not set the adaptive shutdown."]
+#[doc = "Field `cpu` writer - Cpu domain allow adaptive clock configurations\n\n Indicates whether the clock supplied to the CPU clock domain (including CPU, bus1, ROM, SRAM) can be turned off adaptively.\n\n When the CPU needs to enter the WFI state, do not set the adaptive shutdown."]
 pub struct CPU_W<'a> {
     w: &'a mut W,
 }
 impl<'a> CPU_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CPU_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Allow adaptive shutdown and opening."]
+    #[inline(always)]
+    pub fn allow(self) -> &'a mut W {
+        self.variant(CPU_A::ALLOW)
+    }
+    #[doc = "Disallow adaptive shutdown and opening."]
+    #[inline(always)]
+    pub fn disallow(self) -> &'a mut W {
+        self.variant(CPU_A::DISALLOW)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -70,25 +117,30 @@ impl<'a> CPU_W<'a> {
         self.w
     }
 }
+#[doc = "Sdio-Ahb domain allow adaptive clock configurations\n\n Indicates whether the clock supplied to the sdio ahb clock domain can be turned off adaptively."]
+pub type SDIO_AHB_A = CPU_A;
 #[doc = "Field `sdio_ahb` reader - Sdio-Ahb domain allow adaptive clock configurations\n\n Indicates whether the clock supplied to the sdio ahb clock domain can be turned off adaptively."]
-pub struct SDIO_AHB_R(crate::FieldReader<bool, bool>);
-impl SDIO_AHB_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        SDIO_AHB_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for SDIO_AHB_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type SDIO_AHB_R = CPU_R;
 #[doc = "Field `sdio_ahb` writer - Sdio-Ahb domain allow adaptive clock configurations\n\n Indicates whether the clock supplied to the sdio ahb clock domain can be turned off adaptively."]
 pub struct SDIO_AHB_W<'a> {
     w: &'a mut W,
 }
 impl<'a> SDIO_AHB_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SDIO_AHB_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Allow adaptive shutdown and opening."]
+    #[inline(always)]
+    pub fn allow(self) -> &'a mut W {
+        self.variant(SDIO_AHB_A::ALLOW)
+    }
+    #[doc = "Disallow adaptive shutdown and opening."]
+    #[inline(always)]
+    pub fn disallow(self) -> &'a mut W {
+        self.variant(SDIO_AHB_A::DISALLOW)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -106,25 +158,30 @@ impl<'a> SDIO_AHB_W<'a> {
         self.w
     }
 }
+#[doc = "Allow pmu to shutdown gate unit connected to pll output\n\n After the clock output by PLL, there is a gate control unit. This register configuration is used to indicate whether this unit is allowed to be shut down by the PMU."]
+pub type PMU_A = CPU_A;
 #[doc = "Field `pmu` reader - Allow pmu to shutdown gate unit connected to pll output\n\n After the clock output by PLL, there is a gate control unit. This register configuration is used to indicate whether this unit is allowed to be shut down by the PMU."]
-pub struct PMU_R(crate::FieldReader<bool, bool>);
-impl PMU_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        PMU_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for PMU_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type PMU_R = CPU_R;
 #[doc = "Field `pmu` writer - Allow pmu to shutdown gate unit connected to pll output\n\n After the clock output by PLL, there is a gate control unit. This register configuration is used to indicate whether this unit is allowed to be shut down by the PMU."]
 pub struct PMU_W<'a> {
     w: &'a mut W,
 }
 impl<'a> PMU_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PMU_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Allow adaptive shutdown and opening."]
+    #[inline(always)]
+    pub fn allow(self) -> &'a mut W {
+        self.variant(PMU_A::ALLOW)
+    }
+    #[doc = "Disallow adaptive shutdown and opening."]
+    #[inline(always)]
+    pub fn disallow(self) -> &'a mut W {
+        self.variant(PMU_A::DISALLOW)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -143,7 +200,7 @@ impl<'a> PMU_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bit 6 - Cpu domain (cpu, bus1, rom, sram) allow adaptive clock configurations Indicates whether the clock supplied to the CPU clock domain (including CPU, bus1, ROM, SRAM) can be turned off adaptively. When the CPU needs to enter the WFI state, do not set the adaptive shutdown."]
+    #[doc = "Bit 6 - Cpu domain allow adaptive clock configurations Indicates whether the clock supplied to the CPU clock domain (including CPU, bus1, ROM, SRAM) can be turned off adaptively. When the CPU needs to enter the WFI state, do not set the adaptive shutdown."]
     #[inline(always)]
     pub fn cpu(&self) -> CPU_R {
         CPU_R::new(((self.bits >> 6) & 0x01) != 0)
@@ -160,7 +217,7 @@ impl R {
     }
 }
 impl W {
-    #[doc = "Bit 6 - Cpu domain (cpu, bus1, rom, sram) allow adaptive clock configurations Indicates whether the clock supplied to the CPU clock domain (including CPU, bus1, ROM, SRAM) can be turned off adaptively. When the CPU needs to enter the WFI state, do not set the adaptive shutdown."]
+    #[doc = "Bit 6 - Cpu domain allow adaptive clock configurations Indicates whether the clock supplied to the CPU clock domain (including CPU, bus1, ROM, SRAM) can be turned off adaptively. When the CPU needs to enter the WFI state, do not set the adaptive shutdown."]
     #[inline(always)]
     pub fn cpu(&mut self) -> CPU_W {
         CPU_W { w: self }

@@ -195,13 +195,26 @@
           <fields>
             <field>
               <name>cpu</name>
-              <description>Cpu domain (cpu, bus1, rom, sram) allow adaptive clock configurations\n\n
+              <description>Cpu domain allow adaptive clock configurations\n\n
               Indicates whether the clock supplied to the CPU clock domain (including CPU, bus1, ROM, SRAM) 
               can be turned off adaptively.\n\n
               When the CPU needs to enter the WFI state, do not set the adaptive shutdown.
               </description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>ClockGateMask</name>
+                <enumeratedValue>
+                    <name>allow</name>
+                    <description>Allow adaptive shutdown and opening.</description>
+                    <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                    <name>disallow</name>
+                    <description>Disallow adaptive shutdown and opening.</description>
+                    <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <!-- bits [5:2]: reserved for internal use, do not modify -->
             <field>
@@ -211,6 +224,7 @@
               </description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ClockGateMask" />
             </field>
             <field>
               <name>pmu</name>
@@ -220,7 +234,7 @@
               </description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x0</resetMask>
+              <enumeratedValues derivedFrom="ClockGateMask" />
             </field>
           </fields>
         </register>
