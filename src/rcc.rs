@@ -1,12 +1,12 @@
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
-    #[doc = "0x00 - Software configure clock gate enable"]
+    #[doc = "0x00 - Software configure clock gate enable\n\n By configuring this clock gating enable register, you can control the clock to shutdown a specified function, so as to achieve the purpose of shutting down a certain module.\n\n In order to provide the firmware with flexibility to control the power consumption of the system, the clock and reset module provides the clock gating function of each module in the system. When the clock of the corresponding module is turned off, the digital logic and clock tree of the module will stop working, which can reduce the dynamic power consumption of the system."]
     pub clock_enable: crate::Reg<clock_enable::CLOCK_ENABLE_SPEC>,
-    #[doc = "0x04 - Software clock mask"]
+    #[doc = "0x04 - Software clock mask\n\n The chip adaptively turns off the clock of some functional modules according to the transition of some internal states.\n\n Please do not change the configuration, otherwise it may cause system abnormality when configuring PMU function."]
     pub clock_mask: crate::Reg<clock_mask::CLOCK_MASK_SPEC>,
     _reserved2: [u8; 0x04],
-    #[doc = "0x0c - Software module reset control"]
+    #[doc = "0x0c - Software module reset control\n\n Note that these registers are active on zero, which means you should write zero bits to reset their corresponding peripherals."]
     pub reset_control: crate::Reg<reset_control::RESET_CONTROL_SPEC>,
     #[doc = "0x10 - Software clock division configuration"]
     pub clock_divide: crate::Reg<clock_divide::CLOCK_DIVIDE_SPEC>,
@@ -19,15 +19,15 @@ pub struct RegisterBlock {
 }
 #[doc = "clock_enable register accessor: an alias for `Reg<CLOCK_ENABLE_SPEC>`"]
 pub type CLOCK_ENABLE = crate::Reg<clock_enable::CLOCK_ENABLE_SPEC>;
-#[doc = "Software configure clock gate enable"]
+#[doc = "Software configure clock gate enable\n\n By configuring this clock gating enable register, you can control the clock to shutdown a specified function, so as to achieve the purpose of shutting down a certain module.\n\n In order to provide the firmware with flexibility to control the power consumption of the system, the clock and reset module provides the clock gating function of each module in the system. When the clock of the corresponding module is turned off, the digital logic and clock tree of the module will stop working, which can reduce the dynamic power consumption of the system."]
 pub mod clock_enable;
 #[doc = "clock_mask register accessor: an alias for `Reg<CLOCK_MASK_SPEC>`"]
 pub type CLOCK_MASK = crate::Reg<clock_mask::CLOCK_MASK_SPEC>;
-#[doc = "Software clock mask"]
+#[doc = "Software clock mask\n\n The chip adaptively turns off the clock of some functional modules according to the transition of some internal states.\n\n Please do not change the configuration, otherwise it may cause system abnormality when configuring PMU function."]
 pub mod clock_mask;
 #[doc = "reset_control register accessor: an alias for `Reg<RESET_CONTROL_SPEC>`"]
 pub type RESET_CONTROL = crate::Reg<reset_control::RESET_CONTROL_SPEC>;
-#[doc = "Software module reset control"]
+#[doc = "Software module reset control\n\n Note that these registers are active on zero, which means you should write zero bits to reset their corresponding peripherals."]
 pub mod reset_control;
 #[doc = "clock_divide register accessor: an alias for `Reg<CLOCK_DIVIDE_SPEC>`"]
 pub type CLOCK_DIVIDE = crate::Reg<clock_divide::CLOCK_DIVIDE_SPEC>;

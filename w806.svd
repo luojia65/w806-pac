@@ -59,7 +59,14 @@
       <registers>
         <register>
           <name>clock_enable</name>
-          <description>Software configure clock gate enable</description>
+          <description>Software configure clock gate enable\n\n
+          By configuring this clock gating enable register, you can control the clock to shutdown 
+          a specified function, so as to achieve the purpose of shutting down a certain module.\n\n
+          In order to provide the firmware with flexibility to control the power consumption of the system, 
+          the clock and reset module provides the clock gating function of each module in the system. 
+          When the clock of the corresponding module is turned off, the digital logic and clock tree of the module
+          will stop working, which can reduce the dynamic power consumption of the system. 
+          </description>
           <addressOffset>0x0000</addressOffset>
           <access>read-write</access>
           <resetValue>0x00007fff</resetValue>
@@ -67,7 +74,8 @@
           <fields>
             <field>
               <name>touch</name>
-              <description>Touch sensor module clock gate enable</description>
+              <description>Touch sensor module clock gate enable\n\n
+              By deafult, touch sensor module clock gate is enabled.</description>
               <bitOffset>21</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
@@ -75,27 +83,31 @@
             <!-- todo: verify qsram (offset 19) -->
             <field>
               <name>sdio</name>
-              <description>Secure digital input/output clock gate enable</description>
+              <description>Secure digital input/output clock gate enable\n\n
+              By deafult, SDIO master module clock gate is enabled.</description>
               <bitOffset>18</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <!-- todo: verify gpsec (offset 17) -->
             <field>
               <name>rsa</name>
-              <description>RSA Montgomery coprocessor clock gate enable</description>
+              <description>RSA Montgomery coprocessor clock gate enable\n\n
+              By deafult, RSA clock gate is enabled.</description>
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <field>
               <name>i2s</name>
-              <description>Inter-Integrated Sound clock gate enable</description>
+              <description>Inter-Integrated Sound clock gate enable\n\n
+              By deafult, I2S clock gate is enabled.</description>
               <bitOffset>15</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <!-- todo: verify lcd (offset 14) -->
             <field>
               <name>pwm</name>
-              <description>Pulse-width modulation module clock gate enable</description>
+              <description>Pulse-width modulation module clock gate enable\n\n
+              By deafult, PWM clock gate is enabled.</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
@@ -107,27 +119,31 @@
             </field>
             <field>
               <name>gpio</name>
-              <description>General purpose input/output clock gate enable</description>
+              <description>General purpose input/output clock gate enable\n\n
+              By deafult, GPIO clock gate is enabled.</description>
               <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <field>
               <name>timer</name>
-              <description>Timer module clock gate enable</description>
+              <description>Timer module clock gate enable\n\n
+              By deafult, timer clock gate is enabled.</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <!-- no rf clock (offset 9) on w806 -->
             <field>
               <name>dma</name>
-              <description>Direct memory access clock gate enable</description>
+              <description>Direct memory access clock gate enable\n\n
+              By deafult, DMA clock gate is enabled.</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <!-- todo: verify lspi (offset 7) -->
             <field>
               <name>uart%s</name>
-              <description>Universal asynchronous transmitter/receiver enable</description>
+              <description>Universal asynchronous transmitter/receiver enable\n\n
+              By deafult, UART clock gate is enabled.</description>
               <bitRange>[1:1]</bitRange>
               <dim>6</dim>
               <dimIncrement>1</dimIncrement>
@@ -135,7 +151,8 @@
             </field>
             <field>
               <name>i2c</name>
-              <description>Inter-Integrated Circuit module enable</description>
+              <description>Inter-Integrated Circuit module enable\n\n
+              By deafult, I2C clock gate is enabled.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
@@ -143,7 +160,11 @@
         </register>
         <register>
           <name>clock_mask</name>
-          <description>Software clock mask</description>
+          <description>Software clock mask\n\n
+          The chip adaptively turns off the clock of some functional modules according to 
+          the transition of some internal states.\n\n
+          Please do not change the configuration, otherwise it may cause system abnormality 
+          when configuring PMU function.</description>
           <addressOffset>0x0004</addressOffset>
           <access>read-write</access>
           <resetValue>0x0000007e</resetValue>
@@ -151,20 +172,29 @@
           <fields>
             <field>
               <name>cpu</name>
-              <description>Cpu domain (cpu, bus1, rom, sram) allow adaptive clock configurations</description>
+              <description>Cpu domain (cpu, bus1, rom, sram) allow adaptive clock configurations\n\n
+              Indicates whether the clock supplied to the CPU clock domain (including CPU, bus1, ROM, SRAM) 
+              can be turned off adaptively.\n\n
+              When the CPU needs to enter the WFI state, do not set the adaptive shutdown.
+              </description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <!-- bits [5:2]: reserved for internal use, do not modify -->
             <field>
               <name>sdio_ahb</name>
-              <description>Sdio-Ahb domain allow adaptive clock configurations</description>
+              <description>Sdio-Ahb domain allow adaptive clock configurations\n\n
+              Indicates whether the clock supplied to the sdio ahb clock domain can be turned off adaptively.
+              </description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <field>
               <name>pmu</name>
-              <description>Allow pmu to shutdown gate unit connected to pll output</description>
+              <description>Allow pmu to shutdown gate unit connected to pll output\n\n
+              After the clock output by PLL, there is a gate control unit. 
+              This register configuration is used to indicate whether this unit is allowed to be shut down by the PMU.
+              </description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <resetMask>0x0</resetMask>
@@ -174,7 +204,9 @@
         <!-- offset 0x0008: reserved -->
         <register>
           <name>reset_control</name>
-          <description>Software module reset control</description>
+          <description>Software module reset control\n\n
+          Note that these registers are active on zero, 
+          which means you should write zero bits to reset their corresponding peripherals.</description>
           <addressOffset>0x000C</addressOffset>
           <access>read-write</access>
           <resetValue>0xffffffff</resetValue> <!-- Todo: the manual says it's 0x01ffffff, check -->
