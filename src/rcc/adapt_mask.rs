@@ -1,22 +1,22 @@
-#[doc = "Register `clock_mask` reader"]
-pub struct R(crate::R<CLOCK_MASK_SPEC>);
+#[doc = "Register `adapt_mask` reader"]
+pub struct R(crate::R<ADAPT_MASK_SPEC>);
 impl core::ops::Deref for R {
-    type Target = crate::R<CLOCK_MASK_SPEC>;
+    type Target = crate::R<ADAPT_MASK_SPEC>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
     }
 }
-impl From<crate::R<CLOCK_MASK_SPEC>> for R {
+impl From<crate::R<ADAPT_MASK_SPEC>> for R {
     #[inline(always)]
-    fn from(reader: crate::R<CLOCK_MASK_SPEC>) -> Self {
+    fn from(reader: crate::R<ADAPT_MASK_SPEC>) -> Self {
         R(reader)
     }
 }
-#[doc = "Register `clock_mask` writer"]
-pub struct W(crate::W<CLOCK_MASK_SPEC>);
+#[doc = "Register `adapt_mask` writer"]
+pub struct W(crate::W<ADAPT_MASK_SPEC>);
 impl core::ops::Deref for W {
-    type Target = crate::W<CLOCK_MASK_SPEC>;
+    type Target = crate::W<ADAPT_MASK_SPEC>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -28,9 +28,9 @@ impl core::ops::DerefMut for W {
         &mut self.0
     }
 }
-impl From<crate::W<CLOCK_MASK_SPEC>> for W {
+impl From<crate::W<ADAPT_MASK_SPEC>> for W {
     #[inline(always)]
-    fn from(writer: crate::W<CLOCK_MASK_SPEC>) -> Self {
+    fn from(writer: crate::W<ADAPT_MASK_SPEC>) -> Self {
         W(writer)
     }
 }
@@ -239,21 +239,21 @@ impl W {
         self
     }
 }
-#[doc = "Software clock mask\n\n The chip adaptively turns off the clock of some functional modules according to the transition of some internal states.\n\n Please do not change the configuration, otherwise it may cause system abnormality when configuring PMU function.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clock_mask](index.html) module"]
-pub struct CLOCK_MASK_SPEC;
-impl crate::RegisterSpec for CLOCK_MASK_SPEC {
+#[doc = "Adaptive clock configuration mask\n\n The chip adaptively turns off the clock of some functional modules according to the transition of some internal states.\n\n Please do not change the configuration, otherwise it may cause system abnormality when configuring PMU function.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [adapt_mask](index.html) module"]
+pub struct ADAPT_MASK_SPEC;
+impl crate::RegisterSpec for ADAPT_MASK_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [clock_mask::R](R) reader structure"]
-impl crate::Readable for CLOCK_MASK_SPEC {
+#[doc = "`read()` method returns [adapt_mask::R](R) reader structure"]
+impl crate::Readable for ADAPT_MASK_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [clock_mask::W](W) writer structure"]
-impl crate::Writable for CLOCK_MASK_SPEC {
+#[doc = "`write(|w| ..)` method takes [adapt_mask::W](W) writer structure"]
+impl crate::Writable for ADAPT_MASK_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets clock_mask to value 0x7e"]
-impl crate::Resettable for CLOCK_MASK_SPEC {
+#[doc = "`reset()` method sets adapt_mask to value 0x7e"]
+impl crate::Resettable for ADAPT_MASK_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {
         0x7e

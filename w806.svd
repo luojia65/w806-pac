@@ -182,8 +182,8 @@
           </fields>
         </register>
         <register>
-          <name>clock_mask</name>
-          <description>Software clock mask\n\n
+          <name>adapt_mask</name>
+          <description>Adaptive clock configuration mask\n\n
           The chip adaptively turns off the clock of some functional modules according to 
           the transition of some internal states.\n\n
           Please do not change the configuration, otherwise it may cause system abnormality 
@@ -452,26 +452,212 @@
         </register>
         <register>
           <name>debug_control</name>
-          <description>Debug control register</description>
+          <description>Debug and additional clock control</description>
           <addressOffset>0x0014</addressOffset>
+          <access>read-write</access>
+          <resetValue>0x00000a00</resetValue>  <!-- Todo: the manual says it's 0x00000000, check -->
+          <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>jtag_enable</name>
+              <description>JTAG function enable</description>
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <enumeratedValue>
+                    <name>disable</name>
+                    <description>Disable JTAG debug function.</description>
+                    <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                    <name>enable</name>
+                    <description>Enable JTAG debug function.</description>
+                    <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>adc_divide</name>
+              <description>Sigma-Delta Analog-digital Converter frequency division factor\n\n
+              After writing to this field, set bit `update` of register `clock_divide` to take effect.</description>
+              <bitRange>[15:8]</bitRange>
+            </field>
+            <!-- bit 7 is reserved -->
+            <field>
+              <name>qflash_select</name>
+              <description>QSPI Flash clock source selection</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <enumeratedValue>
+                    <name>mhz_80</name>
+                    <description>Use 80 MHz.</description>
+                    <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                    <name>mhz_40</name>
+                    <description>Use 40 MHz.</description>
+                    <value>0</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>gpsec_select</name>
+              <description>GPSEC clock source selection</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <enumeratedValue>
+                    <name>mhz_160</name>
+                    <description>Use 160 MHz.</description>
+                    <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                    <name>mhz_80</name>
+                    <description>Use 80 MHz.</description>
+                    <value>0</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>rsa_select</name>
+              <description>RSA clock source selection</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <enumeratedValue>
+                    <name>mhz_160</name>
+                    <description>Use 160 MHz.</description>
+                    <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                    <name>mhz_80</name>
+                    <description>Use 80 MHz.</description>
+                    <value>0</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <!-- bits [3:0] are reserved -->
           </fields>
         </register>
         <register>
           <name>i2s_clock</name>
           <description>Inter-Integrated Sound clock configuration</description>
           <addressOffset>0x0018</addressOffset>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0x0003ffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <!-- bits [31:18] are reserved -->
+            <field>
+              <name>bclk_divide</name>
+              <description>BCLK clock divide factor</description>
+              <bitRange>[17:8]</bitRange>
+            </field>
+            <field>
+              <name>mclk_divide</name>
+              <description>MCLK clock divide factor</description>
+              <bitRange>[7:2]</bitRange>
+            </field>
+            <field>
+              <name>mclk_enable</name>
+              <description>MCLK clock enable</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>disable</name>
+                  <description>MCLK is disabled.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>enable</name>
+                  <description>MCLK is enabled.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>clock_source</name>
+              <description>Use internal I2S clock or external XTAL clock</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>internal</name>
+                  <description>Use internal clock.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>external</name>
+                  <description>Use external XTAL clock.\n\n
+                  External clock frequency should be 2 * N * 256 fs, where fs is 
+                  sample frequency and N must be an integer.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
           </fields>
         </register>
         <register>
           <name>reset_state</name>
-          <description>Reset state register</description>
+          <description>CPU and watchdog reset state register</description>
           <addressOffset>0x001C</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0x0003ffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <!-- bits [31:18] are reserved -->
+            <field>
+              <name>cpu</name>
+              <description>Write 1 to clear CPU soft reset state.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+              <enumeratedValues> 
+                <name>WriteOneClear</name>
+                <enumeratedValue>
+                  <name>perform</name>
+                  <description>Write 1 to clear reset state.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>watchdog</name>
+              <description>Write 1 to clear watchdog soft reset state.</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+              <enumeratedValues derivedFrom="WriteOneClear" /> 
+            </field>
+            <field>
+              <name>cpu</name>
+              <description>Reads if cpu has been software reset.</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+              <enumeratedValues> 
+                <name>ResetState</name>
+                <enumeratedValue>
+                  <name>has_reset</name>
+                  <description>Reset has procceeded.</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>no_reset</name>
+                  <description>No reset have been procceeded.</description>
+                  <value>0</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>watchdog</name>
+              <description>Reads if watchdog has been software reset.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+              <enumeratedValues derivedFrom="ResetState" /> 
+            </field>
           </fields>
         </register>
       </registers>
