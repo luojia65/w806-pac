@@ -34,15 +34,47 @@ impl From<crate::W<RESET_CONTROL_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Touch sensor module reset\n\nValue on reset: 1"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum TOUCH_A {
+    #[doc = "0: Reset the corresponding peripheral."]
+    RESET = 0,
+    #[doc = "1: Release the reset state the corresponding peripheral."]
+    RELEASE = 1,
+}
+impl From<TOUCH_A> for bool {
+    #[inline(always)]
+    fn from(variant: TOUCH_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `touch` reader - Touch sensor module reset"]
-pub struct TOUCH_R(crate::FieldReader<bool, bool>);
+pub struct TOUCH_R(crate::FieldReader<bool, TOUCH_A>);
 impl TOUCH_R {
     pub(crate) fn new(bits: bool) -> Self {
         TOUCH_R(crate::FieldReader::new(bits))
     }
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> TOUCH_A {
+        match self.bits {
+            false => TOUCH_A::RESET,
+            true => TOUCH_A::RELEASE,
+        }
+    }
+    #[doc = "Checks if the value of the field is `RESET`"]
+    #[inline(always)]
+    pub fn is_reset(&self) -> bool {
+        **self == TOUCH_A::RESET
+    }
+    #[doc = "Checks if the value of the field is `RELEASE`"]
+    #[inline(always)]
+    pub fn is_release(&self) -> bool {
+        **self == TOUCH_A::RELEASE
+    }
 }
 impl core::ops::Deref for TOUCH_R {
-    type Target = crate::FieldReader<bool, bool>;
+    type Target = crate::FieldReader<bool, TOUCH_A>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -53,6 +85,21 @@ pub struct TOUCH_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TOUCH_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TOUCH_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Reset the corresponding peripheral."]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut W {
+        self.variant(TOUCH_A::RESET)
+    }
+    #[doc = "Release the reset state the corresponding peripheral."]
+    #[inline(always)]
+    pub fn release(self) -> &'a mut W {
+        self.variant(TOUCH_A::RELEASE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -70,25 +117,30 @@ impl<'a> TOUCH_W<'a> {
         self.w
     }
 }
+#[doc = "Flash controller module reset"]
+pub type FLASH_A = TOUCH_A;
 #[doc = "Field `flash` reader - Flash controller module reset"]
-pub struct FLASH_R(crate::FieldReader<bool, bool>);
-impl FLASH_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        FLASH_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for FLASH_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type FLASH_R = TOUCH_R;
 #[doc = "Field `flash` writer - Flash controller module reset"]
 pub struct FLASH_W<'a> {
     w: &'a mut W,
 }
 impl<'a> FLASH_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: FLASH_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Reset the corresponding peripheral."]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut W {
+        self.variant(FLASH_A::RESET)
+    }
+    #[doc = "Release the reset state the corresponding peripheral."]
+    #[inline(always)]
+    pub fn release(self) -> &'a mut W {
+        self.variant(FLASH_A::RELEASE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -106,25 +158,30 @@ impl<'a> FLASH_W<'a> {
         self.w
     }
 }
+#[doc = "RSA Montgomery coprocessor module reset"]
+pub type RSA_A = TOUCH_A;
 #[doc = "Field `rsa` reader - RSA Montgomery coprocessor module reset"]
-pub struct RSA_R(crate::FieldReader<bool, bool>);
-impl RSA_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        RSA_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for RSA_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type RSA_R = TOUCH_R;
 #[doc = "Field `rsa` writer - RSA Montgomery coprocessor module reset"]
 pub struct RSA_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RSA_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RSA_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Reset the corresponding peripheral."]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut W {
+        self.variant(RSA_A::RESET)
+    }
+    #[doc = "Release the reset state the corresponding peripheral."]
+    #[inline(always)]
+    pub fn release(self) -> &'a mut W {
+        self.variant(RSA_A::RELEASE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -142,25 +199,30 @@ impl<'a> RSA_W<'a> {
         self.w
     }
 }
+#[doc = "Inter-Integrated Sound module reset"]
+pub type I2S_A = TOUCH_A;
 #[doc = "Field `i2s` reader - Inter-Integrated Sound module reset"]
-pub struct I2S_R(crate::FieldReader<bool, bool>);
-impl I2S_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        I2S_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for I2S_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type I2S_R = TOUCH_R;
 #[doc = "Field `i2s` writer - Inter-Integrated Sound module reset"]
 pub struct I2S_W<'a> {
     w: &'a mut W,
 }
 impl<'a> I2S_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: I2S_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Reset the corresponding peripheral."]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut W {
+        self.variant(I2S_A::RESET)
+    }
+    #[doc = "Release the reset state the corresponding peripheral."]
+    #[inline(always)]
+    pub fn release(self) -> &'a mut W {
+        self.variant(I2S_A::RELEASE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -178,25 +240,30 @@ impl<'a> I2S_W<'a> {
         self.w
     }
 }
+#[doc = "Pulse-width modulation module reset"]
+pub type PWM_A = TOUCH_A;
 #[doc = "Field `pwm` reader - Pulse-width modulation module reset"]
-pub struct PWM_R(crate::FieldReader<bool, bool>);
-impl PWM_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        PWM_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for PWM_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type PWM_R = TOUCH_R;
 #[doc = "Field `pwm` writer - Pulse-width modulation module reset"]
 pub struct PWM_W<'a> {
     w: &'a mut W,
 }
 impl<'a> PWM_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PWM_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Reset the corresponding peripheral."]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut W {
+        self.variant(PWM_A::RESET)
+    }
+    #[doc = "Release the reset state the corresponding peripheral."]
+    #[inline(always)]
+    pub fn release(self) -> &'a mut W {
+        self.variant(PWM_A::RELEASE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -214,25 +281,30 @@ impl<'a> PWM_W<'a> {
         self.w
     }
 }
+#[doc = "Sar-adc module reset"]
+pub type ADC_A = TOUCH_A;
 #[doc = "Field `adc` reader - Sar-adc module reset"]
-pub struct ADC_R(crate::FieldReader<bool, bool>);
-impl ADC_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        ADC_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for ADC_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type ADC_R = TOUCH_R;
 #[doc = "Field `adc` writer - Sar-adc module reset"]
 pub struct ADC_W<'a> {
     w: &'a mut W,
 }
 impl<'a> ADC_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: ADC_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Reset the corresponding peripheral."]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut W {
+        self.variant(ADC_A::RESET)
+    }
+    #[doc = "Release the reset state the corresponding peripheral."]
+    #[inline(always)]
+    pub fn release(self) -> &'a mut W {
+        self.variant(ADC_A::RELEASE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -250,25 +322,30 @@ impl<'a> ADC_W<'a> {
         self.w
     }
 }
+#[doc = "Timer module reset"]
+pub type TIMER_A = TOUCH_A;
 #[doc = "Field `timer` reader - Timer module reset"]
-pub struct TIMER_R(crate::FieldReader<bool, bool>);
-impl TIMER_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        TIMER_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for TIMER_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type TIMER_R = TOUCH_R;
 #[doc = "Field `timer` writer - Timer module reset"]
 pub struct TIMER_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TIMER_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TIMER_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Reset the corresponding peripheral."]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut W {
+        self.variant(TIMER_A::RESET)
+    }
+    #[doc = "Release the reset state the corresponding peripheral."]
+    #[inline(always)]
+    pub fn release(self) -> &'a mut W {
+        self.variant(TIMER_A::RELEASE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -286,25 +363,30 @@ impl<'a> TIMER_W<'a> {
         self.w
     }
 }
+#[doc = "Gpio module reset"]
+pub type GPIO_A = TOUCH_A;
 #[doc = "Field `gpio` reader - Gpio module reset"]
-pub struct GPIO_R(crate::FieldReader<bool, bool>);
-impl GPIO_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        GPIO_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for GPIO_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type GPIO_R = TOUCH_R;
 #[doc = "Field `gpio` writer - Gpio module reset"]
 pub struct GPIO_W<'a> {
     w: &'a mut W,
 }
 impl<'a> GPIO_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: GPIO_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Reset the corresponding peripheral."]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut W {
+        self.variant(GPIO_A::RESET)
+    }
+    #[doc = "Release the reset state the corresponding peripheral."]
+    #[inline(always)]
+    pub fn release(self) -> &'a mut W {
+        self.variant(GPIO_A::RELEASE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -322,26 +404,31 @@ impl<'a> GPIO_W<'a> {
         self.w
     }
 }
+#[doc = "Universal asynchronous transmitter/receiver reset"]
+pub type UART_A = TOUCH_A;
 #[doc = "Fields `uart(0-5)` reader - Universal asynchronous transmitter/receiver reset"]
-pub struct UART_R(crate::FieldReader<bool, bool>);
-impl UART_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        UART_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for UART_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type UART_R = TOUCH_R;
 #[doc = "Fields `uart(0-5)` writer - Universal asynchronous transmitter/receiver reset"]
 pub struct UART_W<'a> {
     w: &'a mut W,
     offset: usize,
 }
 impl<'a> UART_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: UART_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Reset the corresponding peripheral."]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut W {
+        self.variant(UART_A::RESET)
+    }
+    #[doc = "Release the reset state the corresponding peripheral."]
+    #[inline(always)]
+    pub fn release(self) -> &'a mut W {
+        self.variant(UART_A::RELEASE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -360,25 +447,30 @@ impl<'a> UART_W<'a> {
         self.w
     }
 }
+#[doc = "Inter-Integrated Circuit module reset"]
+pub type I2C_A = TOUCH_A;
 #[doc = "Field `i2c` reader - Inter-Integrated Circuit module reset"]
-pub struct I2C_R(crate::FieldReader<bool, bool>);
-impl I2C_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        I2C_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for I2C_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type I2C_R = TOUCH_R;
 #[doc = "Field `i2c` writer - Inter-Integrated Circuit module reset"]
 pub struct I2C_W<'a> {
     w: &'a mut W,
 }
 impl<'a> I2C_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: I2C_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Reset the corresponding peripheral."]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut W {
+        self.variant(I2C_A::RESET)
+    }
+    #[doc = "Release the reset state the corresponding peripheral."]
+    #[inline(always)]
+    pub fn release(self) -> &'a mut W {
+        self.variant(I2C_A::RELEASE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -396,26 +488,31 @@ impl<'a> I2C_W<'a> {
         self.w
     }
 }
+#[doc = "Internal bus reset"]
+pub type BUS_A = TOUCH_A;
 #[doc = "Fields `bus(0-1)` reader - Internal bus reset"]
-pub struct BUS_R(crate::FieldReader<bool, bool>);
-impl BUS_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        BUS_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for BUS_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type BUS_R = TOUCH_R;
 #[doc = "Fields `bus(0-1)` writer - Internal bus reset"]
 pub struct BUS_W<'a> {
     w: &'a mut W,
     offset: usize,
 }
 impl<'a> BUS_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: BUS_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Reset the corresponding peripheral."]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut W {
+        self.variant(BUS_A::RESET)
+    }
+    #[doc = "Release the reset state the corresponding peripheral."]
+    #[inline(always)]
+    pub fn release(self) -> &'a mut W {
+        self.variant(BUS_A::RELEASE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -434,25 +531,30 @@ impl<'a> BUS_W<'a> {
         self.w
     }
 }
+#[doc = "APB bridge module reset"]
+pub type APB_A = TOUCH_A;
 #[doc = "Field `apb` reader - APB bridge module reset"]
-pub struct APB_R(crate::FieldReader<bool, bool>);
-impl APB_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        APB_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for APB_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type APB_R = TOUCH_R;
 #[doc = "Field `apb` writer - APB bridge module reset"]
 pub struct APB_W<'a> {
     w: &'a mut W,
 }
 impl<'a> APB_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: APB_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Reset the corresponding peripheral."]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut W {
+        self.variant(APB_A::RESET)
+    }
+    #[doc = "Release the reset state the corresponding peripheral."]
+    #[inline(always)]
+    pub fn release(self) -> &'a mut W {
+        self.variant(APB_A::RELEASE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -470,25 +572,30 @@ impl<'a> APB_W<'a> {
         self.w
     }
 }
+#[doc = "Direct memory access module reset"]
+pub type DMA_A = TOUCH_A;
 #[doc = "Field `dma` reader - Direct memory access module reset"]
-pub struct DMA_R(crate::FieldReader<bool, bool>);
-impl DMA_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        DMA_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for DMA_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type DMA_R = TOUCH_R;
 #[doc = "Field `dma` writer - Direct memory access module reset"]
 pub struct DMA_W<'a> {
     w: &'a mut W,
 }
 impl<'a> DMA_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: DMA_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Reset the corresponding peripheral."]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut W {
+        self.variant(DMA_A::RESET)
+    }
+    #[doc = "Release the reset state the corresponding peripheral."]
+    #[inline(always)]
+    pub fn release(self) -> &'a mut W {
+        self.variant(DMA_A::RELEASE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -506,25 +613,30 @@ impl<'a> DMA_W<'a> {
         self.w
     }
 }
+#[doc = "Sdio-Ahb clock domain reset"]
+pub type SDIO_AHB_A = TOUCH_A;
 #[doc = "Field `sdio_ahb` reader - Sdio-Ahb clock domain reset"]
-pub struct SDIO_AHB_R(crate::FieldReader<bool, bool>);
-impl SDIO_AHB_R {
-    pub(crate) fn new(bits: bool) -> Self {
-        SDIO_AHB_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for SDIO_AHB_R {
-    type Target = crate::FieldReader<bool, bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub type SDIO_AHB_R = TOUCH_R;
 #[doc = "Field `sdio_ahb` writer - Sdio-Ahb clock domain reset"]
 pub struct SDIO_AHB_W<'a> {
     w: &'a mut W,
 }
 impl<'a> SDIO_AHB_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SDIO_AHB_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Reset the corresponding peripheral."]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut W {
+        self.variant(SDIO_AHB_A::RESET)
+    }
+    #[doc = "Release the reset state the corresponding peripheral."]
+    #[inline(always)]
+    pub fn release(self) -> &'a mut W {
+        self.variant(SDIO_AHB_A::RELEASE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {

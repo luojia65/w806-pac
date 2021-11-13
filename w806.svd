@@ -254,12 +254,26 @@
               <description>Touch sensor module reset</description>
               <bitOffset>31</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>ResetControl</name>
+                <enumeratedValue>
+                    <name>reset</name>
+                    <description>Reset the corresponding peripheral.</description>
+                    <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                    <name>release</name>
+                    <description>Release the reset state the corresponding peripheral.</description>
+                    <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>flash</name>
               <description>Flash controller module reset</description>
               <bitOffset>30</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ResetControl" />
             </field>
             <!-- no bt reset (offset 29) on w806 -->
             <!-- todo: verify qspi (offset 28) -->
@@ -270,12 +284,14 @@
               <description>RSA Montgomery coprocessor module reset</description>
               <bitOffset>25</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ResetControl" />
             </field>
             <field>
               <name>i2s</name>
               <description>Inter-Integrated Sound module reset</description>
               <bitOffset>24</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ResetControl" />
             </field>
             <!-- todo: verify lcd (offset 23) -->
             <field>
@@ -283,24 +299,28 @@
               <description>Pulse-width modulation module reset</description>
               <bitOffset>22</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ResetControl" />
             </field>
             <field>
               <name>adc</name>
               <description>Sar-adc module reset</description>
               <bitOffset>21</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ResetControl" />
             </field>
             <field>
               <name>timer</name>
               <description>Timer module reset</description>
               <bitOffset>20</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ResetControl" />
             </field>
             <field>
               <name>gpio</name>
               <description>Gpio module reset</description>
               <bitOffset>19</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ResetControl" />
             </field>
             <!-- no rf reset (offset 18) on w806 -->
             <!-- todo: verify spis (offset 17) -->
@@ -312,12 +332,14 @@
               <dim>6</dim>
               <dimIncrement>1</dimIncrement>
               <dimIndex>0-5</dimIndex>
+              <enumeratedValues derivedFrom="ResetControl" />
             </field>
             <field>
               <name>i2c</name>
               <description>Inter-Integrated Circuit module reset</description>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ResetControl" />
             </field>
             <field>
               <name>bus%s</name>
@@ -326,12 +348,14 @@
               <dim>2</dim>
               <dimIncrement>1</dimIncrement>
               <dimIndex>0-1</dimIndex>
+              <enumeratedValues derivedFrom="ResetControl" />
             </field>
             <field>
               <name>apb</name>
               <description>APB bridge module reset</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ResetControl" />
             </field>
             <!-- rst mem mng (offset 5) is reserved for internal use, do not modify -->
             <field>
@@ -339,12 +363,14 @@
               <description>Direct memory access module reset</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ResetControl" />
             </field>
             <field>
               <name>sdio_ahb</name>
               <description>Sdio-Ahb clock domain reset</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ResetControl" />
             </field>
             <!-- rst sec (offset 2) is reserved for internal use, do not modify -->
             <!-- rst mac (offset 1) is reserved for internal use, do not modify -->
