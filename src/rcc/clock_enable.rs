@@ -615,7 +615,7 @@ impl W {
         self
     }
 }
-#[doc = "Software configure clock gate enable\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clock_enable](index.html) module"]
+#[doc = "Software configure clock gate enable\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clock_enable](index.html) module"]
 pub struct CLOCK_ENABLE_SPEC;
 impl crate::RegisterSpec for CLOCK_ENABLE_SPEC {
     type Ux = u32;
@@ -627,4 +627,11 @@ impl crate::Readable for CLOCK_ENABLE_SPEC {
 #[doc = "`write(|w| ..)` method takes [clock_enable::W](W) writer structure"]
 impl crate::Writable for CLOCK_ENABLE_SPEC {
     type Writer = W;
+}
+#[doc = "`reset()` method sets clock_enable to value 0x7fff"]
+impl crate::Resettable for CLOCK_ENABLE_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x7fff
+    }
 }

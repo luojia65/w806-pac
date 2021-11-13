@@ -182,7 +182,7 @@ impl W {
         self
     }
 }
-#[doc = "Software clock mask\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clock_mask](index.html) module"]
+#[doc = "Software clock mask\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clock_mask](index.html) module"]
 pub struct CLOCK_MASK_SPEC;
 impl crate::RegisterSpec for CLOCK_MASK_SPEC {
     type Ux = u32;
@@ -194,4 +194,11 @@ impl crate::Readable for CLOCK_MASK_SPEC {
 #[doc = "`write(|w| ..)` method takes [clock_mask::W](W) writer structure"]
 impl crate::Writable for CLOCK_MASK_SPEC {
     type Writer = W;
+}
+#[doc = "`reset()` method sets clock_mask to value 0x7e"]
+impl crate::Resettable for CLOCK_MASK_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x7e
+    }
 }

@@ -4,8 +4,19 @@
   <name>W806</name>
   <version>1.0</version>
   <description>W806 general purpose microcontroller</description>
+  <licenseText>
+    Copyright (c) 2021 Rustcc Embedded Wechat Group
+    W806-SVD is licensed under Mulan PSL v2.
+    You can use this software according to the terms and conditions of the Mulan PSL v2.
+    You may obtain a copy of Mulan PSL v2 at:
+            http://license.coscl.org.cn/MulanPSL2
+    THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY KIND,
+    EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT,
+    MERCHANTABILITY OR FIT FOR A PARTICULAR PURPOSE.
+    See the Mulan PSL v2 for more details.
+  </licenseText>
   
-  <addressUnitBits>8</addressUnitBits> <!-- todo: verify -->
+  <addressUnitBits>8</addressUnitBits> <!-- byte addressable -->
   <width>32</width>
   <size>32</size>
   <access>read-write</access>
@@ -51,13 +62,14 @@
           <description>Software configure clock gate enable</description>
           <addressOffset>0x0000</addressOffset>
           <access>read-write</access>
+          <resetValue>0x00007fff</resetValue>
+          <resetMask>0x00007fff</resetMask>
           <fields>
             <field>
               <name>touch</name>
               <description>Touch sensor module clock gate enable</description>
               <bitOffset>21</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
             </field>
             <!-- no bluetooth clock (offset 20) w806 -->
             <!-- todo: verify qsram (offset 19) -->
@@ -66,7 +78,6 @@
               <description>Secure digital input/output clock gate enable</description>
               <bitOffset>18</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
             </field>
             <!-- todo: verify gpsec (offset 17) -->
             <field>
@@ -74,14 +85,12 @@
               <description>RSA Montgomery coprocessor clock gate enable</description>
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
             </field>
             <field>
               <name>i2s</name>
               <description>Inter-Integrated Sound clock gate enable</description>
               <bitOffset>15</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
             </field>
             <!-- todo: verify lcd (offset 14) -->
             <field>
@@ -89,28 +98,24 @@
               <description>Pulse-width modulation module clock gate enable</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
             </field>
             <field>
               <name>adc</name>
               <description>Analog-digital converter clock gate enable</description>
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
             </field>
             <field>
               <name>gpio</name>
               <description>General purpose input/output clock gate enable</description>
               <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
             </field>
             <field>
               <name>timer</name>
               <description>Timer module clock gate enable</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
             </field>
             <!-- no rf clock (offset 9) on w806 -->
             <field>
@@ -118,14 +123,12 @@
               <description>Direct memory access clock gate enable</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
             </field>
             <!-- todo: verify lspi (offset 7) -->
             <field>
               <name>uart%s</name>
               <description>Universal asynchronous transmitter/receiver enable</description>
               <bitRange>[1:1]</bitRange>
-              <resetMask>0x1</resetMask>
               <dim>6</dim>
               <dimIncrement>1</dimIncrement>
               <dimIndex>0-5</dimIndex>
@@ -135,7 +138,6 @@
               <description>Inter-Integrated Circuit module enable</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
             </field>
           </fields>
         </register>
@@ -144,13 +146,14 @@
           <description>Software clock mask</description>
           <addressOffset>0x0004</addressOffset>
           <access>read-write</access>
+          <resetValue>0x0000007e</resetValue>
+          <resetMask>0x0000007f</resetMask>
           <fields>
             <field>
               <name>cpu</name>
               <description>Cpu domain (cpu, bus1, rom, sram) allow adaptive clock configurations</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
             </field>
             <!-- bits [5:2]: reserved for internal use, do not modify -->
             <field>
@@ -158,7 +161,6 @@
               <description>Sdio-Ahb domain allow adaptive clock configurations</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
             </field>
             <field>
               <name>pmu</name>
@@ -175,20 +177,20 @@
           <description>Software module reset control</description>
           <addressOffset>0x000C</addressOffset>
           <access>read-write</access>
+          <resetValue>0xffffffff</resetValue> <!-- Todo: the manual says it's 0x01ffffff, check -->
+          <resetMask>0xffffffff</resetMask>
           <fields>
             <field>
               <name>touch</name>
               <description>Touch sensor module reset</description>
               <bitOffset>31</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
             </field>
             <field>
               <name>flash</name>
               <description>Flash controller module reset</description>
               <bitOffset>30</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
             </field>
             <!-- no bt reset (offset 29) on w806 -->
             <!-- todo: verify qspi (offset 28) -->
@@ -199,14 +201,12 @@
               <description>RSA Montgomery coprocessor module reset</description>
               <bitOffset>25</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
             </field>
             <field>
               <name>i2s</name>
               <description>Inter-Integrated Sound module reset</description>
               <bitOffset>24</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
             </field>
             <!-- todo: verify lcd (offset 23) -->
             <field>
@@ -214,28 +214,24 @@
               <description>Pulse-width modulation module reset</description>
               <bitOffset>22</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
             </field>
             <field>
               <name>adc</name>
               <description>Sar-adc module reset</description>
               <bitOffset>21</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
             </field>
             <field>
               <name>timer</name>
               <description>Timer module reset</description>
               <bitOffset>20</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
             </field>
             <field>
               <name>gpio</name>
               <description>Gpio module reset</description>
               <bitOffset>19</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
             </field>
             <!-- no rf reset (offset 18) on w806 -->
             <!-- todo: verify spis (offset 17) -->
@@ -244,7 +240,6 @@
               <name>uart%s</name>
               <description>Universal asynchronous transmitter/receiver reset</description>
               <bitRange>[10:10]</bitRange>
-              <resetMask>0x1</resetMask>
               <dim>6</dim>
               <dimIncrement>1</dimIncrement>
               <dimIndex>0-5</dimIndex>
@@ -254,13 +249,11 @@
               <description>Inter-Integrated Circuit module reset</description>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
             </field>
             <field>
               <name>bus%s</name>
               <description>Internal bus reset</description>
               <bitRange>[7:7]</bitRange>
-              <resetMask>0x1</resetMask>
               <dim>2</dim>
               <dimIncrement>1</dimIncrement>
               <dimIndex>0-1</dimIndex>
@@ -270,7 +263,6 @@
               <description>APB bridge module reset</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
             </field>
             <!-- rst mem mng (offset 5) is reserved for internal use, do not modify -->
             <field>
@@ -278,14 +270,12 @@
               <description>Direct memory access module reset</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
             </field>
             <field>
               <name>sdio_ahb</name>
               <description>Sdio-Ahb clock domain reset</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
-              <resetMask>0x1</resetMask>
             </field>
             <!-- rst sec (offset 2) is reserved for internal use, do not modify -->
             <!-- rst mac (offset 1) is reserved for internal use, do not modify -->

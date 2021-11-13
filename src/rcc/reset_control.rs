@@ -796,7 +796,7 @@ impl W {
         self
     }
 }
-#[doc = "Software module reset control\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [reset_control](index.html) module"]
+#[doc = "Software module reset control\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [reset_control](index.html) module"]
 pub struct RESET_CONTROL_SPEC;
 impl crate::RegisterSpec for RESET_CONTROL_SPEC {
     type Ux = u32;
@@ -808,4 +808,11 @@ impl crate::Readable for RESET_CONTROL_SPEC {
 #[doc = "`write(|w| ..)` method takes [reset_control::W](W) writer structure"]
 impl crate::Writable for RESET_CONTROL_SPEC {
     type Writer = W;
+}
+#[doc = "`reset()` method sets reset_control to value 0xffff_ffff"]
+impl crate::Resettable for RESET_CONTROL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0xffff_ffff
+    }
 }
