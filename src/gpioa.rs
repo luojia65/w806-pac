@@ -9,11 +9,11 @@ pub struct RegisterBlock {
     pub direction: crate::Reg<direction::DIRECTION_SPEC>,
     #[doc = "0x0c - Internal pull up mask register"]
     pub pull_up: crate::Reg<pull_up::PULL_UP_SPEC>,
-    #[doc = "0x10 - Alternate function enable register"]
-    pub function_enable: crate::Reg<function_enable::FUNCTION_ENABLE_SPEC>,
-    #[doc = "0x14 - Alternate function select high register"]
+    #[doc = "0x10 - Alternate function enable register\n\n Each bit corresponds to whether the corresponding GPIO multiplexing function is turned on.\n\n When the bit is set, the multiplexing function depends on the corresponding bits of registers `function_high` and `function_low`."]
+    pub alternate_enable: crate::Reg<alternate_enable::ALTERNATE_ENABLE_SPEC>,
+    #[doc = "0x14 - Alternate function select high register\n\n This register and `function_low` jointly determine multiplexing function number."]
     pub function_high: crate::Reg<function_high::FUNCTION_HIGH_SPEC>,
-    #[doc = "0x18 - Alternate function select low register"]
+    #[doc = "0x18 - Alternate function select low register\n\n This register and `function_high` jointly determine multiplexing function number."]
     pub function_low: crate::Reg<function_low::FUNCTION_LOW_SPEC>,
     #[doc = "0x1c - Internal pull down register"]
     pub pull_down: crate::Reg<pull_down::PULL_DOWN_SPEC>,
@@ -25,7 +25,7 @@ pub struct RegisterBlock {
     pub trigger_edge_level: crate::Reg<trigger_edge_level::TRIGGER_EDGE_LEVEL_SPEC>,
     #[doc = "0x2c - Interrupt enable register"]
     pub interrupt_enable: crate::Reg<interrupt_enable::INTERRUPT_ENABLE_SPEC>,
-    #[doc = "0x30 - Raw interrupt state register"]
+    #[doc = "0x30 - Raw interrupt state register\n\n GPIO bare interrupt status before masking."]
     pub interrupt_state_raw: crate::Reg<interrupt_state_raw::INTERRUPT_STATE_RAW_SPEC>,
     #[doc = "0x34 - Masked interrupt state register"]
     pub interrupt_state: crate::Reg<interrupt_state::INTERRUPT_STATE_SPEC>,
@@ -48,17 +48,17 @@ pub mod direction;
 pub type PULL_UP = crate::Reg<pull_up::PULL_UP_SPEC>;
 #[doc = "Internal pull up mask register"]
 pub mod pull_up;
-#[doc = "function_enable register accessor: an alias for `Reg<FUNCTION_ENABLE_SPEC>`"]
-pub type FUNCTION_ENABLE = crate::Reg<function_enable::FUNCTION_ENABLE_SPEC>;
-#[doc = "Alternate function enable register"]
-pub mod function_enable;
+#[doc = "alternate_enable register accessor: an alias for `Reg<ALTERNATE_ENABLE_SPEC>`"]
+pub type ALTERNATE_ENABLE = crate::Reg<alternate_enable::ALTERNATE_ENABLE_SPEC>;
+#[doc = "Alternate function enable register\n\n Each bit corresponds to whether the corresponding GPIO multiplexing function is turned on.\n\n When the bit is set, the multiplexing function depends on the corresponding bits of registers `function_high` and `function_low`."]
+pub mod alternate_enable;
 #[doc = "function_high register accessor: an alias for `Reg<FUNCTION_HIGH_SPEC>`"]
 pub type FUNCTION_HIGH = crate::Reg<function_high::FUNCTION_HIGH_SPEC>;
-#[doc = "Alternate function select high register"]
+#[doc = "Alternate function select high register\n\n This register and `function_low` jointly determine multiplexing function number."]
 pub mod function_high;
 #[doc = "function_low register accessor: an alias for `Reg<FUNCTION_LOW_SPEC>`"]
 pub type FUNCTION_LOW = crate::Reg<function_low::FUNCTION_LOW_SPEC>;
-#[doc = "Alternate function select low register"]
+#[doc = "Alternate function select low register\n\n This register and `function_high` jointly determine multiplexing function number."]
 pub mod function_low;
 #[doc = "pull_down register accessor: an alias for `Reg<PULL_DOWN_SPEC>`"]
 pub type PULL_DOWN = crate::Reg<pull_down::PULL_DOWN_SPEC>;
@@ -82,7 +82,7 @@ pub type INTERRUPT_ENABLE = crate::Reg<interrupt_enable::INTERRUPT_ENABLE_SPEC>;
 pub mod interrupt_enable;
 #[doc = "interrupt_state_raw register accessor: an alias for `Reg<INTERRUPT_STATE_RAW_SPEC>`"]
 pub type INTERRUPT_STATE_RAW = crate::Reg<interrupt_state_raw::INTERRUPT_STATE_RAW_SPEC>;
-#[doc = "Raw interrupt state register"]
+#[doc = "Raw interrupt state register\n\n GPIO bare interrupt status before masking."]
 pub mod interrupt_state_raw;
 #[doc = "interrupt_state register accessor: an alias for `Reg<INTERRUPT_STATE_SPEC>`"]
 pub type INTERRUPT_STATE = crate::Reg<interrupt_state::INTERRUPT_STATE_SPEC>;

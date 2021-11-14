@@ -835,147 +835,384 @@
           <resetValue>0x0000180b</resetValue>
           <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>pin%s</name>
+              <description>GPIO pin current data value</description>
+              <bitRange>[0:0]</bitRange>
+              <dim>16</dim>
+              <dimIncrement>1</dimIncrement>
+            </field>
           </fields>
         </register>
         <register>
           <name>data_enable</name>
           <description>GPIO data read/write enable register</description>
           <addressOffset>0x0004</addressOffset>
-          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <access>read-write</access>
+          <resetValue>0x0000ffff</resetValue> 
           <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>pin%s</name>
+              <description>GPIO pin read/write enable</description>
+              <bitRange>[0:0]</bitRange>
+              <dim>16</dim>
+              <dimIncrement>1</dimIncrement>
+            </field>
           </fields>
         </register>
         <register>
           <name>direction</name>
           <description>GPIO direction register</description>
           <addressOffset>0x0008</addressOffset>
-          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
           <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>pin%s</name>
+              <description>GPIO pin read/write enable</description>
+              <bitRange>[0:0]</bitRange>
+              <dim>16</dim>
+              <dimIncrement>1</dimIncrement>
+              <enumeratedValues>
+                <enumeratedValue>
+                    <name>input</name>
+                    <description>The GPIO pin is input.</description>
+                    <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                    <name>output</name>
+                    <description>The GPIO pin is output.</description>
+                    <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
           </fields>
         </register>
         <register>
           <name>pull_up</name>
           <description>Internal pull up mask register</description>
           <addressOffset>0x000C</addressOffset>
-          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <access>read-write</access>
+          <resetValue>0x0000ffff</resetValue>
           <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>pin%s</name>
+              <description>Internal pull up enable mask\n\nWrite 0 to enable.</description>
+              <bitRange>[0:0]</bitRange>
+              <dim>16</dim>
+              <dimIncrement>1</dimIncrement>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>enable</name>
+                  <description>Internal pull up enabled.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>disable</name>
+                  <description>Internal pull up disabled.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
           </fields>
         </register>
         <register>
-          <name>function_enable</name>
-          <description>Alternate function enable register</description>
+          <name>alternate_enable</name>
+          <description>Alternate function enable register\n\n
+          Each bit corresponds to whether the corresponding GPIO multiplexing function is turned on.\n\n
+          When the bit is set, the multiplexing function depends on the corresponding bits of registers
+          `function_high` and `function_low`.</description>
           <addressOffset>0x0010</addressOffset>
-          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <access>read-write</access>
+          <resetValue>0x0000ffff</resetValue>
           <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>pin%s</name>
+              <description>Alternate function enable.</description>
+              <bitRange>[0:0]</bitRange>
+              <dim>16</dim>
+              <dimIncrement>1</dimIncrement>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>disable</name>
+                  <description>Disable alternate function.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>enable</name>
+                  <description>Enable alternate function.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
           </fields>
         </register>
         <register>
           <name>function_high</name>
-          <description>Alternate function select high register</description>
+          <description>Alternate function select high register\n\n
+          This register and `function_low` jointly determine multiplexing function number.</description>
           <addressOffset>0x0014</addressOffset>
-          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
           <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>pin%s</name>
+              <description>Alternate function high bit.</description>
+              <bitRange>[0:0]</bitRange>
+              <dim>16</dim>
+              <dimIncrement>1</dimIncrement>
+            </field>
           </fields>
         </register>
         <register>
           <name>function_low</name>
-          <description>Alternate function select low register</description>
+          <description>Alternate function select low register\n\n
+          This register and `function_high` jointly determine multiplexing function number.</description>
           <addressOffset>0x0018</addressOffset>
-          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue> 
           <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>pin%s</name>
+              <description>Alternate function low bit.</description>
+              <bitRange>[0:0]</bitRange>
+              <dim>16</dim>
+              <dimIncrement>1</dimIncrement>
+            </field>
           </fields>
         </register>
         <register>
           <name>pull_down</name>
           <description>Internal pull down register</description>
           <addressOffset>0x001C</addressOffset>
-          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
           <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>pin%s</name>
+              <description>Internal pull down enable mask\n\nWrite 0 to enable.</description>
+              <bitRange>[0:0]</bitRange>
+              <dim>16</dim>
+              <dimIncrement>1</dimIncrement>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>enable</name>
+                  <description>Internal pull down enabled.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>disable</name>
+                  <description>Internal pull down disabled.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues> <!-- todo: use derivedFrom to derive from pull_up -->
+            </field>
           </fields>
         </register>
         <register>
           <name>trigger_mode</name>
           <description>Interrupt trigger mode selection</description>
           <addressOffset>0x0020</addressOffset>
-          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
           <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>pin%s</name>
+              <description>Interrupt trigger mode selection</description>
+              <bitRange>[0:0]</bitRange>
+              <dim>16</dim>
+              <dimIncrement>1</dimIncrement>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>edge</name>
+                  <description>Edge trigger.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>level</name>
+                  <description>Level trigger.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
           </fields>
         </register>
         <register>
           <name>trigger_both</name>
           <description>Interrupt trigger on both sides selection</description>
           <addressOffset>0x0024</addressOffset>
-          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
           <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>pin%s</name>
+              <description>Interrupt trigger on both sides selection</description>
+              <bitRange>[0:0]</bitRange>
+              <dim>16</dim>
+              <dimIncrement>1</dimIncrement>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>single</name>
+                  <description>Only edge defined in `trigger_edge_level` will trigger interrupt.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>both</name>
+                  <description>Both edges or levels will trigger interrupt.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
           </fields>
         </register>
         <register>
           <name>trigger_edge_level</name>
           <description>Interrupt trigger edge or level type selection</description>
           <addressOffset>0x0028</addressOffset>
-          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
           <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>pin%s</name>
+              <description>Interrupt trigger edge or level type selection</description>
+              <bitRange>[0:0]</bitRange>
+              <dim>16</dim>
+              <dimIncrement>1</dimIncrement>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>low_or_fall</name>
+                  <description>Low level or falling edge will trigger interrupt.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>high_or_rise</name>
+                  <description>High level or rising edge will trigger interrupt.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
           </fields>
         </register>
         <register>
           <name>interrupt_enable</name>
           <description>Interrupt enable register</description>
           <addressOffset>0x002C</addressOffset>
-          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
           <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>pin%s</name>
+              <description>GPIO pin interrupt enable</description>
+              <bitRange>[0:0]</bitRange>
+              <dim>16</dim>
+              <dimIncrement>1</dimIncrement>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>disable</name>
+                  <description>Disable GPIO pin interrupt.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>enable</name>
+                  <description>Enable GPIO pin interrupt.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
           </fields>
         </register>
         <register>
           <name>interrupt_state_raw</name>
-          <description>Raw interrupt state register</description>
+          <description>Raw interrupt state register\n\n
+          GPIO bare interrupt status before masking.</description>
           <addressOffset>0x0030</addressOffset>
-          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
           <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>pin%s</name>
+              <description>GPIO pin raw interrupt state</description>
+              <bitRange>[0:0]</bitRange>
+              <dim>16</dim>
+              <dimIncrement>1</dimIncrement>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>no_interrupt</name>
+                  <description>No GPIO pin interrupt is generated.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>has_interrupt</name>
+                  <description>GPIO pin interrupt is generated.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
           </fields>
         </register>
         <register>
           <name>interrupt_state</name>
           <description>Masked interrupt state register</description>
           <addressOffset>0x0034</addressOffset>
-          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
           <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>pin%s</name>
+              <description>GPIO pin masked interrupt state</description>
+              <bitRange>[0:0]</bitRange>
+              <dim>16</dim>
+              <dimIncrement>1</dimIncrement>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>no_interrupt</name>
+                  <description>No GPIO pin interrupt is generated after masking.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>has_interrupt</name>
+                  <description>GPIO pin interrupt is generated after masking.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
           </fields>
         </register>
         <register>
           <name>interrupt_clear</name>
           <description>Clear interrupt register</description>
           <addressOffset>0x0038</addressOffset>
-          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <access>write-only</access>
+          <resetValue>0x00000000</resetValue>
           <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>pin%s</name>
+              <description>GPIO pin masked interrupt state</description>
+              <bitRange>[0:0]</bitRange>
+              <dim>16</dim>
+              <dimIncrement>1</dimIncrement>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>clear</name>
+                  <description>Write 1 to clear GPIO interrupt state.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
           </fields>
         </register>
       </registers>
