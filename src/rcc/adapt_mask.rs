@@ -51,6 +51,7 @@ impl From<CPU_A> for bool {
 #[doc = "Field `cpu` reader - Cpu domain allow adaptive clock configurations\n\n Indicates whether the clock supplied to the CPU clock domain (including CPU, bus1, ROM, SRAM) can be turned off adaptively.\n\n When the CPU needs to enter the WFI state, do not set the adaptive shutdown."]
 pub struct CPU_R(crate::FieldReader<bool, CPU_A>);
 impl CPU_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CPU_R(crate::FieldReader::new(bits))
     }

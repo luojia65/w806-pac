@@ -51,6 +51,7 @@ impl From<JTAG_ENABLE_A> for bool {
 #[doc = "Field `jtag_enable` reader - JTAG function enable"]
 pub struct JTAG_ENABLE_R(crate::FieldReader<bool, JTAG_ENABLE_A>);
 impl JTAG_ENABLE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         JTAG_ENABLE_R(crate::FieldReader::new(bits))
     }
@@ -120,6 +121,7 @@ impl<'a> JTAG_ENABLE_W<'a> {
 #[doc = "Field `adc_divide` reader - Sigma-Delta Analog-digital Converter frequency division factor\n\n After writing to this field, set bit `update` of register `clock_divide` to take effect."]
 pub struct ADC_DIVIDE_R(crate::FieldReader<u8, u8>);
 impl ADC_DIVIDE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         ADC_DIVIDE_R(crate::FieldReader::new(bits))
     }
@@ -160,6 +162,7 @@ impl From<QFLASH_SELECT_A> for bool {
 #[doc = "Field `qflash_select` reader - QSPI Flash clock source selection"]
 pub struct QFLASH_SELECT_R(crate::FieldReader<bool, QFLASH_SELECT_A>);
 impl QFLASH_SELECT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         QFLASH_SELECT_R(crate::FieldReader::new(bits))
     }
@@ -243,6 +246,7 @@ impl From<GPSEC_SELECT_A> for bool {
 #[doc = "Field `gpsec_select` reader - GPSEC clock source selection"]
 pub struct GPSEC_SELECT_R(crate::FieldReader<bool, GPSEC_SELECT_A>);
 impl GPSEC_SELECT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         GPSEC_SELECT_R(crate::FieldReader::new(bits))
     }
@@ -326,6 +330,7 @@ impl From<RSA_SELECT_A> for bool {
 #[doc = "Field `rsa_select` reader - RSA clock source selection"]
 pub struct RSA_SELECT_R(crate::FieldReader<bool, RSA_SELECT_A>);
 impl RSA_SELECT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RSA_SELECT_R(crate::FieldReader::new(bits))
     }

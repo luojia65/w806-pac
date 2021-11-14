@@ -37,6 +37,7 @@ impl From<crate::W<I2S_CLOCK_SPEC>> for W {
 #[doc = "Field `bclk_divide` reader - BCLK clock divide factor"]
 pub struct BCLK_DIVIDE_R(crate::FieldReader<u16, u16>);
 impl BCLK_DIVIDE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         BCLK_DIVIDE_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> BCLK_DIVIDE_W<'a> {
 #[doc = "Field `mclk_divide` reader - MCLK clock divide factor"]
 pub struct MCLK_DIVIDE_R(crate::FieldReader<u8, u8>);
 impl MCLK_DIVIDE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         MCLK_DIVIDE_R(crate::FieldReader::new(bits))
     }
@@ -103,6 +105,7 @@ impl From<MCLK_ENABLE_A> for bool {
 #[doc = "Field `mclk_enable` reader - MCLK clock enable"]
 pub struct MCLK_ENABLE_R(crate::FieldReader<bool, MCLK_ENABLE_A>);
 impl MCLK_ENABLE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MCLK_ENABLE_R(crate::FieldReader::new(bits))
     }
@@ -174,7 +177,7 @@ impl<'a> MCLK_ENABLE_W<'a> {
 pub enum CLOCK_SOURCE_A {
     #[doc = "0: Use internal clock."]
     INTERNAL = 0,
-    #[doc = "1: Use external XTAL clock.\\n\\n\r\n                  External clock frequency should be 2 * N * 256 fs, where fs is \r\n                  sample frequency and N must be an integer."]
+    #[doc = "1: Use external XTAL clock.\\n\\n\n                  External clock frequency should be 2 * N * 256 fs, where fs is \n                  sample frequency and N must be an integer."]
     EXTERNAL = 1,
 }
 impl From<CLOCK_SOURCE_A> for bool {
@@ -186,6 +189,7 @@ impl From<CLOCK_SOURCE_A> for bool {
 #[doc = "Field `clock_source` reader - Use internal I2S clock or external XTAL clock"]
 pub struct CLOCK_SOURCE_R(crate::FieldReader<bool, CLOCK_SOURCE_A>);
 impl CLOCK_SOURCE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CLOCK_SOURCE_R(crate::FieldReader::new(bits))
     }

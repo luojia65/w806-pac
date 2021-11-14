@@ -51,6 +51,7 @@ impl From<FREQUENCY_A> for bool {
 #[doc = "Field `frequency` reader - Divide frequency enable\n\n When you need to reconfigure cpu_clk_divider, wlan_clk_divider, bus2_syncdn_factor, sdadc_fdiv, set this register, the hardware will automatically update the above four parameters to the divider, and then clear this register."]
 pub struct FREQUENCY_R(crate::FieldReader<bool, FREQUENCY_A>);
 impl FREQUENCY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FREQUENCY_R(crate::FieldReader::new(bits))
     }
@@ -120,6 +121,7 @@ impl<'a> FREQUENCY_W<'a> {
 #[doc = "Field `peripheral` reader - 160-MHz clock divide factor"]
 pub struct PERIPHERAL_R(crate::FieldReader<u8, u8>);
 impl PERIPHERAL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         PERIPHERAL_R(crate::FieldReader::new(bits))
     }
@@ -146,6 +148,7 @@ impl<'a> PERIPHERAL_W<'a> {
 #[doc = "Field `bus2_sync` reader - Ratio between bus1 and bus2 clock frequency"]
 pub struct BUS2_SYNC_R(crate::FieldReader<u8, u8>);
 impl BUS2_SYNC_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         BUS2_SYNC_R(crate::FieldReader::new(bits))
     }
@@ -172,6 +175,7 @@ impl<'a> BUS2_SYNC_W<'a> {
 #[doc = "Field `wlan` reader - PLL to WLAN system divide factor\n\n After dividing the frequency of the clock from the PLL, it is sent to the wlan system. This register is the frequency division factor, the factor should be >= 2.\n\n"]
 pub struct WLAN_R(crate::FieldReader<u8, u8>);
 impl WLAN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         WLAN_R(crate::FieldReader::new(bits))
     }
@@ -198,6 +202,7 @@ impl<'a> WLAN_W<'a> {
 #[doc = "Field `cpu` reader - PLL to CPU clock divide factor"]
 pub struct CPU_R(crate::FieldReader<u8, u8>);
 impl CPU_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         CPU_R(crate::FieldReader::new(bits))
     }

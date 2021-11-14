@@ -51,6 +51,7 @@ impl From<TOUCH_A> for bool {
 #[doc = "Field `touch` reader - Touch sensor module clock gate enable\n\n By deafult, touch sensor module clock gate is enabled."]
 pub struct TOUCH_R(crate::FieldReader<bool, TOUCH_A>);
 impl TOUCH_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TOUCH_R(crate::FieldReader::new(bits))
     }

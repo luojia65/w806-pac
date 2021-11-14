@@ -129,6 +129,7 @@ impl From<CPU_A> for bool {
 #[doc = "Field `cpu` reader - Reads if cpu has been software reset."]
 pub struct CPU_R(crate::FieldReader<bool, CPU_A>);
 impl CPU_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CPU_R(crate::FieldReader::new(bits))
     }
