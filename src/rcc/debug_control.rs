@@ -403,7 +403,7 @@ impl R {
     pub fn jtag_enable(&self) -> JTAG_ENABLE_R {
         JTAG_ENABLE_R::new(((self.bits >> 16) & 0x01) != 0)
     }
-    #[doc = "Bits 8:15 - Sigma-Delta Analog-digital Converter frequency division factor After writing to this field, set bit `update` of register `clock_divide` to take effect."]
+    #[doc = "Bits 8:15 - Sigma-Delta Analog-digital Converter frequency division factor\n\n After writing to this field, set bit `update` of register `clock_divide` to take effect."]
     #[inline(always)]
     pub fn adc_divide(&self) -> ADC_DIVIDE_R {
         ADC_DIVIDE_R::new(((self.bits >> 8) & 0xff) as u8)
@@ -430,7 +430,7 @@ impl W {
     pub fn jtag_enable(&mut self) -> JTAG_ENABLE_W {
         JTAG_ENABLE_W { w: self }
     }
-    #[doc = "Bits 8:15 - Sigma-Delta Analog-digital Converter frequency division factor After writing to this field, set bit `update` of register `clock_divide` to take effect."]
+    #[doc = "Bits 8:15 - Sigma-Delta Analog-digital Converter frequency division factor\n\n After writing to this field, set bit `update` of register `clock_divide` to take effect."]
     #[inline(always)]
     pub fn adc_divide(&mut self) -> ADC_DIVIDE_W {
         ADC_DIVIDE_W { w: self }

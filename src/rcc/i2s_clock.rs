@@ -177,7 +177,7 @@ impl<'a> MCLK_ENABLE_W<'a> {
 pub enum CLOCK_SOURCE_A {
     #[doc = "0: Use internal clock."]
     INTERNAL = 0,
-    #[doc = "1: Use external XTAL clock.\\n\\n\n                  External clock frequency should be 2 * N * 256 fs, where fs is \n                  sample frequency and N must be an integer."]
+    #[doc = "1: Use external XTAL clock.\n\n External clock frequency should be 2 * N * 256 fs, where fs is sample frequency and N must be an integer."]
     EXTERNAL = 1,
 }
 impl From<CLOCK_SOURCE_A> for bool {

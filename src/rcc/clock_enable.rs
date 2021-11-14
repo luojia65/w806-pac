@@ -568,27 +568,27 @@ impl<'a> I2C_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bit 21 - Touch sensor module clock gate enable By default, touch sensor module clock gate is enabled."]
+    #[doc = "Bit 21 - Touch sensor module clock gate enable\n\n By default, touch sensor module clock gate is enabled."]
     #[inline(always)]
     pub fn touch(&self) -> TOUCH_R {
         TOUCH_R::new(((self.bits >> 21) & 0x01) != 0)
     }
-    #[doc = "Bit 18 - Secure digital input/output clock gate enable By default, SDIO master module clock gate is enabled."]
+    #[doc = "Bit 18 - Secure digital input/output clock gate enable\n\n By default, SDIO master module clock gate is enabled."]
     #[inline(always)]
     pub fn sdio(&self) -> SDIO_R {
         SDIO_R::new(((self.bits >> 18) & 0x01) != 0)
     }
-    #[doc = "Bit 16 - RSA Montgomery coprocessor clock gate enable By default, RSA clock gate is enabled."]
+    #[doc = "Bit 16 - RSA Montgomery coprocessor clock gate enable\n\n By default, RSA clock gate is enabled."]
     #[inline(always)]
     pub fn rsa(&self) -> RSA_R {
         RSA_R::new(((self.bits >> 16) & 0x01) != 0)
     }
-    #[doc = "Bit 15 - Inter-Integrated Sound clock gate enable By default, I2S clock gate is enabled."]
+    #[doc = "Bit 15 - Inter-Integrated Sound clock gate enable\n\n By default, I2S clock gate is enabled."]
     #[inline(always)]
     pub fn i2s(&self) -> I2S_R {
         I2S_R::new(((self.bits >> 15) & 0x01) != 0)
     }
-    #[doc = "Bit 13 - Pulse-width modulation module clock gate enable By default, PWM clock gate is enabled."]
+    #[doc = "Bit 13 - Pulse-width modulation module clock gate enable\n\n By default, PWM clock gate is enabled."]
     #[inline(always)]
     pub fn pwm(&self) -> PWM_R {
         PWM_R::new(((self.bits >> 13) & 0x01) != 0)
@@ -598,17 +598,17 @@ impl R {
     pub fn adc(&self) -> ADC_R {
         ADC_R::new(((self.bits >> 12) & 0x01) != 0)
     }
-    #[doc = "Bit 11 - General purpose input/output clock gate enable By default, GPIO clock gate is enabled."]
+    #[doc = "Bit 11 - General purpose input/output clock gate enable\n\n By default, GPIO clock gate is enabled."]
     #[inline(always)]
     pub fn gpio(&self) -> GPIO_R {
         GPIO_R::new(((self.bits >> 11) & 0x01) != 0)
     }
-    #[doc = "Bit 10 - Timer module clock gate enable By default, timer clock gate is enabled."]
+    #[doc = "Bit 10 - Timer module clock gate enable\n\n By default, timer clock gate is enabled."]
     #[inline(always)]
     pub fn timer(&self) -> TIMER_R {
         TIMER_R::new(((self.bits >> 10) & 0x01) != 0)
     }
-    #[doc = "Bit 8 - Direct memory access clock gate enable By default, DMA clock gate is enabled."]
+    #[doc = "Bit 8 - Direct memory access clock gate enable\n\n By default, DMA clock gate is enabled."]
     #[inline(always)]
     pub fn dma(&self) -> DMA_R {
         DMA_R::new(((self.bits >> 8) & 0x01) != 0)
@@ -618,64 +618,64 @@ impl R {
     pub unsafe fn uart(&self, n: usize) -> UART_R {
         UART_R::new(((self.bits >> n + 1) & 0x01) != 0)
     }
-    #[doc = "Bit 1 - Universal asynchronous transmitter/receiver enable By default, UART clock gate is enabled."]
+    #[doc = "Bit 1 - Universal asynchronous transmitter/receiver enable\n\n By default, UART clock gate is enabled."]
     #[inline(always)]
     pub fn uart0(&self) -> UART_R {
         UART_R::new(((self.bits >> 1) & 0x01) != 0)
     }
-    #[doc = "Bit 2 - Universal asynchronous transmitter/receiver enable By default, UART clock gate is enabled."]
+    #[doc = "Bit 2 - Universal asynchronous transmitter/receiver enable\n\n By default, UART clock gate is enabled."]
     #[inline(always)]
     pub fn uart1(&self) -> UART_R {
         UART_R::new(((self.bits >> 2) & 0x01) != 0)
     }
-    #[doc = "Bit 3 - Universal asynchronous transmitter/receiver enable By default, UART clock gate is enabled."]
+    #[doc = "Bit 3 - Universal asynchronous transmitter/receiver enable\n\n By default, UART clock gate is enabled."]
     #[inline(always)]
     pub fn uart2(&self) -> UART_R {
         UART_R::new(((self.bits >> 3) & 0x01) != 0)
     }
-    #[doc = "Bit 4 - Universal asynchronous transmitter/receiver enable By default, UART clock gate is enabled."]
+    #[doc = "Bit 4 - Universal asynchronous transmitter/receiver enable\n\n By default, UART clock gate is enabled."]
     #[inline(always)]
     pub fn uart3(&self) -> UART_R {
         UART_R::new(((self.bits >> 4) & 0x01) != 0)
     }
-    #[doc = "Bit 5 - Universal asynchronous transmitter/receiver enable By default, UART clock gate is enabled."]
+    #[doc = "Bit 5 - Universal asynchronous transmitter/receiver enable\n\n By default, UART clock gate is enabled."]
     #[inline(always)]
     pub fn uart4(&self) -> UART_R {
         UART_R::new(((self.bits >> 5) & 0x01) != 0)
     }
-    #[doc = "Bit 6 - Universal asynchronous transmitter/receiver enable By default, UART clock gate is enabled."]
+    #[doc = "Bit 6 - Universal asynchronous transmitter/receiver enable\n\n By default, UART clock gate is enabled."]
     #[inline(always)]
     pub fn uart5(&self) -> UART_R {
         UART_R::new(((self.bits >> 6) & 0x01) != 0)
     }
-    #[doc = "Bit 0 - Inter-Integrated Circuit module enable By default, I2C clock gate is enabled."]
+    #[doc = "Bit 0 - Inter-Integrated Circuit module enable\n\n By default, I2C clock gate is enabled."]
     #[inline(always)]
     pub fn i2c(&self) -> I2C_R {
         I2C_R::new((self.bits & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 21 - Touch sensor module clock gate enable By default, touch sensor module clock gate is enabled."]
+    #[doc = "Bit 21 - Touch sensor module clock gate enable\n\n By default, touch sensor module clock gate is enabled."]
     #[inline(always)]
     pub fn touch(&mut self) -> TOUCH_W {
         TOUCH_W { w: self }
     }
-    #[doc = "Bit 18 - Secure digital input/output clock gate enable By default, SDIO master module clock gate is enabled."]
+    #[doc = "Bit 18 - Secure digital input/output clock gate enable\n\n By default, SDIO master module clock gate is enabled."]
     #[inline(always)]
     pub fn sdio(&mut self) -> SDIO_W {
         SDIO_W { w: self }
     }
-    #[doc = "Bit 16 - RSA Montgomery coprocessor clock gate enable By default, RSA clock gate is enabled."]
+    #[doc = "Bit 16 - RSA Montgomery coprocessor clock gate enable\n\n By default, RSA clock gate is enabled."]
     #[inline(always)]
     pub fn rsa(&mut self) -> RSA_W {
         RSA_W { w: self }
     }
-    #[doc = "Bit 15 - Inter-Integrated Sound clock gate enable By default, I2S clock gate is enabled."]
+    #[doc = "Bit 15 - Inter-Integrated Sound clock gate enable\n\n By default, I2S clock gate is enabled."]
     #[inline(always)]
     pub fn i2s(&mut self) -> I2S_W {
         I2S_W { w: self }
     }
-    #[doc = "Bit 13 - Pulse-width modulation module clock gate enable By default, PWM clock gate is enabled."]
+    #[doc = "Bit 13 - Pulse-width modulation module clock gate enable\n\n By default, PWM clock gate is enabled."]
     #[inline(always)]
     pub fn pwm(&mut self) -> PWM_W {
         PWM_W { w: self }
@@ -685,17 +685,17 @@ impl W {
     pub fn adc(&mut self) -> ADC_W {
         ADC_W { w: self }
     }
-    #[doc = "Bit 11 - General purpose input/output clock gate enable By default, GPIO clock gate is enabled."]
+    #[doc = "Bit 11 - General purpose input/output clock gate enable\n\n By default, GPIO clock gate is enabled."]
     #[inline(always)]
     pub fn gpio(&mut self) -> GPIO_W {
         GPIO_W { w: self }
     }
-    #[doc = "Bit 10 - Timer module clock gate enable By default, timer clock gate is enabled."]
+    #[doc = "Bit 10 - Timer module clock gate enable\n\n By default, timer clock gate is enabled."]
     #[inline(always)]
     pub fn timer(&mut self) -> TIMER_W {
         TIMER_W { w: self }
     }
-    #[doc = "Bit 8 - Direct memory access clock gate enable By default, DMA clock gate is enabled."]
+    #[doc = "Bit 8 - Direct memory access clock gate enable\n\n By default, DMA clock gate is enabled."]
     #[inline(always)]
     pub fn dma(&mut self) -> DMA_W {
         DMA_W { w: self }
@@ -708,37 +708,37 @@ impl W {
             offset: n + 1,
         }
     }
-    #[doc = "Bit 1 - Universal asynchronous transmitter/receiver enable By default, UART clock gate is enabled."]
+    #[doc = "Bit 1 - Universal asynchronous transmitter/receiver enable\n\n By default, UART clock gate is enabled."]
     #[inline(always)]
     pub fn uart0(&mut self) -> UART_CGW<1> {
         UART_CGW { w: self }
     }
-    #[doc = "Bit 2 - Universal asynchronous transmitter/receiver enable By default, UART clock gate is enabled."]
+    #[doc = "Bit 2 - Universal asynchronous transmitter/receiver enable\n\n By default, UART clock gate is enabled."]
     #[inline(always)]
     pub fn uart1(&mut self) -> UART_CGW<2> {
         UART_CGW { w: self }
     }
-    #[doc = "Bit 3 - Universal asynchronous transmitter/receiver enable By default, UART clock gate is enabled."]
+    #[doc = "Bit 3 - Universal asynchronous transmitter/receiver enable\n\n By default, UART clock gate is enabled."]
     #[inline(always)]
     pub fn uart2(&mut self) -> UART_CGW<3> {
         UART_CGW { w: self }
     }
-    #[doc = "Bit 4 - Universal asynchronous transmitter/receiver enable By default, UART clock gate is enabled."]
+    #[doc = "Bit 4 - Universal asynchronous transmitter/receiver enable\n\n By default, UART clock gate is enabled."]
     #[inline(always)]
     pub fn uart3(&mut self) -> UART_CGW<4> {
         UART_CGW { w: self }
     }
-    #[doc = "Bit 5 - Universal asynchronous transmitter/receiver enable By default, UART clock gate is enabled."]
+    #[doc = "Bit 5 - Universal asynchronous transmitter/receiver enable\n\n By default, UART clock gate is enabled."]
     #[inline(always)]
     pub fn uart4(&mut self) -> UART_CGW<5> {
         UART_CGW { w: self }
     }
-    #[doc = "Bit 6 - Universal asynchronous transmitter/receiver enable By default, UART clock gate is enabled."]
+    #[doc = "Bit 6 - Universal asynchronous transmitter/receiver enable\n\n By default, UART clock gate is enabled."]
     #[inline(always)]
     pub fn uart5(&mut self) -> UART_CGW<6> {
         UART_CGW { w: self }
     }
-    #[doc = "Bit 0 - Inter-Integrated Circuit module enable By default, I2C clock gate is enabled."]
+    #[doc = "Bit 0 - Inter-Integrated Circuit module enable\n\n By default, I2C clock gate is enabled."]
     #[inline(always)]
     pub fn i2c(&mut self) -> I2C_W {
         I2C_W { w: self }

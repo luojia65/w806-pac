@@ -201,34 +201,34 @@ impl<'a> PMU_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bit 6 - Cpu domain allow adaptive clock configurations Indicates whether the clock supplied to the CPU clock domain (including CPU, bus1, ROM, SRAM) can be turned off adaptively. When the CPU needs to enter the WFI state, do not set the adaptive shutdown."]
+    #[doc = "Bit 6 - Cpu domain allow adaptive clock configurations\n\n Indicates whether the clock supplied to the CPU clock domain (including CPU, bus1, ROM, SRAM) can be turned off adaptively.\n\n When the CPU needs to enter the WFI state, do not set the adaptive shutdown."]
     #[inline(always)]
     pub fn cpu(&self) -> CPU_R {
         CPU_R::new(((self.bits >> 6) & 0x01) != 0)
     }
-    #[doc = "Bit 1 - Sdio-Ahb domain allow adaptive clock configurations Indicates whether the clock supplied to the sdio ahb clock domain can be turned off adaptively."]
+    #[doc = "Bit 1 - Sdio-Ahb domain allow adaptive clock configurations\n\n Indicates whether the clock supplied to the sdio ahb clock domain can be turned off adaptively."]
     #[inline(always)]
     pub fn sdio_ahb(&self) -> SDIO_AHB_R {
         SDIO_AHB_R::new(((self.bits >> 1) & 0x01) != 0)
     }
-    #[doc = "Bit 0 - Allow pmu to shutdown gate unit connected to pll output After the clock output by PLL, there is a gate control unit. This register configuration is used to indicate whether this unit is allowed to be shut down by the PMU."]
+    #[doc = "Bit 0 - Allow pmu to shutdown gate unit connected to pll output\n\n After the clock output by PLL, there is a gate control unit. This register configuration is used to indicate whether this unit is allowed to be shut down by the PMU."]
     #[inline(always)]
     pub fn pmu(&self) -> PMU_R {
         PMU_R::new((self.bits & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 6 - Cpu domain allow adaptive clock configurations Indicates whether the clock supplied to the CPU clock domain (including CPU, bus1, ROM, SRAM) can be turned off adaptively. When the CPU needs to enter the WFI state, do not set the adaptive shutdown."]
+    #[doc = "Bit 6 - Cpu domain allow adaptive clock configurations\n\n Indicates whether the clock supplied to the CPU clock domain (including CPU, bus1, ROM, SRAM) can be turned off adaptively.\n\n When the CPU needs to enter the WFI state, do not set the adaptive shutdown."]
     #[inline(always)]
     pub fn cpu(&mut self) -> CPU_W {
         CPU_W { w: self }
     }
-    #[doc = "Bit 1 - Sdio-Ahb domain allow adaptive clock configurations Indicates whether the clock supplied to the sdio ahb clock domain can be turned off adaptively."]
+    #[doc = "Bit 1 - Sdio-Ahb domain allow adaptive clock configurations\n\n Indicates whether the clock supplied to the sdio ahb clock domain can be turned off adaptively."]
     #[inline(always)]
     pub fn sdio_ahb(&mut self) -> SDIO_AHB_W {
         SDIO_AHB_W { w: self }
     }
-    #[doc = "Bit 0 - Allow pmu to shutdown gate unit connected to pll output After the clock output by PLL, there is a gate control unit. This register configuration is used to indicate whether this unit is allowed to be shut down by the PMU."]
+    #[doc = "Bit 0 - Allow pmu to shutdown gate unit connected to pll output\n\n After the clock output by PLL, there is a gate control unit. This register configuration is used to indicate whether this unit is allowed to be shut down by the PMU."]
     #[inline(always)]
     pub fn pmu(&mut self) -> PMU_W {
         PMU_W { w: self }

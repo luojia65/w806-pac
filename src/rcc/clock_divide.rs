@@ -227,7 +227,7 @@ impl<'a> CPU_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bit 31 - Divide frequency enable When you need to reconfigure cpu_clk_divider, wlan_clk_divider, bus2_syncdn_factor, sdadc_fdiv, set this register, the hardware will automatically update the above four parameters to the divider, and then clear this register."]
+    #[doc = "Bit 31 - Divide frequency enable\n\n When you need to reconfigure cpu_clk_divider, wlan_clk_divider, bus2_syncdn_factor, sdadc_fdiv, set this register, the hardware will automatically update the above four parameters to the divider, and then clear this register."]
     #[inline(always)]
     pub fn frequency(&self) -> FREQUENCY_R {
         FREQUENCY_R::new(((self.bits >> 31) & 0x01) != 0)
@@ -242,7 +242,7 @@ impl R {
     pub fn bus2_sync(&self) -> BUS2_SYNC_R {
         BUS2_SYNC_R::new(((self.bits >> 16) & 0xff) as u8)
     }
-    #[doc = "Bits 8:15 - PLL to WLAN system divide factor After dividing the frequency of the clock from the PLL, it is sent to the wlan system. This register is the frequency division factor, the factor should be >= 2."]
+    #[doc = "Bits 8:15 - PLL to WLAN system divide factor\n\n After dividing the frequency of the clock from the PLL, it is sent to the wlan system. This register is the frequency division factor, the factor should be >= 2.\n\n"]
     #[inline(always)]
     pub fn wlan(&self) -> WLAN_R {
         WLAN_R::new(((self.bits >> 8) & 0xff) as u8)
@@ -254,7 +254,7 @@ impl R {
     }
 }
 impl W {
-    #[doc = "Bit 31 - Divide frequency enable When you need to reconfigure cpu_clk_divider, wlan_clk_divider, bus2_syncdn_factor, sdadc_fdiv, set this register, the hardware will automatically update the above four parameters to the divider, and then clear this register."]
+    #[doc = "Bit 31 - Divide frequency enable\n\n When you need to reconfigure cpu_clk_divider, wlan_clk_divider, bus2_syncdn_factor, sdadc_fdiv, set this register, the hardware will automatically update the above four parameters to the divider, and then clear this register."]
     #[inline(always)]
     pub fn frequency(&mut self) -> FREQUENCY_W {
         FREQUENCY_W { w: self }
@@ -269,7 +269,7 @@ impl W {
     pub fn bus2_sync(&mut self) -> BUS2_SYNC_W {
         BUS2_SYNC_W { w: self }
     }
-    #[doc = "Bits 8:15 - PLL to WLAN system divide factor After dividing the frequency of the clock from the PLL, it is sent to the wlan system. This register is the frequency division factor, the factor should be >= 2."]
+    #[doc = "Bits 8:15 - PLL to WLAN system divide factor\n\n After dividing the frequency of the clock from the PLL, it is sent to the wlan system. This register is the frequency division factor, the factor should be >= 2.\n\n"]
     #[inline(always)]
     pub fn wlan(&mut self) -> WLAN_W {
         WLAN_W { w: self }
