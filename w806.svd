@@ -828,9 +828,152 @@
       <description>General purpose input/output module A</description>
       <registers>
         <register>
-          <name>todo</name>
-          <description>??</description>
-          <addressOffset>0</addressOffset>
+          <name>data_value</name>
+          <description>GPIO data value read/write register</description>
+          <addressOffset>0x0000</addressOffset>
+          <access>read-write</access>
+          <resetValue>0x0000180b</resetValue>
+          <resetMask>0xffffffff</resetMask>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <register>
+          <name>data_enable</name>
+          <description>GPIO data read/write enable register</description>
+          <addressOffset>0x0004</addressOffset>
+          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <resetMask>0xffffffff</resetMask>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <register>
+          <name>direction</name>
+          <description>GPIO direction register</description>
+          <addressOffset>0x0008</addressOffset>
+          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <resetMask>0xffffffff</resetMask>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <register>
+          <name>pull_up</name>
+          <description>Internal pull up mask register</description>
+          <addressOffset>0x000C</addressOffset>
+          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <resetMask>0xffffffff</resetMask>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <register>
+          <name>function_enable</name>
+          <description>Alternate function enable register</description>
+          <addressOffset>0x0010</addressOffset>
+          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <resetMask>0xffffffff</resetMask>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <register>
+          <name>function_high</name>
+          <description>Alternate function select high register</description>
+          <addressOffset>0x0014</addressOffset>
+          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <resetMask>0xffffffff</resetMask>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <register>
+          <name>function_low</name>
+          <description>Alternate function select low register</description>
+          <addressOffset>0x0018</addressOffset>
+          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <resetMask>0xffffffff</resetMask>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <register>
+          <name>pull_down</name>
+          <description>Internal pull down register</description>
+          <addressOffset>0x001C</addressOffset>
+          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <resetMask>0xffffffff</resetMask>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <register>
+          <name>trigger_mode</name>
+          <description>Interrupt trigger mode selection</description>
+          <addressOffset>0x0020</addressOffset>
+          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <resetMask>0xffffffff</resetMask>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <register>
+          <name>trigger_both</name>
+          <description>Interrupt trigger on both sides selection</description>
+          <addressOffset>0x0024</addressOffset>
+          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <resetMask>0xffffffff</resetMask>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <register>
+          <name>trigger_edge_level</name>
+          <description>Interrupt trigger edge or level type selection</description>
+          <addressOffset>0x0028</addressOffset>
+          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <resetMask>0xffffffff</resetMask>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <register>
+          <name>interrupt_enable</name>
+          <description>Interrupt enable register</description>
+          <addressOffset>0x002C</addressOffset>
+          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <resetMask>0xffffffff</resetMask>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <register>
+          <name>interrupt_state_raw</name>
+          <description>Raw interrupt state register</description>
+          <addressOffset>0x0030</addressOffset>
+          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <resetMask>0xffffffff</resetMask>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <register>
+          <name>interrupt_state</name>
+          <description>Masked interrupt state register</description>
+          <addressOffset>0x0034</addressOffset>
+          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <resetMask>0xffffffff</resetMask>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <register>
+          <name>interrupt_clear</name>
+          <description>Clear interrupt register</description>
+          <addressOffset>0x0038</addressOffset>
+          <resetValue>0x00000000</resetValue> <!-- todo -->
+          <resetMask>0xffffffff</resetMask>
           <fields>
             <!-- todo: fields -->
           </fields>
