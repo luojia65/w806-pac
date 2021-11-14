@@ -448,6 +448,43 @@ impl<'a> UART_W<'a> {
         self.w
     }
 }
+#[doc = "Fields `uart(0-5)` const generic writer - Universal asynchronous transmitter/receiver reset"]
+pub struct UART_CGW<'a, const O: usize> {
+    w: &'a mut W,
+}
+impl<'a, const O: usize> UART_CGW<'a, O> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: UART_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Reset the corresponding peripheral."]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut W {
+        self.variant(UART_A::RESET)
+    }
+    #[doc = "Release the reset state the corresponding peripheral."]
+    #[inline(always)]
+    pub fn release(self) -> &'a mut W {
+        self.variant(UART_A::RELEASE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << O)) | ((value as u32 & 0x01) << O);
+        self.w
+    }
+}
 #[doc = "Inter-Integrated Circuit module reset"]
 pub type I2C_A = TOUCH_A;
 #[doc = "Field `i2c` reader - Inter-Integrated Circuit module reset"]
@@ -529,6 +566,43 @@ impl<'a> BUS_W<'a> {
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits =
             (self.w.bits & !(0x01 << self.offset)) | ((value as u32 & 0x01) << self.offset);
+        self.w
+    }
+}
+#[doc = "Fields `bus(1-2)` const generic writer - Internal bus reset"]
+pub struct BUS_CGW<'a, const O: usize> {
+    w: &'a mut W,
+}
+impl<'a, const O: usize> BUS_CGW<'a, O> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: BUS_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Reset the corresponding peripheral."]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut W {
+        self.variant(BUS_A::RESET)
+    }
+    #[doc = "Release the reset state the corresponding peripheral."]
+    #[inline(always)]
+    pub fn release(self) -> &'a mut W {
+        self.variant(BUS_A::RELEASE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << O)) | ((value as u32 & 0x01) << O);
         self.w
     }
 }
@@ -818,51 +892,33 @@ impl W {
     }
     #[doc = "Bit 10 - Universal asynchronous transmitter/receiver reset"]
     #[inline(always)]
-    pub fn uart0(&mut self) -> UART_W {
-        UART_W {
-            w: self,
-            offset: 10,
-        }
+    pub fn uart0(&mut self) -> UART_CGW<10> {
+        UART_CGW { w: self }
     }
     #[doc = "Bit 11 - Universal asynchronous transmitter/receiver reset"]
     #[inline(always)]
-    pub fn uart1(&mut self) -> UART_W {
-        UART_W {
-            w: self,
-            offset: 11,
-        }
+    pub fn uart1(&mut self) -> UART_CGW<11> {
+        UART_CGW { w: self }
     }
     #[doc = "Bit 12 - Universal asynchronous transmitter/receiver reset"]
     #[inline(always)]
-    pub fn uart2(&mut self) -> UART_W {
-        UART_W {
-            w: self,
-            offset: 12,
-        }
+    pub fn uart2(&mut self) -> UART_CGW<12> {
+        UART_CGW { w: self }
     }
     #[doc = "Bit 13 - Universal asynchronous transmitter/receiver reset"]
     #[inline(always)]
-    pub fn uart3(&mut self) -> UART_W {
-        UART_W {
-            w: self,
-            offset: 13,
-        }
+    pub fn uart3(&mut self) -> UART_CGW<13> {
+        UART_CGW { w: self }
     }
     #[doc = "Bit 14 - Universal asynchronous transmitter/receiver reset"]
     #[inline(always)]
-    pub fn uart4(&mut self) -> UART_W {
-        UART_W {
-            w: self,
-            offset: 14,
-        }
+    pub fn uart4(&mut self) -> UART_CGW<14> {
+        UART_CGW { w: self }
     }
     #[doc = "Bit 15 - Universal asynchronous transmitter/receiver reset"]
     #[inline(always)]
-    pub fn uart5(&mut self) -> UART_W {
-        UART_W {
-            w: self,
-            offset: 15,
-        }
+    pub fn uart5(&mut self) -> UART_CGW<15> {
+        UART_CGW { w: self }
     }
     #[doc = "Bit 9 - Inter-Integrated Circuit module reset"]
     #[inline(always)]
@@ -879,13 +935,13 @@ impl W {
     }
     #[doc = "Bit 7 - Internal bus reset"]
     #[inline(always)]
-    pub fn bus1(&mut self) -> BUS_W {
-        BUS_W { w: self, offset: 7 }
+    pub fn bus1(&mut self) -> BUS_CGW<7> {
+        BUS_CGW { w: self }
     }
     #[doc = "Bit 8 - Internal bus reset"]
     #[inline(always)]
-    pub fn bus2(&mut self) -> BUS_W {
-        BUS_W { w: self, offset: 8 }
+    pub fn bus2(&mut self) -> BUS_CGW<8> {
+        BUS_CGW { w: self }
     }
     #[doc = "Bit 6 - APB bridge module reset"]
     #[inline(always)]

@@ -75,7 +75,7 @@
             <field>
               <name>touch</name>
               <description>Touch sensor module clock gate enable\n\n
-              By deafult, touch sensor module clock gate is enabled.</description>
+              By default, touch sensor module clock gate is enabled.</description>
               <bitOffset>21</bitOffset>
               <bitWidth>1</bitWidth>
               <enumeratedValues>
@@ -97,7 +97,7 @@
             <field>
               <name>sdio</name>
               <description>Secure digital input/output clock gate enable\n\n
-              By deafult, SDIO master module clock gate is enabled.</description>
+              By default, SDIO master module clock gate is enabled.</description>
               <bitOffset>18</bitOffset>
               <bitWidth>1</bitWidth>
               <enumeratedValues derivedFrom="ClockGate" />
@@ -106,7 +106,7 @@
             <field>
               <name>rsa</name>
               <description>RSA Montgomery coprocessor clock gate enable\n\n
-              By deafult, RSA clock gate is enabled.</description>
+              By default, RSA clock gate is enabled.</description>
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
               <enumeratedValues derivedFrom="ClockGate" />
@@ -114,7 +114,7 @@
             <field>
               <name>i2s</name>
               <description>Inter-Integrated Sound clock gate enable\n\n
-              By deafult, I2S clock gate is enabled.</description>
+              By default, I2S clock gate is enabled.</description>
               <bitOffset>15</bitOffset>
               <bitWidth>1</bitWidth>
               <enumeratedValues derivedFrom="ClockGate" />
@@ -123,7 +123,7 @@
             <field>
               <name>pwm</name>
               <description>Pulse-width modulation module clock gate enable\n\n
-              By deafult, PWM clock gate is enabled.</description>
+              By default, PWM clock gate is enabled.</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
               <enumeratedValues derivedFrom="ClockGate" />
@@ -138,7 +138,7 @@
             <field>
               <name>gpio</name>
               <description>General purpose input/output clock gate enable\n\n
-              By deafult, GPIO clock gate is enabled.</description>
+              By default, GPIO clock gate is enabled.</description>
               <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
               <enumeratedValues derivedFrom="ClockGate" />
@@ -146,7 +146,7 @@
             <field>
               <name>timer</name>
               <description>Timer module clock gate enable\n\n
-              By deafult, timer clock gate is enabled.</description>
+              By default, timer clock gate is enabled.</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
               <enumeratedValues derivedFrom="ClockGate" />
@@ -155,7 +155,7 @@
             <field>
               <name>dma</name>
               <description>Direct memory access clock gate enable\n\n
-              By deafult, DMA clock gate is enabled.</description>
+              By default, DMA clock gate is enabled.</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
               <enumeratedValues derivedFrom="ClockGate" />
@@ -164,7 +164,7 @@
             <field>
               <name>uart%s</name>
               <description>Universal asynchronous transmitter/receiver enable\n\n
-              By deafult, UART clock gate is enabled.</description>
+              By default, UART clock gate is enabled.</description>
               <bitRange>[1:1]</bitRange>
               <dim>6</dim>
               <dimIncrement>1</dimIncrement>
@@ -174,7 +174,7 @@
             <field>
               <name>i2c</name>
               <description>Inter-Integrated Circuit module enable\n\n
-              By deafult, I2C clock gate is enabled.</description>
+              By default, I2C clock gate is enabled.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <enumeratedValues derivedFrom="ClockGate" />
