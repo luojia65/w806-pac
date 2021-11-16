@@ -37,21 +37,383 @@
         </register>
       </registers>
     </peripheral>
+
+    <!-- PMU RTC -->
     <peripheral>
       <name>PMU</name>
       <baseAddress>0x40000D00</baseAddress>
       <description>Power management unit</description>
       <registers>
+        <!-- PMU control_register: PMU Control Register -->
         <register>
-          <name>todo</name>
-          <description>??</description>
-          <addressOffset>0</addressOffset>
+          <name>control_register</name>
+          <description>PMU control register</description>
+          <addressOffset>0x00</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000002</resetValue>
+          <resetMask>0x0000045B</resetMask>
+
           <fields>
-            <!-- todo: fields -->
+            <!-- wakeup_level: IO wake-up polarity selection -->
+            <field>
+              <name>wakeup_level</name>
+              <description>IO wake-up polarity selection</description>
+              <bitRange>[10:10]</bitRange>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>low</name>
+                  <description>Low level interrupts</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>high</name>
+                  <description>High level interrupt</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+
+            <!-- wakeup_count: IO wake-up Minimum hold count of 128ms -->
+            <field>
+              <name>wakeup_count</name>
+              <description>IO wake-up Minimum hold count of 128ms</description>
+              <bitRange>[9:6]</bitRange>
+            </field>
+
+            <!-- bypass_32k: Bypass 32k oscillator -->
+            <field>
+              <name>bypass_32k</name>
+              <description>Bypass 32k oscillator</description>
+              <bitRange>[4:4]</bitRange>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>disable</name>
+                  <description>Disable bypass 32k oscillator</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>enable</name>
+                  <description>Enable bypass 32k oscillator</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+
+            <!-- calibrate_32k: Calibrate 32k oscillator -->
+            <field>
+              <name>calibrate_32k</name>
+              <description>Calibrate 32k oscillator</description>
+              <bitRange>[3:3]</bitRange>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>off</name>
+                  <description>Stop calibrate 32k oscillator</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>on</name>
+                  <description>Start up calibrate 32k oscillator</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+
+            <!-- sleep: Sleep enable -->
+            <field>
+              <name>sleep</name>
+              <description>Sleep enable</description>
+              <bitRange>[1:1]</bitRange>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>disable</name>
+                  <description>Disable sleep</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>enable</name>
+                  <description>Enable sleep</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+
+            <!-- standby: Standby enable -->
+            <field>
+              <name>standby</name>
+              <description>Standby enable</description>
+              <bitRange>[0:0]</bitRange>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>disable</name>
+                  <description>Disable standby</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>enable</name>
+                  <description>Enable standby</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+          </fields>
+        </register>
+
+        <!-- timer0 -->
+        <register>
+          <name>timer0</name>
+          <description>Timer0 register</description>
+          <addressOffset>0x04</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0x0001FFFF</resetMask>
+
+          <fields>
+            <!-- enable: PMU timer0 enable -->
+            <field>
+              <name>enable</name>
+              <description>PMU timer0 enable</description>
+              <bitRange>[16:16]</bitRange>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>disable</name>
+                  <description>Disable timer0</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>enable</name>
+                  <description>Enable timer0</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+
+            <!-- count_of_seconds: PMU timer0 initial count of seconds register -->
+            <field>
+              <name>count_of_seconds</name>
+              <description>PMU timer0 initial count of seconds register</description>
+              <bitRange>[15:0]</bitRange>
+            </field>
+          </fields>
+        </register>
+
+        <!-- rtc_register_0: RTC Register 0 -->
+        <register>
+          <name>rtc_register_0</name>
+          <description>RTC register 0</description>
+          <addressOffset>0x0C</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0x9F1F3F3F</resetMask>
+
+          <fields>
+            <!-- alarm_interrupt_en: Alarm interrupt enable -->
+            <field>
+              <name>alarm_interrupt_en</name>
+              <description>Alarm interrupt enable</description>
+              <bitRange>[31:31]</bitRange>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>disable</name>
+                  <description>RTC does not generate Alarm Interrupts</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>enable</name>
+                  <description>RTC triggers the Alarm Interrupt</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+
+            <!-- day -->
+            <field>
+              <name>day</name>
+              <description>day</description>
+              <bitRange>[28:24]</bitRange>
+            </field>
+
+            <!-- hour -->
+            <field>
+              <name>hour</name>
+              <description>hour</description>
+              <bitRange>[20:16]</bitRange>
+            </field>
+
+            <!-- minute -->
+            <field>
+              <name>minute</name>
+              <description>minute</description>
+              <bitRange>[13:8]</bitRange>
+            </field>
+
+            <!-- second -->
+            <field>
+              <name>second</name>
+              <description>second</description>
+              <bitRange>[5:0]</bitRange>
+            </field>
+          </fields>
+        </register>
+
+        <!-- rtc_register_1: RTC Register 1 -->
+        <register>
+          <name>rtc_register_1</name>
+          <description>RTC register 1</description>
+          <addressOffset>0x10</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0x00017F0F</resetMask>
+
+          <fields>
+            <!-- rtc_enable: RTC enable -->
+            <field>
+            <name>rtc_enable</name>
+              <description>RTC enable</description>
+              <bitRange>[16:16]</bitRange>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>disable</name>
+                  <description>RTC disable</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>enable</name>
+                  <description>RTC enable</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+
+            <!-- year -->
+            <field>
+              <name>year</name>
+              <description>year</description>
+              <bitRange>[14:8]</bitRange>
+            </field>
+
+            <!-- month -->
+            <field>
+              <name>month</name>
+              <description>month</description>
+              <bitRange>[3:0]</bitRange>
+            </field>
+          </fields>
+        </register>
+
+        <!-- PMU interrupt_source: PMU interrupt source register -->
+        <register>
+          <name>interrupt_source</name>
+          <description>PMU interrupt source register</description>
+          <addressOffset>0x14</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0x00000195</resetMask>
+
+          <fields>
+            <!-- sleep: Whether power-on from sleep -->
+            <field>
+              <name>sleep</name>
+              <description>Whether power-on from sleep</description>
+              <bitRange>[8:8]</bitRange>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>disappear</name>
+                  <description>disappear wake up from sleep</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>appear</name>
+                  <description>appear wake up from sleep, set clear</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+
+            <!-- standby: Whether power-on from standby -->
+            <field>
+              <name>standby</name>
+              <description>Whether power-on from standby</description>
+              <bitRange>[7:7]</bitRange>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>disappear</name>
+                  <description>disappear wake up from standby</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>appear</name>
+                  <description>appear wake up from standby, set clear</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+
+            <!-- rtc_int: RTC interrupt flag -->
+            <field>
+              <name>rtc_int</name>
+              <description>RTC interrupt flag</description>
+              <bitRange>[4:4]</bitRange>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>no_interrupt</name>
+                  <description>No RTC interrupt is generated.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>has_interrupt_set_clr</name>
+                  <description>RTC interrupt is generated, set clear</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+
+            <!-- io_wake_int: IO wake up interrupt flag -->
+            <field>
+              <name>io_wake_int</name>
+              <description>IO wake up interrupt flag</description>
+              <bitRange>[2:2]</bitRange>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>no_interrupt</name>
+                  <description>No IO wake up interrupt is generated.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>has_interrupt_set_clr</name>
+                  <description>IO wake up interrupt is generated, set clear</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+
+            <!-- timer0_int: PMU TIMER0 interrupt flag -->
+            <field>
+              <name>timer0_int</name>
+              <description>PMU TIMER0 interrupt flag</description>
+              <bitRange>[0:0]</bitRange>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>no_interrupt</name>
+                  <description>No PMU TIMER0 interrupt is generated.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>has_interrupt_set_clr</name>
+                  <description>PMU TIMER0 interrupt is generated, set clear</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
           </fields>
         </register>
       </registers>
     </peripheral>
+
     <peripheral>
       <name>RCC</name>
       <description>System clock and reset controller</description>
