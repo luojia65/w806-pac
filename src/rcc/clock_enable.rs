@@ -616,7 +616,7 @@ impl R {
     #[doc = "Universal asynchronous transmitter/receiver enable\n\n By default, UART clock gate is enabled."]
     #[inline(always)]
     pub unsafe fn uart(&self, n: usize) -> UART_R {
-        UART_R::new(((self.bits >> n + 1) & 0x01) != 0)
+        UART_R::new(((self.bits >> (n + 1)) & 0x01) != 0)
     }
     #[doc = "Bit 1 - Universal asynchronous transmitter/receiver enable\n\n By default, UART clock gate is enabled."]
     #[inline(always)]

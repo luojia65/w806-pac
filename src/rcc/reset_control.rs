@@ -773,7 +773,7 @@ impl R {
     #[doc = "Universal asynchronous transmitter/receiver reset"]
     #[inline(always)]
     pub unsafe fn uart(&self, n: usize) -> UART_R {
-        UART_R::new(((self.bits >> n + 10) & 0x01) != 0)
+        UART_R::new(((self.bits >> (n + 10)) & 0x01) != 0)
     }
     #[doc = "Bit 10 - Universal asynchronous transmitter/receiver reset"]
     #[inline(always)]
@@ -813,7 +813,7 @@ impl R {
     #[doc = "Internal bus reset"]
     #[inline(always)]
     pub unsafe fn bus(&self, n: usize) -> BUS_R {
-        BUS_R::new(((self.bits >> n - 1 + 7) & 0x01) != 0)
+        BUS_R::new(((self.bits >> (n - 1 + 7)) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Internal bus reset"]
     #[inline(always)]
