@@ -39,7 +39,7 @@ impl From<crate::W<CLOCK_ENABLE_SPEC>> for W {
 pub enum TOUCH_A {
     #[doc = "0: The clock gate is turned off."]
     DISABLE = 0,
-    #[doc = "1: The clock gate is ruened on."]
+    #[doc = "1: The clock gate is turned on."]
     ENABLE = 1,
 }
 impl From<TOUCH_A> for bool {
@@ -96,7 +96,7 @@ impl<'a> TOUCH_W<'a> {
     pub fn disable(self) -> &'a mut W {
         self.variant(TOUCH_A::DISABLE)
     }
-    #[doc = "The clock gate is ruened on."]
+    #[doc = "The clock gate is turned on."]
     #[inline(always)]
     pub fn enable(self) -> &'a mut W {
         self.variant(TOUCH_A::ENABLE)
@@ -137,7 +137,7 @@ impl<'a> SDIO_W<'a> {
     pub fn disable(self) -> &'a mut W {
         self.variant(SDIO_A::DISABLE)
     }
-    #[doc = "The clock gate is ruened on."]
+    #[doc = "The clock gate is turned on."]
     #[inline(always)]
     pub fn enable(self) -> &'a mut W {
         self.variant(SDIO_A::ENABLE)
@@ -178,7 +178,7 @@ impl<'a> RSA_W<'a> {
     pub fn disable(self) -> &'a mut W {
         self.variant(RSA_A::DISABLE)
     }
-    #[doc = "The clock gate is ruened on."]
+    #[doc = "The clock gate is turned on."]
     #[inline(always)]
     pub fn enable(self) -> &'a mut W {
         self.variant(RSA_A::ENABLE)
@@ -219,7 +219,7 @@ impl<'a> I2S_W<'a> {
     pub fn disable(self) -> &'a mut W {
         self.variant(I2S_A::DISABLE)
     }
-    #[doc = "The clock gate is ruened on."]
+    #[doc = "The clock gate is turned on."]
     #[inline(always)]
     pub fn enable(self) -> &'a mut W {
         self.variant(I2S_A::ENABLE)
@@ -260,7 +260,7 @@ impl<'a> PWM_W<'a> {
     pub fn disable(self) -> &'a mut W {
         self.variant(PWM_A::DISABLE)
     }
-    #[doc = "The clock gate is ruened on."]
+    #[doc = "The clock gate is turned on."]
     #[inline(always)]
     pub fn enable(self) -> &'a mut W {
         self.variant(PWM_A::ENABLE)
@@ -301,7 +301,7 @@ impl<'a> ADC_W<'a> {
     pub fn disable(self) -> &'a mut W {
         self.variant(ADC_A::DISABLE)
     }
-    #[doc = "The clock gate is ruened on."]
+    #[doc = "The clock gate is turned on."]
     #[inline(always)]
     pub fn enable(self) -> &'a mut W {
         self.variant(ADC_A::ENABLE)
@@ -342,7 +342,7 @@ impl<'a> GPIO_W<'a> {
     pub fn disable(self) -> &'a mut W {
         self.variant(GPIO_A::DISABLE)
     }
-    #[doc = "The clock gate is ruened on."]
+    #[doc = "The clock gate is turned on."]
     #[inline(always)]
     pub fn enable(self) -> &'a mut W {
         self.variant(GPIO_A::ENABLE)
@@ -383,7 +383,7 @@ impl<'a> TIMER_W<'a> {
     pub fn disable(self) -> &'a mut W {
         self.variant(TIMER_A::DISABLE)
     }
-    #[doc = "The clock gate is ruened on."]
+    #[doc = "The clock gate is turned on."]
     #[inline(always)]
     pub fn enable(self) -> &'a mut W {
         self.variant(TIMER_A::ENABLE)
@@ -424,7 +424,7 @@ impl<'a> DMA_W<'a> {
     pub fn disable(self) -> &'a mut W {
         self.variant(DMA_A::DISABLE)
     }
-    #[doc = "The clock gate is ruened on."]
+    #[doc = "The clock gate is turned on."]
     #[inline(always)]
     pub fn enable(self) -> &'a mut W {
         self.variant(DMA_A::ENABLE)
@@ -465,7 +465,7 @@ impl<'a, const O: usize> UART_W<'a, O> {
     pub fn disable(self) -> &'a mut W {
         self.variant(UART_A::DISABLE)
     }
-    #[doc = "The clock gate is ruened on."]
+    #[doc = "The clock gate is turned on."]
     #[inline(always)]
     pub fn enable(self) -> &'a mut W {
         self.variant(UART_A::ENABLE)
@@ -506,7 +506,7 @@ impl<'a> I2C_W<'a> {
     pub fn disable(self) -> &'a mut W {
         self.variant(I2C_A::DISABLE)
     }
-    #[doc = "The clock gate is ruened on."]
+    #[doc = "The clock gate is turned on."]
     #[inline(always)]
     pub fn enable(self) -> &'a mut W {
         self.variant(I2C_A::ENABLE)

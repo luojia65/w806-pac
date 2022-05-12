@@ -449,7 +449,7 @@
                 </enumeratedValue>
                 <enumeratedValue>
                     <name>enable</name>
-                    <description>The clock gate is ruened on.</description>
+                    <description>The clock gate is turned on.</description>
                     <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
