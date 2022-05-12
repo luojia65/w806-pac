@@ -1055,9 +1055,11 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>UART0</name>
+      <dim>6</dim>
+      <dimIncrement>0x200</dimIncrement>
+      <name>UART[%s]</name>
       <baseAddress>0x40010600</baseAddress>
-      <description>Universal asynchronous receiver/transmitter 0</description>
+      <description>Universal asynchronous receiver/transmitter</description>
       <registers>
         <register>
           <name>todo</name>
@@ -1068,31 +1070,6 @@
           </fields>
         </register>
       </registers>
-    </peripheral>
-    <peripheral derivedFrom="UART0">
-      <name>UART1</name>
-      <baseAddress>0x40010800</baseAddress>
-      <description>Universal asynchronous receiver/transmitter 1</description>
-    </peripheral>
-    <peripheral derivedFrom="UART0">
-      <name>UART2</name>
-      <baseAddress>0x40010A00</baseAddress>
-      <description>Universal asynchronous receiver/transmitter 2</description>
-    </peripheral>
-    <peripheral derivedFrom="UART0">
-      <name>UART3</name>
-      <baseAddress>0x40010C00</baseAddress>
-      <description>Universal asynchronous receiver/transmitter 3</description>
-    </peripheral>
-    <peripheral derivedFrom="UART0">
-      <name>UART4</name>
-      <baseAddress>0x40010E00</baseAddress>
-      <description>Universal asynchronous receiver/transmitter 4</description>
-    </peripheral>
-    <peripheral derivedFrom="UART0">
-      <name>UART5</name>
-      <baseAddress>0x40011000</baseAddress>
-      <description>Universal asynchronous receiver/transmitter 5</description>
     </peripheral>
     <peripheral>
       <name>TIMER</name>
@@ -1185,9 +1162,12 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>GPIOA</name>
+      <dim>2</dim>
+      <dimIncrement>0x200</dimIncrement>
+      <dimIndex>A,B</dimIndex> 
+      <name>GPIO[%s]</name>
       <baseAddress>0x40011200</baseAddress>
-      <description>General purpose input/output module A</description>
+      <description>General purpose input/output module</description>
       <registers>
         <register>
           <name>data_value</name>
@@ -1578,11 +1558,6 @@
           </fields>
         </register>
       </registers>
-    </peripheral>
-    <peripheral derivedFrom="GPIOA">
-      <name>GPIOB</name>
-      <baseAddress>0x40011400</baseAddress>
-      <description>General purpose input/output module B</description>
     </peripheral>
     <peripheral>
       <name>TOUCH</name>

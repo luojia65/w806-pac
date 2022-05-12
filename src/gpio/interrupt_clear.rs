@@ -31,45 +31,11 @@ impl From<PIN_AW> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Fields `pin(0-15)` writer - GPIO pin masked interrupt state"]
-pub struct PIN_W<'a> {
-    w: &'a mut W,
-    offset: usize,
-}
-impl<'a> PIN_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: PIN_AW) -> &'a mut W {
-        self.bit(variant.into())
-    }
-    #[doc = "Write 1 to clear GPIO interrupt state."]
-    #[inline(always)]
-    pub fn clear(self) -> &'a mut W {
-        self.variant(PIN_AW::CLEAR)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits =
-            (self.w.bits & !(0x01 << self.offset)) | ((value as u32 & 0x01) << self.offset);
-        self.w
-    }
-}
 #[doc = "Fields `pin(0-15)` const generic writer - GPIO pin masked interrupt state"]
-pub struct PIN_CGW<'a, const O: usize> {
+pub struct PIN_W<'a, const O: usize> {
     w: &'a mut W,
 }
-impl<'a, const O: usize> PIN_CGW<'a, O> {
+impl<'a, const O: usize> PIN_W<'a, O> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PIN_AW) -> &'a mut W {
@@ -93,95 +59,95 @@ impl<'a, const O: usize> PIN_CGW<'a, O> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << O)) | ((value as u32 & 0x01) << O);
+        self.w.bits = (self.w.bits & !(1 << O)) | ((value as u32 & 1) << O);
         self.w
     }
 }
 impl W {
     #[doc = "GPIO pin masked interrupt state"]
     #[inline(always)]
-    pub unsafe fn pin(&mut self, n: usize) -> PIN_W {
-        PIN_W { w: self, offset: n }
+    pub unsafe fn pin<const O: usize>(&mut self) -> PIN_W<O> {
+        PIN_W { w: self }
     }
     #[doc = "Bit 0 - GPIO pin masked interrupt state"]
     #[inline(always)]
-    pub fn pin0(&mut self) -> PIN_CGW<0> {
-        PIN_CGW { w: self }
+    pub fn pin0(&mut self) -> PIN_W<0> {
+        PIN_W { w: self }
     }
     #[doc = "Bit 1 - GPIO pin masked interrupt state"]
     #[inline(always)]
-    pub fn pin1(&mut self) -> PIN_CGW<1> {
-        PIN_CGW { w: self }
+    pub fn pin1(&mut self) -> PIN_W<1> {
+        PIN_W { w: self }
     }
     #[doc = "Bit 2 - GPIO pin masked interrupt state"]
     #[inline(always)]
-    pub fn pin2(&mut self) -> PIN_CGW<2> {
-        PIN_CGW { w: self }
+    pub fn pin2(&mut self) -> PIN_W<2> {
+        PIN_W { w: self }
     }
     #[doc = "Bit 3 - GPIO pin masked interrupt state"]
     #[inline(always)]
-    pub fn pin3(&mut self) -> PIN_CGW<3> {
-        PIN_CGW { w: self }
+    pub fn pin3(&mut self) -> PIN_W<3> {
+        PIN_W { w: self }
     }
     #[doc = "Bit 4 - GPIO pin masked interrupt state"]
     #[inline(always)]
-    pub fn pin4(&mut self) -> PIN_CGW<4> {
-        PIN_CGW { w: self }
+    pub fn pin4(&mut self) -> PIN_W<4> {
+        PIN_W { w: self }
     }
     #[doc = "Bit 5 - GPIO pin masked interrupt state"]
     #[inline(always)]
-    pub fn pin5(&mut self) -> PIN_CGW<5> {
-        PIN_CGW { w: self }
+    pub fn pin5(&mut self) -> PIN_W<5> {
+        PIN_W { w: self }
     }
     #[doc = "Bit 6 - GPIO pin masked interrupt state"]
     #[inline(always)]
-    pub fn pin6(&mut self) -> PIN_CGW<6> {
-        PIN_CGW { w: self }
+    pub fn pin6(&mut self) -> PIN_W<6> {
+        PIN_W { w: self }
     }
     #[doc = "Bit 7 - GPIO pin masked interrupt state"]
     #[inline(always)]
-    pub fn pin7(&mut self) -> PIN_CGW<7> {
-        PIN_CGW { w: self }
+    pub fn pin7(&mut self) -> PIN_W<7> {
+        PIN_W { w: self }
     }
     #[doc = "Bit 8 - GPIO pin masked interrupt state"]
     #[inline(always)]
-    pub fn pin8(&mut self) -> PIN_CGW<8> {
-        PIN_CGW { w: self }
+    pub fn pin8(&mut self) -> PIN_W<8> {
+        PIN_W { w: self }
     }
     #[doc = "Bit 9 - GPIO pin masked interrupt state"]
     #[inline(always)]
-    pub fn pin9(&mut self) -> PIN_CGW<9> {
-        PIN_CGW { w: self }
+    pub fn pin9(&mut self) -> PIN_W<9> {
+        PIN_W { w: self }
     }
     #[doc = "Bit 10 - GPIO pin masked interrupt state"]
     #[inline(always)]
-    pub fn pin10(&mut self) -> PIN_CGW<10> {
-        PIN_CGW { w: self }
+    pub fn pin10(&mut self) -> PIN_W<10> {
+        PIN_W { w: self }
     }
     #[doc = "Bit 11 - GPIO pin masked interrupt state"]
     #[inline(always)]
-    pub fn pin11(&mut self) -> PIN_CGW<11> {
-        PIN_CGW { w: self }
+    pub fn pin11(&mut self) -> PIN_W<11> {
+        PIN_W { w: self }
     }
     #[doc = "Bit 12 - GPIO pin masked interrupt state"]
     #[inline(always)]
-    pub fn pin12(&mut self) -> PIN_CGW<12> {
-        PIN_CGW { w: self }
+    pub fn pin12(&mut self) -> PIN_W<12> {
+        PIN_W { w: self }
     }
     #[doc = "Bit 13 - GPIO pin masked interrupt state"]
     #[inline(always)]
-    pub fn pin13(&mut self) -> PIN_CGW<13> {
-        PIN_CGW { w: self }
+    pub fn pin13(&mut self) -> PIN_W<13> {
+        PIN_W { w: self }
     }
     #[doc = "Bit 14 - GPIO pin masked interrupt state"]
     #[inline(always)]
-    pub fn pin14(&mut self) -> PIN_CGW<14> {
-        PIN_CGW { w: self }
+    pub fn pin14(&mut self) -> PIN_W<14> {
+        PIN_W { w: self }
     }
     #[doc = "Bit 15 - GPIO pin masked interrupt state"]
     #[inline(always)]
-    pub fn pin15(&mut self) -> PIN_CGW<15> {
-        PIN_CGW { w: self }
+    pub fn pin15(&mut self) -> PIN_W<15> {
+        PIN_W { w: self }
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]

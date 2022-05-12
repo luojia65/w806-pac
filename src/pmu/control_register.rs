@@ -49,7 +49,7 @@ impl From<WAKEUP_LEVEL_A> for bool {
     }
 }
 #[doc = "Field `wakeup_level` reader - IO wake-up polarity selection"]
-pub struct WAKEUP_LEVEL_R(crate::FieldReader<bool, WAKEUP_LEVEL_A>);
+pub struct WAKEUP_LEVEL_R(crate::FieldReader<bool>);
 impl WAKEUP_LEVEL_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
@@ -75,7 +75,7 @@ impl WAKEUP_LEVEL_R {
     }
 }
 impl core::ops::Deref for WAKEUP_LEVEL_R {
-    type Target = crate::FieldReader<bool, WAKEUP_LEVEL_A>;
+    type Target = crate::FieldReader<bool>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -114,12 +114,12 @@ impl<'a> WAKEUP_LEVEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 10)) | ((value as u32 & 0x01) << 10);
+        self.w.bits = (self.w.bits & !(1 << 10)) | ((value as u32 & 1) << 10);
         self.w
     }
 }
 #[doc = "Field `wakeup_count` reader - IO wake-up Minimum hold count of 128ms"]
-pub struct WAKEUP_COUNT_R(crate::FieldReader<u8, u8>);
+pub struct WAKEUP_COUNT_R(crate::FieldReader<u8>);
 impl WAKEUP_COUNT_R {
     #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
@@ -127,7 +127,7 @@ impl WAKEUP_COUNT_R {
     }
 }
 impl core::ops::Deref for WAKEUP_COUNT_R {
-    type Target = crate::FieldReader<u8, u8>;
+    type Target = crate::FieldReader<u8>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -160,7 +160,7 @@ impl From<BYPASS_32K_A> for bool {
     }
 }
 #[doc = "Field `bypass_32k` reader - Bypass 32k oscillator"]
-pub struct BYPASS_32K_R(crate::FieldReader<bool, BYPASS_32K_A>);
+pub struct BYPASS_32K_R(crate::FieldReader<bool>);
 impl BYPASS_32K_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
@@ -186,7 +186,7 @@ impl BYPASS_32K_R {
     }
 }
 impl core::ops::Deref for BYPASS_32K_R {
-    type Target = crate::FieldReader<bool, BYPASS_32K_A>;
+    type Target = crate::FieldReader<bool>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -225,7 +225,7 @@ impl<'a> BYPASS_32K_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(1 << 4)) | ((value as u32 & 1) << 4);
         self.w
     }
 }
@@ -244,7 +244,7 @@ impl From<CALIBRATE_32K_A> for bool {
     }
 }
 #[doc = "Field `calibrate_32k` reader - Calibrate 32k oscillator"]
-pub struct CALIBRATE_32K_R(crate::FieldReader<bool, CALIBRATE_32K_A>);
+pub struct CALIBRATE_32K_R(crate::FieldReader<bool>);
 impl CALIBRATE_32K_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
@@ -270,7 +270,7 @@ impl CALIBRATE_32K_R {
     }
 }
 impl core::ops::Deref for CALIBRATE_32K_R {
-    type Target = crate::FieldReader<bool, CALIBRATE_32K_A>;
+    type Target = crate::FieldReader<bool>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -309,7 +309,7 @@ impl<'a> CALIBRATE_32K_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(1 << 3)) | ((value as u32 & 1) << 3);
         self.w
     }
 }
@@ -328,7 +328,7 @@ impl From<SLEEP_A> for bool {
     }
 }
 #[doc = "Field `sleep` reader - Sleep enable"]
-pub struct SLEEP_R(crate::FieldReader<bool, SLEEP_A>);
+pub struct SLEEP_R(crate::FieldReader<bool>);
 impl SLEEP_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
@@ -354,7 +354,7 @@ impl SLEEP_R {
     }
 }
 impl core::ops::Deref for SLEEP_R {
-    type Target = crate::FieldReader<bool, SLEEP_A>;
+    type Target = crate::FieldReader<bool>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -393,7 +393,7 @@ impl<'a> SLEEP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(1 << 1)) | ((value as u32 & 1) << 1);
         self.w
     }
 }
@@ -412,7 +412,7 @@ impl From<STANDBY_A> for bool {
     }
 }
 #[doc = "Field `standby` reader - Standby enable"]
-pub struct STANDBY_R(crate::FieldReader<bool, STANDBY_A>);
+pub struct STANDBY_R(crate::FieldReader<bool>);
 impl STANDBY_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
@@ -438,7 +438,7 @@ impl STANDBY_R {
     }
 }
 impl core::ops::Deref for STANDBY_R {
-    type Target = crate::FieldReader<bool, STANDBY_A>;
+    type Target = crate::FieldReader<bool>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -477,7 +477,7 @@ impl<'a> STANDBY_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
+        self.w.bits = (self.w.bits & !1) | (value as u32 & 1);
         self.w
     }
 }
@@ -485,7 +485,7 @@ impl R {
     #[doc = "Bit 10 - IO wake-up polarity selection"]
     #[inline(always)]
     pub fn wakeup_level(&self) -> WAKEUP_LEVEL_R {
-        WAKEUP_LEVEL_R::new(((self.bits >> 10) & 0x01) != 0)
+        WAKEUP_LEVEL_R::new(((self.bits >> 10) & 1) != 0)
     }
     #[doc = "Bits 6:9 - IO wake-up Minimum hold count of 128ms"]
     #[inline(always)]
@@ -495,22 +495,22 @@ impl R {
     #[doc = "Bit 4 - Bypass 32k oscillator"]
     #[inline(always)]
     pub fn bypass_32k(&self) -> BYPASS_32K_R {
-        BYPASS_32K_R::new(((self.bits >> 4) & 0x01) != 0)
+        BYPASS_32K_R::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bit 3 - Calibrate 32k oscillator"]
     #[inline(always)]
     pub fn calibrate_32k(&self) -> CALIBRATE_32K_R {
-        CALIBRATE_32K_R::new(((self.bits >> 3) & 0x01) != 0)
+        CALIBRATE_32K_R::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bit 1 - Sleep enable"]
     #[inline(always)]
     pub fn sleep(&self) -> SLEEP_R {
-        SLEEP_R::new(((self.bits >> 1) & 0x01) != 0)
+        SLEEP_R::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 0 - Standby enable"]
     #[inline(always)]
     pub fn standby(&self) -> STANDBY_R {
-        STANDBY_R::new((self.bits & 0x01) != 0)
+        STANDBY_R::new((self.bits & 1) != 0)
     }
 }
 impl W {

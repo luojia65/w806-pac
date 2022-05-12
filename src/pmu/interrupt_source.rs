@@ -49,7 +49,7 @@ impl From<SLEEP_A> for bool {
     }
 }
 #[doc = "Field `sleep` reader - Whether power-on from sleep"]
-pub struct SLEEP_R(crate::FieldReader<bool, SLEEP_A>);
+pub struct SLEEP_R(crate::FieldReader<bool>);
 impl SLEEP_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
@@ -75,7 +75,7 @@ impl SLEEP_R {
     }
 }
 impl core::ops::Deref for SLEEP_R {
-    type Target = crate::FieldReader<bool, SLEEP_A>;
+    type Target = crate::FieldReader<bool>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -114,7 +114,7 @@ impl<'a> SLEEP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(1 << 8)) | ((value as u32 & 1) << 8);
         self.w
     }
 }
@@ -133,7 +133,7 @@ impl From<STANDBY_A> for bool {
     }
 }
 #[doc = "Field `standby` reader - Whether power-on from standby"]
-pub struct STANDBY_R(crate::FieldReader<bool, STANDBY_A>);
+pub struct STANDBY_R(crate::FieldReader<bool>);
 impl STANDBY_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
@@ -159,7 +159,7 @@ impl STANDBY_R {
     }
 }
 impl core::ops::Deref for STANDBY_R {
-    type Target = crate::FieldReader<bool, STANDBY_A>;
+    type Target = crate::FieldReader<bool>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -198,7 +198,7 @@ impl<'a> STANDBY_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u32 & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(1 << 7)) | ((value as u32 & 1) << 7);
         self.w
     }
 }
@@ -217,7 +217,7 @@ impl From<RTC_INT_A> for bool {
     }
 }
 #[doc = "Field `rtc_int` reader - RTC interrupt flag"]
-pub struct RTC_INT_R(crate::FieldReader<bool, RTC_INT_A>);
+pub struct RTC_INT_R(crate::FieldReader<bool>);
 impl RTC_INT_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
@@ -243,7 +243,7 @@ impl RTC_INT_R {
     }
 }
 impl core::ops::Deref for RTC_INT_R {
-    type Target = crate::FieldReader<bool, RTC_INT_A>;
+    type Target = crate::FieldReader<bool>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -282,7 +282,7 @@ impl<'a> RTC_INT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(1 << 4)) | ((value as u32 & 1) << 4);
         self.w
     }
 }
@@ -301,7 +301,7 @@ impl From<IO_WAKE_INT_A> for bool {
     }
 }
 #[doc = "Field `io_wake_int` reader - IO wake up interrupt flag"]
-pub struct IO_WAKE_INT_R(crate::FieldReader<bool, IO_WAKE_INT_A>);
+pub struct IO_WAKE_INT_R(crate::FieldReader<bool>);
 impl IO_WAKE_INT_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
@@ -327,7 +327,7 @@ impl IO_WAKE_INT_R {
     }
 }
 impl core::ops::Deref for IO_WAKE_INT_R {
-    type Target = crate::FieldReader<bool, IO_WAKE_INT_A>;
+    type Target = crate::FieldReader<bool>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -366,7 +366,7 @@ impl<'a> IO_WAKE_INT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(1 << 2)) | ((value as u32 & 1) << 2);
         self.w
     }
 }
@@ -385,7 +385,7 @@ impl From<TIMER0_INT_A> for bool {
     }
 }
 #[doc = "Field `timer0_int` reader - PMU TIMER0 interrupt flag"]
-pub struct TIMER0_INT_R(crate::FieldReader<bool, TIMER0_INT_A>);
+pub struct TIMER0_INT_R(crate::FieldReader<bool>);
 impl TIMER0_INT_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
@@ -411,7 +411,7 @@ impl TIMER0_INT_R {
     }
 }
 impl core::ops::Deref for TIMER0_INT_R {
-    type Target = crate::FieldReader<bool, TIMER0_INT_A>;
+    type Target = crate::FieldReader<bool>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -450,7 +450,7 @@ impl<'a> TIMER0_INT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
+        self.w.bits = (self.w.bits & !1) | (value as u32 & 1);
         self.w
     }
 }
@@ -458,27 +458,27 @@ impl R {
     #[doc = "Bit 8 - Whether power-on from sleep"]
     #[inline(always)]
     pub fn sleep(&self) -> SLEEP_R {
-        SLEEP_R::new(((self.bits >> 8) & 0x01) != 0)
+        SLEEP_R::new(((self.bits >> 8) & 1) != 0)
     }
     #[doc = "Bit 7 - Whether power-on from standby"]
     #[inline(always)]
     pub fn standby(&self) -> STANDBY_R {
-        STANDBY_R::new(((self.bits >> 7) & 0x01) != 0)
+        STANDBY_R::new(((self.bits >> 7) & 1) != 0)
     }
     #[doc = "Bit 4 - RTC interrupt flag"]
     #[inline(always)]
     pub fn rtc_int(&self) -> RTC_INT_R {
-        RTC_INT_R::new(((self.bits >> 4) & 0x01) != 0)
+        RTC_INT_R::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bit 2 - IO wake up interrupt flag"]
     #[inline(always)]
     pub fn io_wake_int(&self) -> IO_WAKE_INT_R {
-        IO_WAKE_INT_R::new(((self.bits >> 2) & 0x01) != 0)
+        IO_WAKE_INT_R::new(((self.bits >> 2) & 1) != 0)
     }
     #[doc = "Bit 0 - PMU TIMER0 interrupt flag"]
     #[inline(always)]
     pub fn timer0_int(&self) -> TIMER0_INT_R {
-        TIMER0_INT_R::new((self.bits & 0x01) != 0)
+        TIMER0_INT_R::new((self.bits & 1) != 0)
     }
 }
 impl W {

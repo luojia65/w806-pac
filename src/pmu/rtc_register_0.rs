@@ -49,7 +49,7 @@ impl From<ALARM_INTERRUPT_EN_A> for bool {
     }
 }
 #[doc = "Field `alarm_interrupt_en` reader - Alarm interrupt enable"]
-pub struct ALARM_INTERRUPT_EN_R(crate::FieldReader<bool, ALARM_INTERRUPT_EN_A>);
+pub struct ALARM_INTERRUPT_EN_R(crate::FieldReader<bool>);
 impl ALARM_INTERRUPT_EN_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
@@ -75,7 +75,7 @@ impl ALARM_INTERRUPT_EN_R {
     }
 }
 impl core::ops::Deref for ALARM_INTERRUPT_EN_R {
-    type Target = crate::FieldReader<bool, ALARM_INTERRUPT_EN_A>;
+    type Target = crate::FieldReader<bool>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -114,12 +114,12 @@ impl<'a> ALARM_INTERRUPT_EN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 31)) | ((value as u32 & 0x01) << 31);
+        self.w.bits = (self.w.bits & !(1 << 31)) | ((value as u32 & 1) << 31);
         self.w
     }
 }
 #[doc = "Field `day` reader - day"]
-pub struct DAY_R(crate::FieldReader<u8, u8>);
+pub struct DAY_R(crate::FieldReader<u8>);
 impl DAY_R {
     #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
@@ -127,7 +127,7 @@ impl DAY_R {
     }
 }
 impl core::ops::Deref for DAY_R {
-    type Target = crate::FieldReader<u8, u8>;
+    type Target = crate::FieldReader<u8>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -146,7 +146,7 @@ impl<'a> DAY_W<'a> {
     }
 }
 #[doc = "Field `hour` reader - hour"]
-pub struct HOUR_R(crate::FieldReader<u8, u8>);
+pub struct HOUR_R(crate::FieldReader<u8>);
 impl HOUR_R {
     #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
@@ -154,7 +154,7 @@ impl HOUR_R {
     }
 }
 impl core::ops::Deref for HOUR_R {
-    type Target = crate::FieldReader<u8, u8>;
+    type Target = crate::FieldReader<u8>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -173,7 +173,7 @@ impl<'a> HOUR_W<'a> {
     }
 }
 #[doc = "Field `minute` reader - minute"]
-pub struct MINUTE_R(crate::FieldReader<u8, u8>);
+pub struct MINUTE_R(crate::FieldReader<u8>);
 impl MINUTE_R {
     #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
@@ -181,7 +181,7 @@ impl MINUTE_R {
     }
 }
 impl core::ops::Deref for MINUTE_R {
-    type Target = crate::FieldReader<u8, u8>;
+    type Target = crate::FieldReader<u8>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -200,7 +200,7 @@ impl<'a> MINUTE_W<'a> {
     }
 }
 #[doc = "Field `second` reader - second"]
-pub struct SECOND_R(crate::FieldReader<u8, u8>);
+pub struct SECOND_R(crate::FieldReader<u8>);
 impl SECOND_R {
     #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
@@ -208,7 +208,7 @@ impl SECOND_R {
     }
 }
 impl core::ops::Deref for SECOND_R {
-    type Target = crate::FieldReader<u8, u8>;
+    type Target = crate::FieldReader<u8>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -230,7 +230,7 @@ impl R {
     #[doc = "Bit 31 - Alarm interrupt enable"]
     #[inline(always)]
     pub fn alarm_interrupt_en(&self) -> ALARM_INTERRUPT_EN_R {
-        ALARM_INTERRUPT_EN_R::new(((self.bits >> 31) & 0x01) != 0)
+        ALARM_INTERRUPT_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
     #[doc = "Bits 24:28 - day"]
     #[inline(always)]

@@ -208,11 +208,10 @@ impl<REG: RegisterSpec> W<REG> {
 #[doc = " Field reader."]
 #[doc = ""]
 #[doc = " Result of the `read` methods of fields."]
-pub struct FieldReader<U, T> {
+pub struct FieldReader<U> {
     pub(crate) bits: U,
-    _reg: marker::PhantomData<T>,
 }
-impl<U, T> FieldReader<U, T>
+impl<U> FieldReader<U>
 where
     U: Copy,
 {
@@ -220,10 +219,7 @@ where
     #[allow(unused)]
     #[inline(always)]
     pub(crate) fn new(bits: U) -> Self {
-        Self {
-            bits,
-            _reg: marker::PhantomData,
-        }
+        Self { bits }
     }
     #[doc = " Reads raw bits from field."]
     #[inline(always)]
@@ -231,17 +227,17 @@ where
         self.bits
     }
 }
-impl<U, T, FI> PartialEq<FI> for FieldReader<U, T>
+impl<U, T> PartialEq<T> for FieldReader<U>
 where
     U: PartialEq,
-    FI: Copy + Into<U>,
+    T: Copy + Into<U>,
 {
     #[inline(always)]
-    fn eq(&self, other: &FI) -> bool {
+    fn eq(&self, other: &T) -> bool {
         self.bits.eq(&(*other).into())
     }
 }
-impl<FI> FieldReader<bool, FI> {
+impl FieldReader<bool> {
     #[doc = " Value of the field as raw bits."]
     #[inline(always)]
     pub fn bit(&self) -> bool {

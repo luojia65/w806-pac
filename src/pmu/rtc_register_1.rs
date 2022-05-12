@@ -49,7 +49,7 @@ impl From<RTC_ENABLE_A> for bool {
     }
 }
 #[doc = "Field `rtc_enable` reader - RTC enable"]
-pub struct RTC_ENABLE_R(crate::FieldReader<bool, RTC_ENABLE_A>);
+pub struct RTC_ENABLE_R(crate::FieldReader<bool>);
 impl RTC_ENABLE_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
@@ -75,7 +75,7 @@ impl RTC_ENABLE_R {
     }
 }
 impl core::ops::Deref for RTC_ENABLE_R {
-    type Target = crate::FieldReader<bool, RTC_ENABLE_A>;
+    type Target = crate::FieldReader<bool>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -114,12 +114,12 @@ impl<'a> RTC_ENABLE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 16)) | ((value as u32 & 0x01) << 16);
+        self.w.bits = (self.w.bits & !(1 << 16)) | ((value as u32 & 1) << 16);
         self.w
     }
 }
 #[doc = "Field `year` reader - year"]
-pub struct YEAR_R(crate::FieldReader<u8, u8>);
+pub struct YEAR_R(crate::FieldReader<u8>);
 impl YEAR_R {
     #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
@@ -127,7 +127,7 @@ impl YEAR_R {
     }
 }
 impl core::ops::Deref for YEAR_R {
-    type Target = crate::FieldReader<u8, u8>;
+    type Target = crate::FieldReader<u8>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -146,7 +146,7 @@ impl<'a> YEAR_W<'a> {
     }
 }
 #[doc = "Field `month` reader - month"]
-pub struct MONTH_R(crate::FieldReader<u8, u8>);
+pub struct MONTH_R(crate::FieldReader<u8>);
 impl MONTH_R {
     #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
@@ -154,7 +154,7 @@ impl MONTH_R {
     }
 }
 impl core::ops::Deref for MONTH_R {
-    type Target = crate::FieldReader<u8, u8>;
+    type Target = crate::FieldReader<u8>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -176,7 +176,7 @@ impl R {
     #[doc = "Bit 16 - RTC enable"]
     #[inline(always)]
     pub fn rtc_enable(&self) -> RTC_ENABLE_R {
-        RTC_ENABLE_R::new(((self.bits >> 16) & 0x01) != 0)
+        RTC_ENABLE_R::new(((self.bits >> 16) & 1) != 0)
     }
     #[doc = "Bits 8:14 - year"]
     #[inline(always)]

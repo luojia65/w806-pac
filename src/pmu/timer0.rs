@@ -49,7 +49,7 @@ impl From<ENABLE_A> for bool {
     }
 }
 #[doc = "Field `enable` reader - PMU timer0 enable"]
-pub struct ENABLE_R(crate::FieldReader<bool, ENABLE_A>);
+pub struct ENABLE_R(crate::FieldReader<bool>);
 impl ENABLE_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
@@ -75,7 +75,7 @@ impl ENABLE_R {
     }
 }
 impl core::ops::Deref for ENABLE_R {
-    type Target = crate::FieldReader<bool, ENABLE_A>;
+    type Target = crate::FieldReader<bool>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -114,12 +114,12 @@ impl<'a> ENABLE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 16)) | ((value as u32 & 0x01) << 16);
+        self.w.bits = (self.w.bits & !(1 << 16)) | ((value as u32 & 1) << 16);
         self.w
     }
 }
 #[doc = "Field `count_of_seconds` reader - PMU timer0 initial count of seconds register"]
-pub struct COUNT_OF_SECONDS_R(crate::FieldReader<u16, u16>);
+pub struct COUNT_OF_SECONDS_R(crate::FieldReader<u16>);
 impl COUNT_OF_SECONDS_R {
     #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
@@ -127,7 +127,7 @@ impl COUNT_OF_SECONDS_R {
     }
 }
 impl core::ops::Deref for COUNT_OF_SECONDS_R {
-    type Target = crate::FieldReader<u16, u16>;
+    type Target = crate::FieldReader<u16>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -149,7 +149,7 @@ impl R {
     #[doc = "Bit 16 - PMU timer0 enable"]
     #[inline(always)]
     pub fn enable(&self) -> ENABLE_R {
-        ENABLE_R::new(((self.bits >> 16) & 0x01) != 0)
+        ENABLE_R::new(((self.bits >> 16) & 1) != 0)
     }
     #[doc = "Bits 0:15 - PMU timer0 initial count of seconds register"]
     #[inline(always)]

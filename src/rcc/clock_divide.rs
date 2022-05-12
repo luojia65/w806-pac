@@ -49,7 +49,7 @@ impl From<FREQUENCY_A> for bool {
     }
 }
 #[doc = "Field `frequency` reader - Divide frequency enable\n\n When you need to reconfigure cpu_clk_divider, wlan_clk_divider, bus2_syncdn_factor, sdadc_fdiv, set this register, the hardware will automatically update the above four parameters to the divider, and then clear this register."]
-pub struct FREQUENCY_R(crate::FieldReader<bool, FREQUENCY_A>);
+pub struct FREQUENCY_R(crate::FieldReader<bool>);
 impl FREQUENCY_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
@@ -75,7 +75,7 @@ impl FREQUENCY_R {
     }
 }
 impl core::ops::Deref for FREQUENCY_R {
-    type Target = crate::FieldReader<bool, FREQUENCY_A>;
+    type Target = crate::FieldReader<bool>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -114,12 +114,12 @@ impl<'a> FREQUENCY_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 31)) | ((value as u32 & 0x01) << 31);
+        self.w.bits = (self.w.bits & !(1 << 31)) | ((value as u32 & 1) << 31);
         self.w
     }
 }
 #[doc = "Field `peripheral` reader - 160-MHz clock divide factor"]
-pub struct PERIPHERAL_R(crate::FieldReader<u8, u8>);
+pub struct PERIPHERAL_R(crate::FieldReader<u8>);
 impl PERIPHERAL_R {
     #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
@@ -127,7 +127,7 @@ impl PERIPHERAL_R {
     }
 }
 impl core::ops::Deref for PERIPHERAL_R {
-    type Target = crate::FieldReader<u8, u8>;
+    type Target = crate::FieldReader<u8>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -146,7 +146,7 @@ impl<'a> PERIPHERAL_W<'a> {
     }
 }
 #[doc = "Field `bus2_sync` reader - Ratio between bus1 and bus2 clock frequency"]
-pub struct BUS2_SYNC_R(crate::FieldReader<u8, u8>);
+pub struct BUS2_SYNC_R(crate::FieldReader<u8>);
 impl BUS2_SYNC_R {
     #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
@@ -154,7 +154,7 @@ impl BUS2_SYNC_R {
     }
 }
 impl core::ops::Deref for BUS2_SYNC_R {
-    type Target = crate::FieldReader<u8, u8>;
+    type Target = crate::FieldReader<u8>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -173,7 +173,7 @@ impl<'a> BUS2_SYNC_W<'a> {
     }
 }
 #[doc = "Field `wlan` reader - PLL to WLAN system divide factor\n\n After dividing the frequency of the clock from the PLL, it is sent to the wlan system. This register is the frequency division factor, the factor should be >= 2.\n\n"]
-pub struct WLAN_R(crate::FieldReader<u8, u8>);
+pub struct WLAN_R(crate::FieldReader<u8>);
 impl WLAN_R {
     #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
@@ -181,7 +181,7 @@ impl WLAN_R {
     }
 }
 impl core::ops::Deref for WLAN_R {
-    type Target = crate::FieldReader<u8, u8>;
+    type Target = crate::FieldReader<u8>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -200,7 +200,7 @@ impl<'a> WLAN_W<'a> {
     }
 }
 #[doc = "Field `cpu` reader - PLL to CPU clock divide factor"]
-pub struct CPU_R(crate::FieldReader<u8, u8>);
+pub struct CPU_R(crate::FieldReader<u8>);
 impl CPU_R {
     #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
@@ -208,7 +208,7 @@ impl CPU_R {
     }
 }
 impl core::ops::Deref for CPU_R {
-    type Target = crate::FieldReader<u8, u8>;
+    type Target = crate::FieldReader<u8>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -230,7 +230,7 @@ impl R {
     #[doc = "Bit 31 - Divide frequency enable\n\n When you need to reconfigure cpu_clk_divider, wlan_clk_divider, bus2_syncdn_factor, sdadc_fdiv, set this register, the hardware will automatically update the above four parameters to the divider, and then clear this register."]
     #[inline(always)]
     pub fn frequency(&self) -> FREQUENCY_R {
-        FREQUENCY_R::new(((self.bits >> 31) & 0x01) != 0)
+        FREQUENCY_R::new(((self.bits >> 31) & 1) != 0)
     }
     #[doc = "Bits 24:27 - 160-MHz clock divide factor"]
     #[inline(always)]

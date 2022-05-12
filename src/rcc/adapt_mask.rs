@@ -49,7 +49,7 @@ impl From<CPU_A> for bool {
     }
 }
 #[doc = "Field `cpu` reader - Cpu domain allow adaptive clock configurations\n\n Indicates whether the clock supplied to the CPU clock domain (including CPU, bus1, ROM, SRAM) can be turned off adaptively.\n\n When the CPU needs to enter the WFI state, do not set the adaptive shutdown."]
-pub struct CPU_R(crate::FieldReader<bool, CPU_A>);
+pub struct CPU_R(crate::FieldReader<bool>);
 impl CPU_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
@@ -75,7 +75,7 @@ impl CPU_R {
     }
 }
 impl core::ops::Deref for CPU_R {
-    type Target = crate::FieldReader<bool, CPU_A>;
+    type Target = crate::FieldReader<bool>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -114,14 +114,14 @@ impl<'a> CPU_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(1 << 6)) | ((value as u32 & 1) << 6);
         self.w
     }
 }
 #[doc = "Sdio-Ahb domain allow adaptive clock configurations\n\n Indicates whether the clock supplied to the sdio ahb clock domain can be turned off adaptively."]
-pub type SDIO_AHB_A = CPU_A;
+pub use CPU_A as SDIO_AHB_A;
 #[doc = "Field `sdio_ahb` reader - Sdio-Ahb domain allow adaptive clock configurations\n\n Indicates whether the clock supplied to the sdio ahb clock domain can be turned off adaptively."]
-pub type SDIO_AHB_R = CPU_R;
+pub use CPU_R as SDIO_AHB_R;
 #[doc = "Field `sdio_ahb` writer - Sdio-Ahb domain allow adaptive clock configurations\n\n Indicates whether the clock supplied to the sdio ahb clock domain can be turned off adaptively."]
 pub struct SDIO_AHB_W<'a> {
     w: &'a mut W,
@@ -155,14 +155,14 @@ impl<'a> SDIO_AHB_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(1 << 1)) | ((value as u32 & 1) << 1);
         self.w
     }
 }
 #[doc = "Allow pmu to shutdown gate unit connected to pll output\n\n After the clock output by PLL, there is a gate control unit. This register configuration is used to indicate whether this unit is allowed to be shut down by the PMU."]
-pub type PMU_A = CPU_A;
+pub use CPU_A as PMU_A;
 #[doc = "Field `pmu` reader - Allow pmu to shutdown gate unit connected to pll output\n\n After the clock output by PLL, there is a gate control unit. This register configuration is used to indicate whether this unit is allowed to be shut down by the PMU."]
-pub type PMU_R = CPU_R;
+pub use CPU_R as PMU_R;
 #[doc = "Field `pmu` writer - Allow pmu to shutdown gate unit connected to pll output\n\n After the clock output by PLL, there is a gate control unit. This register configuration is used to indicate whether this unit is allowed to be shut down by the PMU."]
 pub struct PMU_W<'a> {
     w: &'a mut W,
@@ -196,7 +196,7 @@ impl<'a> PMU_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
+        self.w.bits = (self.w.bits & !1) | (value as u32 & 1);
         self.w
     }
 }
@@ -204,17 +204,17 @@ impl R {
     #[doc = "Bit 6 - Cpu domain allow adaptive clock configurations\n\n Indicates whether the clock supplied to the CPU clock domain (including CPU, bus1, ROM, SRAM) can be turned off adaptively.\n\n When the CPU needs to enter the WFI state, do not set the adaptive shutdown."]
     #[inline(always)]
     pub fn cpu(&self) -> CPU_R {
-        CPU_R::new(((self.bits >> 6) & 0x01) != 0)
+        CPU_R::new(((self.bits >> 6) & 1) != 0)
     }
     #[doc = "Bit 1 - Sdio-Ahb domain allow adaptive clock configurations\n\n Indicates whether the clock supplied to the sdio ahb clock domain can be turned off adaptively."]
     #[inline(always)]
     pub fn sdio_ahb(&self) -> SDIO_AHB_R {
-        SDIO_AHB_R::new(((self.bits >> 1) & 0x01) != 0)
+        SDIO_AHB_R::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 0 - Allow pmu to shutdown gate unit connected to pll output\n\n After the clock output by PLL, there is a gate control unit. This register configuration is used to indicate whether this unit is allowed to be shut down by the PMU."]
     #[inline(always)]
     pub fn pmu(&self) -> PMU_R {
-        PMU_R::new((self.bits & 0x01) != 0)
+        PMU_R::new((self.bits & 1) != 0)
     }
 }
 impl W {

@@ -74,12 +74,12 @@ impl<'a> CPU_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(1 << 3)) | ((value as u32 & 1) << 3);
         self.w
     }
 }
 #[doc = "Write 1 to clear watchdog soft reset state."]
-pub type WATCHDOG_AW = CPU_AW;
+pub use CPU_AW as WATCHDOG_AW;
 #[doc = "Field `watchdog` writer - Write 1 to clear watchdog soft reset state."]
 pub struct WATCHDOG_W<'a> {
     w: &'a mut W,
@@ -108,7 +108,7 @@ impl<'a> WATCHDOG_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(1 << 2)) | ((value as u32 & 1) << 2);
         self.w
     }
 }
@@ -127,7 +127,7 @@ impl From<CPU_A> for bool {
     }
 }
 #[doc = "Field `cpu` reader - Reads if cpu has been software reset."]
-pub struct CPU_R(crate::FieldReader<bool, CPU_A>);
+pub struct CPU_R(crate::FieldReader<bool>);
 impl CPU_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
@@ -153,26 +153,26 @@ impl CPU_R {
     }
 }
 impl core::ops::Deref for CPU_R {
-    type Target = crate::FieldReader<bool, CPU_A>;
+    type Target = crate::FieldReader<bool>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
     }
 }
 #[doc = "Reads if watchdog has been software reset."]
-pub type WATCHDOG_A = CPU_A;
+pub use CPU_A as WATCHDOG_A;
 #[doc = "Field `watchdog` reader - Reads if watchdog has been software reset."]
-pub type WATCHDOG_R = CPU_R;
+pub use CPU_R as WATCHDOG_R;
 impl R {
     #[doc = "Bit 1 - Reads if cpu has been software reset."]
     #[inline(always)]
     pub fn cpu(&self) -> CPU_R {
-        CPU_R::new(((self.bits >> 1) & 0x01) != 0)
+        CPU_R::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 0 - Reads if watchdog has been software reset."]
     #[inline(always)]
     pub fn watchdog(&self) -> WATCHDOG_R {
-        WATCHDOG_R::new((self.bits & 0x01) != 0)
+        WATCHDOG_R::new((self.bits & 1) != 0)
     }
 }
 impl W {

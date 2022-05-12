@@ -35,7 +35,7 @@ impl From<crate::W<I2S_CLOCK_SPEC>> for W {
     }
 }
 #[doc = "Field `bclk_divide` reader - BCLK clock divide factor"]
-pub struct BCLK_DIVIDE_R(crate::FieldReader<u16, u16>);
+pub struct BCLK_DIVIDE_R(crate::FieldReader<u16>);
 impl BCLK_DIVIDE_R {
     #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
@@ -43,7 +43,7 @@ impl BCLK_DIVIDE_R {
     }
 }
 impl core::ops::Deref for BCLK_DIVIDE_R {
-    type Target = crate::FieldReader<u16, u16>;
+    type Target = crate::FieldReader<u16>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -62,7 +62,7 @@ impl<'a> BCLK_DIVIDE_W<'a> {
     }
 }
 #[doc = "Field `mclk_divide` reader - MCLK clock divide factor"]
-pub struct MCLK_DIVIDE_R(crate::FieldReader<u8, u8>);
+pub struct MCLK_DIVIDE_R(crate::FieldReader<u8>);
 impl MCLK_DIVIDE_R {
     #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
@@ -70,7 +70,7 @@ impl MCLK_DIVIDE_R {
     }
 }
 impl core::ops::Deref for MCLK_DIVIDE_R {
-    type Target = crate::FieldReader<u8, u8>;
+    type Target = crate::FieldReader<u8>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -103,7 +103,7 @@ impl From<MCLK_ENABLE_A> for bool {
     }
 }
 #[doc = "Field `mclk_enable` reader - MCLK clock enable"]
-pub struct MCLK_ENABLE_R(crate::FieldReader<bool, MCLK_ENABLE_A>);
+pub struct MCLK_ENABLE_R(crate::FieldReader<bool>);
 impl MCLK_ENABLE_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
@@ -129,7 +129,7 @@ impl MCLK_ENABLE_R {
     }
 }
 impl core::ops::Deref for MCLK_ENABLE_R {
-    type Target = crate::FieldReader<bool, MCLK_ENABLE_A>;
+    type Target = crate::FieldReader<bool>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -168,7 +168,7 @@ impl<'a> MCLK_ENABLE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(1 << 1)) | ((value as u32 & 1) << 1);
         self.w
     }
 }
@@ -187,7 +187,7 @@ impl From<CLOCK_SOURCE_A> for bool {
     }
 }
 #[doc = "Field `clock_source` reader - Use internal I2S clock or external XTAL clock"]
-pub struct CLOCK_SOURCE_R(crate::FieldReader<bool, CLOCK_SOURCE_A>);
+pub struct CLOCK_SOURCE_R(crate::FieldReader<bool>);
 impl CLOCK_SOURCE_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
@@ -213,7 +213,7 @@ impl CLOCK_SOURCE_R {
     }
 }
 impl core::ops::Deref for CLOCK_SOURCE_R {
-    type Target = crate::FieldReader<bool, CLOCK_SOURCE_A>;
+    type Target = crate::FieldReader<bool>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -252,7 +252,7 @@ impl<'a> CLOCK_SOURCE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
+        self.w.bits = (self.w.bits & !1) | (value as u32 & 1);
         self.w
     }
 }
@@ -270,12 +270,12 @@ impl R {
     #[doc = "Bit 1 - MCLK clock enable"]
     #[inline(always)]
     pub fn mclk_enable(&self) -> MCLK_ENABLE_R {
-        MCLK_ENABLE_R::new(((self.bits >> 1) & 0x01) != 0)
+        MCLK_ENABLE_R::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 0 - Use internal I2S clock or external XTAL clock"]
     #[inline(always)]
     pub fn clock_source(&self) -> CLOCK_SOURCE_R {
-        CLOCK_SOURCE_R::new((self.bits & 0x01) != 0)
+        CLOCK_SOURCE_R::new((self.bits & 1) != 0)
     }
 }
 impl W {

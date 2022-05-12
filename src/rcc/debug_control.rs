@@ -49,7 +49,7 @@ impl From<JTAG_ENABLE_A> for bool {
     }
 }
 #[doc = "Field `jtag_enable` reader - JTAG function enable"]
-pub struct JTAG_ENABLE_R(crate::FieldReader<bool, JTAG_ENABLE_A>);
+pub struct JTAG_ENABLE_R(crate::FieldReader<bool>);
 impl JTAG_ENABLE_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
@@ -75,7 +75,7 @@ impl JTAG_ENABLE_R {
     }
 }
 impl core::ops::Deref for JTAG_ENABLE_R {
-    type Target = crate::FieldReader<bool, JTAG_ENABLE_A>;
+    type Target = crate::FieldReader<bool>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -114,12 +114,12 @@ impl<'a> JTAG_ENABLE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 16)) | ((value as u32 & 0x01) << 16);
+        self.w.bits = (self.w.bits & !(1 << 16)) | ((value as u32 & 1) << 16);
         self.w
     }
 }
 #[doc = "Field `adc_divide` reader - Sigma-Delta Analog-digital Converter frequency division factor\n\n After writing to this field, set bit `update` of register `clock_divide` to take effect."]
-pub struct ADC_DIVIDE_R(crate::FieldReader<u8, u8>);
+pub struct ADC_DIVIDE_R(crate::FieldReader<u8>);
 impl ADC_DIVIDE_R {
     #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
@@ -127,7 +127,7 @@ impl ADC_DIVIDE_R {
     }
 }
 impl core::ops::Deref for ADC_DIVIDE_R {
-    type Target = crate::FieldReader<u8, u8>;
+    type Target = crate::FieldReader<u8>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -160,7 +160,7 @@ impl From<QFLASH_SELECT_A> for bool {
     }
 }
 #[doc = "Field `qflash_select` reader - QSPI Flash clock source selection"]
-pub struct QFLASH_SELECT_R(crate::FieldReader<bool, QFLASH_SELECT_A>);
+pub struct QFLASH_SELECT_R(crate::FieldReader<bool>);
 impl QFLASH_SELECT_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
@@ -186,7 +186,7 @@ impl QFLASH_SELECT_R {
     }
 }
 impl core::ops::Deref for QFLASH_SELECT_R {
-    type Target = crate::FieldReader<bool, QFLASH_SELECT_A>;
+    type Target = crate::FieldReader<bool>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -225,7 +225,7 @@ impl<'a> QFLASH_SELECT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(1 << 6)) | ((value as u32 & 1) << 6);
         self.w
     }
 }
@@ -244,7 +244,7 @@ impl From<GPSEC_SELECT_A> for bool {
     }
 }
 #[doc = "Field `gpsec_select` reader - GPSEC clock source selection"]
-pub struct GPSEC_SELECT_R(crate::FieldReader<bool, GPSEC_SELECT_A>);
+pub struct GPSEC_SELECT_R(crate::FieldReader<bool>);
 impl GPSEC_SELECT_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
@@ -270,7 +270,7 @@ impl GPSEC_SELECT_R {
     }
 }
 impl core::ops::Deref for GPSEC_SELECT_R {
-    type Target = crate::FieldReader<bool, GPSEC_SELECT_A>;
+    type Target = crate::FieldReader<bool>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -309,7 +309,7 @@ impl<'a> GPSEC_SELECT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(1 << 5)) | ((value as u32 & 1) << 5);
         self.w
     }
 }
@@ -328,7 +328,7 @@ impl From<RSA_SELECT_A> for bool {
     }
 }
 #[doc = "Field `rsa_select` reader - RSA clock source selection"]
-pub struct RSA_SELECT_R(crate::FieldReader<bool, RSA_SELECT_A>);
+pub struct RSA_SELECT_R(crate::FieldReader<bool>);
 impl RSA_SELECT_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
@@ -354,7 +354,7 @@ impl RSA_SELECT_R {
     }
 }
 impl core::ops::Deref for RSA_SELECT_R {
-    type Target = crate::FieldReader<bool, RSA_SELECT_A>;
+    type Target = crate::FieldReader<bool>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -393,7 +393,7 @@ impl<'a> RSA_SELECT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(1 << 4)) | ((value as u32 & 1) << 4);
         self.w
     }
 }
@@ -401,7 +401,7 @@ impl R {
     #[doc = "Bit 16 - JTAG function enable"]
     #[inline(always)]
     pub fn jtag_enable(&self) -> JTAG_ENABLE_R {
-        JTAG_ENABLE_R::new(((self.bits >> 16) & 0x01) != 0)
+        JTAG_ENABLE_R::new(((self.bits >> 16) & 1) != 0)
     }
     #[doc = "Bits 8:15 - Sigma-Delta Analog-digital Converter frequency division factor\n\n After writing to this field, set bit `update` of register `clock_divide` to take effect."]
     #[inline(always)]
@@ -411,17 +411,17 @@ impl R {
     #[doc = "Bit 6 - QSPI Flash clock source selection"]
     #[inline(always)]
     pub fn qflash_select(&self) -> QFLASH_SELECT_R {
-        QFLASH_SELECT_R::new(((self.bits >> 6) & 0x01) != 0)
+        QFLASH_SELECT_R::new(((self.bits >> 6) & 1) != 0)
     }
     #[doc = "Bit 5 - GPSEC clock source selection"]
     #[inline(always)]
     pub fn gpsec_select(&self) -> GPSEC_SELECT_R {
-        GPSEC_SELECT_R::new(((self.bits >> 5) & 0x01) != 0)
+        GPSEC_SELECT_R::new(((self.bits >> 5) & 1) != 0)
     }
     #[doc = "Bit 4 - RSA clock source selection"]
     #[inline(always)]
     pub fn rsa_select(&self) -> RSA_SELECT_R {
-        RSA_SELECT_R::new(((self.bits >> 4) & 0x01) != 0)
+        RSA_SELECT_R::new(((self.bits >> 4) & 1) != 0)
     }
 }
 impl W {
